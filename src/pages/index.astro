@@ -1,11 +1,287 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Header from "../components/Header.astro";
+import ProductMenu from "../components/ProductMenu.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Sample products - you can customize these
+const products = [
+	{
+		name: "Concha Rellena",
+		description:
+			"Deliciosa concha artesanal rellena de Nutella y frutas frescas",
+		ingredients: "Concha, Nutella, Fresas, Plátano, Crema batida",
+		size: "Individual",
+		price: "$65",
+		image: "/products/concha-rellena.jpg",
+	},
+	{
+		name: "Crepa Dulce",
+		description: "Crepa suave y esponjosa con tus ingredientes favoritos",
+		ingredients: "Harina, Huevo, Leche, Nutella, Frutas de temporada",
+		size: "Individual",
+		price: "$75",
+		image: "/products/crepa-dulce.jpg",
+	},
+	{
+		name: "Frappe Clásico",
+		description: "Frappe cremoso con decoración especial",
+		ingredients: "Café, Leche, Hielo, Crema batida, Jarabe de vainilla",
+		size: "16 oz",
+		price: "$55",
+		image: "/products/frappe-clasico.jpg",
+	},
+	{
+		name: "Frappe Oreo",
+		description: "Frappe con galletas Oreo trituradas y crema",
+		ingredients: "Café, Leche, Hielo, Galletas Oreo, Crema batida",
+		size: "16 oz",
+		price: "$65",
+		image: "/products/frappe-oreo.jpg",
+	},
+	{
+		name: "Frappe Red Velvet",
+		description: "Frappe especial con sabor a pastel red velvet",
+		ingredients:
+			"Café, Leche, Hielo, Jarabe red velvet, Crema batida, Chispas",
+		size: "16 oz",
+		price: "$70",
+		image: "/products/frappe-red-velvet.jpg",
+	},
+	{
+		name: "Helado Artesanal",
+		description: "Helado cremoso hecho en casa con sabores únicos",
+		ingredients: "Leche, Crema, Azúcar, Saborizantes naturales",
+		size: "2 bolas",
+		price: "$45",
+		image: "/products/helado-artesanal.jpg",
+	},
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Chaud & Glace - Heladería y cafetería donde el sabor y la calidez existen en un mismo lugar. Ubicados en Calle 3 poniente y Av. Revolución #202"
+		/>
+		<meta
+			name="keywords"
+			content="heladería, cafetería, frappes, crepas, helados artesanales, postres"
+		/>
+		<title>Chaud & Glace-Dulce Vida</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="font-['Outfit',sans-serif] antialiased">
+		<Header />
+
+		<!-- Hero Section -->
+		<section
+			id="inicio"
+			class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+		>
+			<!-- Background Image -->
+			<div class="absolute inset-0 z-0">
+				<img
+					src="/hero-background.png"
+					alt="Chaud & Glace Background"
+					class="w-full h-full object-cover"
+				/>
+				<div
+					class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-chaud-900/60"
+				>
+				</div>
+			</div>
+
+			<!-- Hero Content -->
+			<div
+				class="relative z-10 container mx-auto px-4 text-center text-white"
+			>
+				<h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+					Bienvenidos a<br />
+					<span
+						class="text-transparent bg-clip-text bg-gradient-to-r from-chaud-300 to-chaud-500"
+					>
+						Chaud & Glace
+					</span>
+				</h1>
+				<p
+					class="text-xl md:text-2xl mb-8 text-white max-w-2xl mx-auto"
+				>
+					Donde el sabor y la calidez existen en un mismo lugar
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a
+						href="#menu"
+						class="bg-gradient-to-r from-chaud-500 to-chaud-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+					>
+						Ver Menú
+					</a>
+					<a
+						href="#contacto"
+						class="bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-full font-bold text-lg border-2 border-white/50 hover:bg-white/30 hover:scale-105 transition-all duration-300"
+					>
+						Hacer Pedido
+					</a>
+				</div>
+			</div>
+
+			<!-- Scroll Indicator -->
+			<div
+				class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce"
+			>
+				<svg
+					class="w-6 h-6 text-white"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+				</svg>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section id="sobre-nosotros" class="py-20 bg-white">
+			<div class="container mx-auto px-4">
+				<div class="max-w-4xl mx-auto">
+					<div class="text-center mb-12">
+						<h2
+							class="text-4xl md:text-5xl font-bold text-warm-900 mb-6"
+						>
+							Sobre Nosotros
+						</h2>
+						<div
+							class="w-24 h-1 bg-gradient-to-r from-chaud-500 to-chaud-600 mx-auto mb-8"
+						>
+						</div>
+					</div>
+
+					<div
+						class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+					>
+						<div class="space-y-6">
+							<p class="text-lg text-gray-700 leading-relaxed">
+								<span class="text-2xl font-bold text-chaud-700"
+									>Chaud & Glace</span
+								>
+								es una heladería y cafetería donde el sabor y calidez
+								existen en un mismo lugar.
+							</p>
+							<p class="text-gray-600 leading-relaxed">
+								Nos especializamos en crear experiencias únicas
+								para nuestros clientes, ofreciendo productos
+								frescos hechos al momento con los mejores
+								ingredientes. Desde nuestros deliciosos frappes
+								hasta nuestras crepas artesanales, cada producto
+								está hecho con amor y dedicación.
+							</p>
+							<p class="text-gray-600 leading-relaxed">
+								Ven y descubre por qué somos el lugar favorito
+								de la comunidad para disfrutar de un momento
+								dulce y especial.
+							</p>
+
+							<div class="grid grid-cols-3 gap-4 pt-6">
+								<div class="text-center">
+									<div
+										class="text-3xl font-bold text-chaud-700 mb-2"
+									>
+										100%
+									</div>
+									<div class="text-sm text-gray-600">
+										Artesanal
+									</div>
+								</div>
+								<div class="text-center">
+									<div
+										class="text-3xl font-bold text-chaud-700 mb-2"
+									>
+										Fresh
+									</div>
+									<div class="text-sm text-gray-600">
+										Ingredientes
+									</div>
+								</div>
+								<div class="text-center">
+									<div
+										class="text-3xl font-bold text-chaud-700 mb-2"
+									>
+										❤️
+									</div>
+									<div class="text-sm text-gray-600">
+										Hecho con Amor
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="relative">
+							<div
+								class="aspect-square rounded-2xl overflow-hidden shadow-2xl"
+							>
+								<img
+									src="/about-image.jpg"
+									alt="Chaud & Glace Interior"
+									class="w-full h-full object-cover"
+								/>
+							</div>
+							<div
+								class="absolute -bottom-6 -right-6 bg-gradient-to-br from-chaud-500 to-chaud-600 text-white p-6 rounded-2xl shadow-xl"
+							>
+								<div class="text-3xl font-bold">2+</div>
+								<div class="text-sm">Años de experiencia</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Products Menu -->
+		<ProductMenu products={products} />
+
+		<!-- Contact Form -->
+		<ContactForm />
+
+		<!-- Footer -->
+		<Footer />
+
+		<style>
+			@keyframes fade-in {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.animate-fade-in {
+				animation: fade-in 1s ease-out;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+		</style>
+	</body>
+</html>
