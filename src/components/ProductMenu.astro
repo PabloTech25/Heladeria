@@ -1,22 +1,32 @@
 ---
 import AddToCartButton from './AddToCartButton.svelte';
-
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  ingredients?: string;
-  size?: string;
-  price: string;
-  numericPrice: number;
-  image: string;
-}
+import type { Product, ProductCategory } from '../data/products';
+import { getDriveImageUrl } from '../utils/driveImages';
 
 interface Props {
   products: Product[];
 }
 
 const { products } = Astro.props;
+
+// Get unique categories from products
+const categories: ProductCategory[] = [
+  "Helados",
+  "Paletas de Hielo",
+  "Bebidas Frias",
+  "Bebidas Calientes",
+  "Postres",
+  "Salados",
+  "Galletas"
+];
+
+// Process product images (convert Drive URLs if needed)
+const processedProducts = products.map(product => ({
+  ...product,
+  displayImage: product.image.includes('drive.google.com') || (!product.image.startsWith('/') && !product.image.startsWith('http'))
+    ? getDriveImageUrl(product.image)
+    : product.image
+}));
 ---
 
 <section id="menu" class="py-24 bg-gradient-to-b from-white to-chaud-50">
@@ -34,16 +44,40 @@ const { products } = Astro.props;
       </p>
     </div>
 
+    <!-- Category Filters -->
+    <div class="mb-12">
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          data-category="all"
+          class="category-filter active px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-chaud-600 text-white shadow-lg hover:shadow-xl hover:scale-105"
+        >
+          Todos los productos
+        </button>
+        {categories.map((category) => (
+          <button
+            data-category={category}
+            class="category-filter px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white text-warm-700 border-2 border-warm-200 hover:border-chaud-400 hover:text-chaud-600 hover:scale-105"
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    </div>
+
     <!-- Products Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {products.map((product) => (
-        <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-chaud-100">
+    <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {processedProducts.map((product) => (
+        <div 
+          class="product-card bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-chaud-100"
+          data-category={product.category}
+        >
           <!-- Product Image -->
           <div class="relative overflow-hidden h-64 bg-gradient-to-br from-chaud-50 to-chaud-100">
             <img 
-              src={product.image} 
+              src={product.displayImage} 
               alt={product.name}
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
             />
             <!-- Price Badge -->
             <div class="absolute top-4 right-4 bg-chaud-600 text-white px-5 py-2.5 rounded-full font-bold shadow-xl backdrop-blur-sm">
@@ -97,3 +131,68 @@ const { products } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  // Category filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.category-filter');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    // Filter products by category
+    function filterProducts(category: string) {
+      productCards.forEach((card) => {
+        const productCategory = card.getAttribute('data-category');
+        
+        if (category === 'all' || productCategory === category) {
+          // Show card with fade-in animation
+          card.classList.remove('hidden');
+          card.classList.add('animate-fade-in-up');
+        } else {
+          // Hide card
+          card.classList.add('hidden');
+        }
+      });
+    }
+    
+    // Update active button state
+    function updateActiveButton(activeButton: Element) {
+      filterButtons.forEach((btn) => {
+        btn.classList.remove('active', 'bg-chaud-600', 'text-white', 'shadow-lg');
+        btn.classList.add('bg-white', 'text-warm-700', 'border-2', 'border-warm-200');
+      });
+      
+      activeButton.classList.add('active', 'bg-chaud-600', 'text-white', 'shadow-lg');
+      activeButton.classList.remove('bg-white', 'text-warm-700', 'border-2', 'border-warm-200');
+    }
+    
+    // Add click event to filter buttons
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category') || 'all';
+        filterProducts(category);
+        updateActiveButton(button);
+      });
+    });
+  });
+</script>
+
+<style>
+  .product-card {
+    animation: fade-in-up 0.5s ease-out;
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.4s ease-out;
+  }
+</style>

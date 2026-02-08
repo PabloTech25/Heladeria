@@ -1,0 +1,178 @@
+[
+  {
+    "id": "concha-rellena",
+    "name": "Concha Rellena de Nutella y Fruta",
+    "description": "Deliciosa concha artesanal rellena de Nutella y frutas frescas",
+    "category": "Postres",
+    "ingredients": "Nutella, Fruta (fresa, durazno o platano), Crema batida",
+    "size": "",
+    "price": "$50",
+    "numericPrice": 50,
+    "image": "1TAnQkOrRhEC2CvMgFNVQOzK6J69U4j0w"
+  },
+  {
+    "id": "crepa-dulce",
+    "name": "Crepa Dulce",
+    "description": "Crepa suave y esponjosa con tus ingredientes favoritos",
+    "category": "Postres",
+    "ingredients": "Harina, Huevo, Leche, Nutella, Frutas de temporada",
+    "size": "Individual",
+    "price": "$75",
+    "numericPrice": 75,
+    "image": "1L3D65TayVcf53XYVzRVvWwTQclAwyM1I"
+  },
+  {
+    "id": "frappe-clasico",
+    "name": "Frappe Clásico",
+    "description": "Frappe cremoso con decoración especial",
+    "category": "Bebidas Frias",
+    "ingredients": "Café, Leche, Hielo, Crema batida, Jarabe de vainilla",
+    "size": "16 oz",
+    "price": "$55",
+    "numericPrice": 55,
+    "image": "19TCs-_ScHKSVvoPwSJ1JfNt6gr1Tm2eM"
+  },
+  {
+    "id": "frappe-oreo",
+    "name": "Frappe Oreo",
+    "description": "Frappe con galletas Oreo trituradas y crema",
+    "category": "Bebidas Frias",
+    "ingredients": "Café, Leche, Hielo, Galletas Oreo, Crema batida",
+    "size": "16 oz",
+    "price": "$65",
+    "numericPrice": 65,
+    "image": "1lQZE53PA_0ELs7FEsQnEv9CrLzXJTUtI"
+  },
+  {
+    "id": "frappe-red-velvet",
+    "name": "Frappe Red Velvet",
+    "description": "Frappe especial con sabor a pastel red velvet",
+    "category": "Bebidas Frias",
+    "ingredients": "Café, Leche, Hielo, Jarabe red velvet, Crema batida, Chispas",
+    "size": "16 oz",
+    "price": "$70",
+    "numericPrice": 70,
+    "image": "1Jz-TTGZYKZ4FJI0XJtRW_CZd1A1_bhkU"
+  },
+  {
+    "id": "helado-sencillo",
+    "name": "Helado Sencillo",
+    "description": "Helado cremoso hecho en casa con sabores únicos",
+    "category": "Helados",
+    "ingredients": "Leche, Crema, Azúcar, Saborizantes naturales",
+    "size": "1 bola de helado",
+    "price": "$15",
+    "numericPrice": 15,
+    "image": "10jnlae6ZDA3echmTomJ1AKoGl_aU_fGZ"
+  },
+  {
+    "id": "paleta-agua",
+    "name": "Paleta de Agua",
+    "description": "Paleta refrescante de frutas naturales",
+    "category": "Paletas de Hielo",
+    "ingredients": "Frutas naturales, Agua, Azúcar",
+    "size": "Individual",
+    "price": "$25",
+    "numericPrice": 25,
+    "image": ""
+  },
+  {
+    "id": "paleta-leche",
+    "name": "Paleta de leche",
+    "description": "Paleta cremosa con sabores deliciosos",
+    "category": "Paletas de Hielo",
+    "ingredients": "Leche, Crema, Azúcar, Saborizantes",
+    "size": "Individual",
+    "price": "$30",
+    "numericPrice": 30,
+    "image": ""
+  },
+  {
+    "id": "cafe-americano",
+    "name": "Café Americano",
+    "description": "Café recién hecho, servido caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "Café de grano, Agua caliente",
+    "size": "12 oz",
+    "price": "$35",
+    "numericPrice": 35,
+    "image": ""
+  },
+  {
+    "id": "capuchino",
+    "name": "Capuchino",
+    "description": "Espresso con leche vaporizada y espuma cremosa",
+    "category": "Bebidas Calientes",
+    "ingredients": "Espresso, Leche vaporizada, Espuma de leche",
+    "size": "12 oz",
+    "price": "$45",
+    "numericPrice": 45,
+    "image": ""
+  },
+  {
+    "id": "chocolate-caliente",
+    "name": "Chocolate Caliente",
+    "description": "Delicioso chocolate caliente con crema batida",
+    "category": "Bebidas Calientes",
+    "ingredients": "Chocolate, Leche, Crema batida, Marshmallows",
+    "size": "12 oz",
+    "price": "$40",
+    "numericPrice": 40,
+    "image": ""
+  },
+  {
+    "id": "smoothie-fresa",
+    "name": "Smoothie de Fresa",
+    "description": "Smoothie cremoso de fresas naturales",
+    "category": "Bebidas Frias",
+    "ingredients": "Fresas, Yogurt, Leche, Hielo, Miel",
+    "size": "16 oz",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": ""
+  },
+  {
+    "id": "cheesecake",
+    "name": "Cheesecake",
+    "description": "Suave cheesecake con base de galleta",
+    "category": "Postres",
+    "ingredients": "Queso crema, Galletas, Mantequilla, Azúcar, Mermelada",
+    "size": "Rebanada",
+    "price": "$65",
+    "numericPrice": 65,
+    "image": ""
+  },
+  {
+    "id": "brownie",
+    "name": "Brownie de Chocolate",
+    "description": "Brownie tibio con helado de vainilla",
+    "category": "Postres",
+    "ingredients": "Chocolate, Harina, Huevo, Mantequilla, Nueces",
+    "size": "Individual",
+    "price": "$55",
+    "numericPrice": 55,
+    "image": ""
+  },
+  {
+    "id": "croissant-jamon",
+    "name": "Croissant de Jamón y Queso",
+    "description": "Croissant horneado con jamón y queso",
+    "category": "Salados",
+    "ingredients": "Masa hojaldre, Jamón, Queso, Mantequilla",
+    "size": "Individual",
+    "price": "$50",
+    "numericPrice": 50,
+    "image": ""
+  },
+  {
+    "id": "galletas-chispas",
+    "name": "Galletas con Chispas de Chocolate",
+    "description": "Galletas recién horneadas con chispas de chocolate",
+    "category": "Galletas",
+    "ingredients": "Harina, Mantequilla, Azúcar, Huevo, Chispas de chocolate",
+    "size": "3 piezas",
+    "price": "$40",
+    "numericPrice": 40,
+    "image": ""
+  }
+]
