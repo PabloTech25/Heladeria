@@ -1,10 +1,14 @@
 ---
+import AddToCartButton from './AddToCartButton.svelte';
+
 interface Product {
+  id: string;
   name: string;
   description: string;
   ingredients?: string;
   size?: string;
   price: string;
+  numericPrice: number;
   image: string;
 }
 
@@ -79,12 +83,14 @@ const { products } = Astro.props;
               </div>
             )}
             
-            <button class="w-full mt-4 bg-chaud-600 hover:bg-chaud-700 text-white py-3.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-              </svg>
-              Ordenar Ahora
-            </button>
+            <AddToCartButton
+              client:idle
+              id={product.id}
+              name={product.name}
+              price={product.numericPrice}
+              image={product.image}
+              size={product.size}
+            />
           </div>
         </div>
       ))}
