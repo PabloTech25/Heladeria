@@ -341,6 +341,160 @@
     }
   },
   {
+    "id": "Tisana-caliente",
+    "name": "Tisana Caliente",
+    "description": "Deliciosa tisana caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$55",
+    "numericPrice": 55,
+    "image": "/productos/BebidasCalientes/TisanaCaliente.webp",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$55",
+        "numericPrice": 55
+      },
+      "grande": {
+        "price": "$65",
+        "numericPrice": 65
+      }
+    }
+  },
+  {
+    "id": "Te",
+    "name": "Té",
+    "description": "Delicioso té caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$25",
+    "numericPrice": 25,
+    "image": "/productos/BebidasCalientes/Te.jpg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$25",
+        "numericPrice": 25
+      },
+      "grande": {
+        "price": "$35",
+        "numericPrice": 35
+      }
+    }
+  },
+  {
+    "id": "RedVelvetCaliente",
+    "name": "Red Velvet Caliente",
+    "description": "Delicioso té caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$70",
+    "numericPrice": 70,
+    "image": "/productos/BebidasCalientes/RedVelvetCaliente.jpg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$70",
+        "numericPrice": 70
+      },
+      "grande": {
+        "price": "$80",
+        "numericPrice": 80
+      }
+    }
+  },
+  {
+    "id": "MokaCaliente",
+    "name": "Moka Caliente",
+    "description": "Deliciosa bebida de moka caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/BebidasCalientes/MokaCaliente.png",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$60",
+        "numericPrice": 60
+      },
+      "grande": {
+        "price": "$70",
+        "numericPrice": 70
+      }
+    }
+  },
+  {
+    "id": "ChaiCaliente",
+    "name": "Chai Caliente",
+    "description": "Deliciosa bebida de chai caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/BebidasCalientes/ChaiCaliente.jpg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$60",
+        "numericPrice": 60
+      },
+      "grande": {
+        "price": "$70",
+        "numericPrice": 70
+      }
+    }
+  },
+  {
+    "id": "DirtyChaiCaliente",
+    "name": "Dirty Chai Caliente",
+    "description": "Deliciosa bebida de Dirty Chai caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/BebidasCalientes/DirtyChaiCaliente.jpg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$60",
+        "numericPrice": 60
+      },
+      "grande": {
+        "price": "$70",
+        "numericPrice": 70
+      }
+    }
+  },
+  {
+    "id": "TaroCaliente",
+    "name": "Taro Caliente",
+    "description": "Deliciosa bebida de Taro caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/BebidasCalientes/TaroCaliente.jpeg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$60",
+        "numericPrice": 60
+      },
+      "grande": {
+        "price": "$70",
+        "numericPrice": 70
+      }
+    }
+  },
+  {
     "id": "concha-rellena",
     "name": "Concha Rellena de Nutella y Fruta",
     "description": "Deliciosa concha artesanal rellena de Nutella y frutas frescas",
