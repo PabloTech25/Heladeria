@@ -1,8 +1,6 @@
 ---
 import AddToCartButton from './AddToCartButton.svelte';
 import type { Product, ProductCategory } from '../data/products';
-import { getDriveImageUrl } from '../utils/driveImages';
-
 interface Props {
   products: Product[];
 }
@@ -19,14 +17,6 @@ const categories: ProductCategory[] = [
   "Salados",
   "Galletas"
 ];
-
-// Process product images (convert Drive URLs if needed)
-const processedProducts = products.map(product => ({
-  ...product,
-  displayImage: product.image.includes('drive.google.com') || (!product.image.startsWith('/') && !product.image.startsWith('http'))
-    ? getDriveImageUrl(product.image)
-    : product.image
-}));
 ---
 
 <section id="menu" class="py-24 bg-gradient-to-b from-white to-chaud-50">
@@ -66,27 +56,34 @@ const processedProducts = products.map(product => ({
 
     <!-- Products Grid -->
     <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {processedProducts.map((product) => (
+      {products.map((product) => (
         <div 
-          class="product-card bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-chaud-100"
+          class="product-card flex flex-col bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-chaud-100"
           data-category={product.category}
         >
           <!-- Product Image -->
           <div class="relative overflow-hidden h-64 bg-gradient-to-br from-chaud-50 to-chaud-100">
             <img 
-              src={product.displayImage} 
+              src={product.image} 
               alt={product.name}
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               loading="lazy"
             />
             <!-- Price Badge -->
-            <div class="absolute top-4 right-4 bg-chaud-600 text-white px-5 py-2.5 rounded-full font-bold shadow-xl backdrop-blur-sm">
-              {product.price}
+            <div class="absolute top-4 right-4 bg-chaud-600 text-white px-5 py-2.5 rounded-full font-bold shadow-xl backdrop-blur-sm z-10">
+              {product.hasSizes && product.prices ? (
+                <div class="flex flex-col items-center leading-tight">
+                  <span class="text-[10px] uppercase tracking-widest opacity-80">Desde</span>
+                  <span class="text-lg">{product.prices.chico.price}</span>
+                </div>
+              ) : (
+                product.price
+              )}
             </div>
           </div>
           
           <!-- Product Info -->
-          <div class="p-6">
+          <div class="p-6 flex-grow flex flex-col">
             <h3 class="text-2xl font-bold text-warm-900 mb-3 leading-tight">
               {product.name}
             </h3>
@@ -106,25 +103,38 @@ const processedProducts = products.map(product => ({
               </div>
             )}
             
-            {product.size && (
+            {product.hasSizes && product.prices ? (
+              <div class="flex gap-3 mb-6">
+                <div class="flex-1 p-3 bg-chaud-50 rounded-2xl border border-chaud-100 text-center">
+                  <span class="block text-[10px] uppercase text-chaud-600 font-bold mb-1 tracking-wider">Chico</span>
+                  <span class="font-bold text-warm-900 text-lg">{product.prices.chico.price}</span>
+                </div>
+                <div class="flex-1 p-3 bg-chaud-50 rounded-2xl border border-chaud-100 text-center">
+                  <span class="block text-[10px] uppercase text-chaud-600 font-bold mb-1 tracking-wider">Grande</span>
+                  <span class="font-bold text-warm-900 text-lg">{product.prices.grande.price}</span>
+                </div>
+              </div>
+            ) : product.size && (
               <div class="mb-4">
-                <span class="inline-flex items-center gap-2 text-sm font-semibold text-chaud-600">
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-chaud-600 bg-chaud-50 px-3 py-1.5 rounded-full">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012 2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
                   </svg>
                   {product.size}
                 </span>
               </div>
             )}
             
-            <AddToCartButton
-              client:idle
-              id={product.id}
-              name={product.name}
-              price={product.numericPrice}
-              image={product.image}
-              size={product.size}
-            />
+            <div class="mt-auto">
+              <AddToCartButton
+                client:idle
+                id={product.id}
+                name={product.name}
+                price={product.numericPrice}
+                image={product.image}
+                size={product.size}
+              />
+            </div>
           </div>
         </div>
       ))}

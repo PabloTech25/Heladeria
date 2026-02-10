@@ -19,6 +19,11 @@ export interface Product {
   price: string;
   numericPrice: number;
   image: string;
+  hasSizes?: boolean;
+  prices?: {
+    chico: { price: string; numericPrice: number };
+    grande: { price: string; numericPrice: number };
+  };
 }
 
 // Import products from JSON file

@@ -1,5 +1,346 @@
 [
   {
+    "id": "helado-sencillo",
+    "name": "Helado Sencillo",
+    "description": "Helado cremoso hecho en casa con sabores únicos",
+    "category": "Helados",
+    "ingredients": "",
+    "size": "1 bola de helado",
+    "price": "$15",
+    "numericPrice": 15,
+    "image": "/productos/Helados/HeladoSencillo.jpg"
+  },
+  {
+    "id": "helado-doble",
+    "name": "Helado Doble",
+    "description": "Helado cremoso hecho en casa con sabores únicos",
+    "category": "Helados",
+    "ingredients": "",
+    "size": "2 bolas de helado",
+    "price": "$25",
+    "numericPrice": 25,
+    "image": "/productos/Helados/HeladoDoble.webp"
+  },
+  {
+    "id": "canasta-helado",
+    "name": "Canasta de Helado",
+    "description": "Helado cremoso hecho en casa con sabores únicos",
+    "category": "Helados",
+    "ingredients": "",
+    "size": "3 bolas de helado",
+    "price": "$45",
+    "numericPrice": 45,
+    "image": "/productos/Helados/CanastaHelado.jpg"
+  },
+  {
+    "id": "helado-vaso",
+    "name": "Helado en Vaso (Sin Toppings)",
+    "description": "Helado cremoso hecho en casa con sabores únicos",
+    "category": "Helados",
+    "ingredients": "",
+    "size": "3 bolas de helado",
+    "price": "$40",
+    "numericPrice": 40,
+    "image": "/productos/Helados/HeladoVaso.webp"
+  },
+  {
+    "id": "helado-vaso-toppings",
+    "name": "Helado en Vaso (con Toppings)",
+    "description": "Helado cremoso hecho en casa con sabores únicos",
+    "category": "Helados",
+    "ingredients": "",
+    "size": "3 bolas de helado",
+    "price": "$45",
+    "numericPrice": 45,
+    "image": "/productos/Helados/HeladoVasoToppings.jpg"
+  },
+  {
+    "id": "sandwich-helado",
+    "name": "Sandwich de Helado",
+    "description": "Sandwich de helado cremoso entre suaves galletas, perfecto para disfrutar un postre fresco y delicioso en cualquier momento.",
+    "category": "Helados",
+    "ingredients": "",
+    "size": "",
+    "price": "$20",
+    "numericPrice": 20,
+    "image": "/productos/Helados/SandwichHelado.jpg"
+  },
+  {
+    "id": "helado-flotante",
+    "name": "Helado Flotante",
+    "description": "Helado cremoso servido en bebida refrescante, una combinación perfecta de sabor dulce y burbujeante para disfrutar en cualquier momento.",
+    "category": "Helados",
+    "ingredients": "",
+    "size": "",
+    "price": "$50",
+    "numericPrice": 50,
+    "image": "/productos/Helados/heladoflotante.webp"
+  },
+  {
+    "id": "banana-split",
+    "name": "Banana Split",
+    "description": "Delicioso postre con helado, plátano y toppings variados",
+    "category": "Helados",
+    "ingredients": "",
+    "size": "",
+    "price": "$50",
+    "numericPrice": 50,
+    "image": "/productos/Helados/bananasplit.jpg"
+  },
+  {
+    "id": "paleta-agua",
+    "name": "Paleta de Agua",
+    "description": "Paleta refrescante de frutas naturales",
+    "category": "Paletas de Hielo",
+    "ingredients": "",
+    "size": "",
+    "price": "$15",
+    "numericPrice": 15,
+    "image": "/productos/Paletas/PaletaAgua.jpg"
+  },
+  {
+    "id": "paleta-leche",
+    "name": "Paleta de leche",
+    "description": "Paleta cremosa con sabores deliciosos",
+    "category": "Paletas de Hielo",
+    "ingredients": "",
+    "size": "",
+    "price": "$25",
+    "numericPrice": 25,
+    "image": "/productos/Paletas/PaletaLeche.png"
+  },
+  {
+    "id": "bolis",
+    "name": "Bolis",
+    "description": "Paleta cremosa con sabores deliciosos",
+    "category": "Paletas de Hielo",
+    "ingredients": "",
+    "size": "",
+    "price": "$15",
+    "numericPrice": 15,
+    "image": "/productos/Paletas/Bolis.jpg"
+  },
+  {
+    "id": "frappe-clasico",
+    "name": "Frappe Clásico",
+    "description": "Frappe cremoso con decoración especial",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/BebidasFrias/FrappeClasico.png"
+  },
+  {
+    "id": "frappe-oreo",
+    "name": "Frappe Oreo",
+    "description": "Frappe con galletas Oreo trituradas y crema",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$65",
+    "numericPrice": 65,
+    "image": "/productos/BebidasFrias/FrappeOreo.png"
+  },
+  {
+    "id": "frappe-red-velvet",
+    "name": "Frappe Red Velvet",
+    "description": "Frappe especial con sabor a pastel red velvet",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$80",
+    "numericPrice": 80,
+    "image": "/productos/BebidasFrias/FrappeRedVelvet.png"
+  },
+  {
+    "id": "frappe-mazapan",
+    "name": "Frappe de Mazapán",
+    "description": "Frappe especial con sabor a mazapán",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$80",
+    "numericPrice": 80,
+    "image": "/productos/BebidasFrias/FrappeMazapan.jpeg"
+  },
+  {
+    "id": "frappe-moka",
+    "name": "Frappe Moka",
+    "description": "Frappe especial con sabor a moka",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$75",
+    "numericPrice": 75,
+    "image": "/productos/BebidasFrias/FrappeMoka.jpeg"
+  },
+  {
+    "id": "Chai",
+    "name": "Chai",
+    "description": "Nuestra exclusiva mezcla de té Chai en versión frappe: intensamente aromático, cremoso y refrescante.",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$80",
+    "numericPrice": 80,
+    "image": "/productos/BebidasFrias/Chai.jpg"
+  },
+  {
+    "id": "DirtyChai",
+    "name": "Dirty Chai",
+    "description": "Nuestra exclusiva mezcla de té Chai en versión frappe: intensamente aromático, cremoso y refrescante.",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$80",
+    "numericPrice": 80,
+    "image": "/productos/BebidasFrias/DirtyChai.jpg"
+  },
+  {
+    "id": "Taro",
+    "name": "Taro",
+    "description": "Delicioso frappe sabor Taro, una bebida exótica y refrescante con un toque dulce y cremoso.",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$80",
+    "numericPrice": 80,
+    "image": "/productos/BebidasFrias/Taro.jpg"
+  },
+  {
+    "id": "smoothie",
+    "name": "Smoothie",
+    "description": "Smoothie cremoso de fresas naturales",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$65",
+    "numericPrice": 65,
+    "image": "/productos/BebidasFrias/smoothie.jpg"
+  },
+  {
+    "id": "Soda Italiana",
+    "name": "Soda Italiana",
+    "description": "Refrescante bebida con agua mineral",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$55",
+    "numericPrice": 55,
+    "image": "/productos/BebidasFrias/SodaItaliana.jpg"
+  },
+  {
+    "id": "Tisana fria",
+    "name": "Tisana Fria",
+    "description": "",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "Chico",
+    "price": "$55",
+    "numericPrice": 55,
+    "image": "/productos/BebidasFrias/TisanaFria.jpg"
+  },
+  {
+    "id": "Malteadas",
+    "name": "Malteadas",
+    "description": "",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "Grande",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/BebidasFrias/Malteada.png"
+  },
+  {
+    "id": "capuchino",
+    "name": "Capuchino",
+    "description": "Espresso con leche vaporizada y espuma cremosa",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$40",
+    "numericPrice": 40,
+    "image": "/productos/BebidasCalientes/Capuchino.jpg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$40",
+        "numericPrice": 40
+      },
+      "grande": {
+        "price": "$50",
+        "numericPrice": 50
+      }
+    }
+  },
+  {
+    "id": "capuchino sabor",
+    "name": "Capuchino de Sabor",
+    "description": "La combinación perfecta de café y cremosidad con un toque especial. Personalízalo con Crema Irlandesa, Baileys o Rompope.",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/BebidasCalientes/CapuchinoSabor.jpg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$60",
+        "numericPrice": 60
+      },
+      "grande": {
+        "price": "$70",
+        "numericPrice": 70
+      }
+    }
+  },
+  {
+    "id": "cafe-americano",
+    "name": "Café Americano",
+    "description": "Café recién hecho, servido caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$30",
+    "numericPrice": 30,
+    "image": "/productos/BebidasCalientes/CafeAmericano.jpg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$30",
+        "numericPrice": 30
+      },
+      "grande": {
+        "price": "$35",
+        "numericPrice": 35
+      }
+    }
+  },
+  {
+    "id": "chocolate-caliente",
+    "name": "Chocolate Caliente",
+    "description": "Delicioso chocolate caliente",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$40",
+    "numericPrice": 40,
+    "image": "/productos/BebidasCalientes/ChocolateCaliente.jpg",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$40",
+        "numericPrice": 40
+      },
+      "grande": {
+        "price": "$50",
+        "numericPrice": 50
+      }
+    }
+  },
+  {
     "id": "concha-rellena",
     "name": "Concha Rellena de Nutella y Fruta",
     "description": "Deliciosa concha artesanal rellena de Nutella y frutas frescas",
@@ -8,128 +349,18 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "1TAnQkOrRhEC2CvMgFNVQOzK6J69U4j0w"
+    "image": "/productos/Postres/concharellena.jpg"
   },
   {
     "id": "crepa-dulce",
     "name": "Crepa Dulce",
     "description": "Crepa suave y esponjosa con tus ingredientes favoritos",
     "category": "Postres",
-    "ingredients": "Harina, Huevo, Leche, Nutella, Frutas de temporada",
-    "size": "Individual",
+    "ingredients": "Nutella, Frutas de temporada, Queso crema",
+    "size": "",
     "price": "$75",
     "numericPrice": 75,
-    "image": "1L3D65TayVcf53XYVzRVvWwTQclAwyM1I"
-  },
-  {
-    "id": "frappe-clasico",
-    "name": "Frappe Clásico",
-    "description": "Frappe cremoso con decoración especial",
-    "category": "Bebidas Frias",
-    "ingredients": "Café, Leche, Hielo, Crema batida, Jarabe de vainilla",
-    "size": "16 oz",
-    "price": "$55",
-    "numericPrice": 55,
-    "image": "19TCs-_ScHKSVvoPwSJ1JfNt6gr1Tm2eM"
-  },
-  {
-    "id": "frappe-oreo",
-    "name": "Frappe Oreo",
-    "description": "Frappe con galletas Oreo trituradas y crema",
-    "category": "Bebidas Frias",
-    "ingredients": "Café, Leche, Hielo, Galletas Oreo, Crema batida",
-    "size": "16 oz",
-    "price": "$65",
-    "numericPrice": 65,
-    "image": "1lQZE53PA_0ELs7FEsQnEv9CrLzXJTUtI"
-  },
-  {
-    "id": "frappe-red-velvet",
-    "name": "Frappe Red Velvet",
-    "description": "Frappe especial con sabor a pastel red velvet",
-    "category": "Bebidas Frias",
-    "ingredients": "Café, Leche, Hielo, Jarabe red velvet, Crema batida, Chispas",
-    "size": "16 oz",
-    "price": "$70",
-    "numericPrice": 70,
-    "image": "1Jz-TTGZYKZ4FJI0XJtRW_CZd1A1_bhkU"
-  },
-  {
-    "id": "helado-sencillo",
-    "name": "Helado Sencillo",
-    "description": "Helado cremoso hecho en casa con sabores únicos",
-    "category": "Helados",
-    "ingredients": "Leche, Crema, Azúcar, Saborizantes naturales",
-    "size": "1 bola de helado",
-    "price": "$15",
-    "numericPrice": 15,
-    "image": "10jnlae6ZDA3echmTomJ1AKoGl_aU_fGZ"
-  },
-  {
-    "id": "paleta-agua",
-    "name": "Paleta de Agua",
-    "description": "Paleta refrescante de frutas naturales",
-    "category": "Paletas de Hielo",
-    "ingredients": "Frutas naturales, Agua, Azúcar",
-    "size": "Individual",
-    "price": "$25",
-    "numericPrice": 25,
-    "image": ""
-  },
-  {
-    "id": "paleta-leche",
-    "name": "Paleta de leche",
-    "description": "Paleta cremosa con sabores deliciosos",
-    "category": "Paletas de Hielo",
-    "ingredients": "Leche, Crema, Azúcar, Saborizantes",
-    "size": "Individual",
-    "price": "$30",
-    "numericPrice": 30,
-    "image": ""
-  },
-  {
-    "id": "cafe-americano",
-    "name": "Café Americano",
-    "description": "Café recién hecho, servido caliente",
-    "category": "Bebidas Calientes",
-    "ingredients": "Café de grano, Agua caliente",
-    "size": "12 oz",
-    "price": "$35",
-    "numericPrice": 35,
-    "image": ""
-  },
-  {
-    "id": "capuchino",
-    "name": "Capuchino",
-    "description": "Espresso con leche vaporizada y espuma cremosa",
-    "category": "Bebidas Calientes",
-    "ingredients": "Espresso, Leche vaporizada, Espuma de leche",
-    "size": "12 oz",
-    "price": "$45",
-    "numericPrice": 45,
-    "image": ""
-  },
-  {
-    "id": "chocolate-caliente",
-    "name": "Chocolate Caliente",
-    "description": "Delicioso chocolate caliente con crema batida",
-    "category": "Bebidas Calientes",
-    "ingredients": "Chocolate, Leche, Crema batida, Marshmallows",
-    "size": "12 oz",
-    "price": "$40",
-    "numericPrice": 40,
-    "image": ""
-  },
-  {
-    "id": "smoothie-fresa",
-    "name": "Smoothie de Fresa",
-    "description": "Smoothie cremoso de fresas naturales",
-    "category": "Bebidas Frias",
-    "ingredients": "Fresas, Yogurt, Leche, Hielo, Miel",
-    "size": "16 oz",
-    "price": "$60",
-    "numericPrice": 60,
-    "image": ""
+    "image": "/productos/Postres/crepadulce.jpg"
   },
   {
     "id": "cheesecake",
