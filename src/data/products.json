@@ -506,6 +506,28 @@
     "image": "/productos/Postres/concharellena.jpg"
   },
   {
+    "id": "concha-helado",
+    "name": "Concha Rellena de Helado",
+    "description": "Deliciosa concha artesanal rellena de helado y fruta fresca",
+    "category": "Postres",
+    "ingredients": "Helado y fruta (fresa o durazno)",
+    "size": "",
+    "price": "$45",
+    "numericPrice": 45,
+    "image": "/productos/Postres/conchahelado.png"
+  },
+  {
+    "id": "mini-hotcakes",
+    "name": "Mini Hotcakes",
+    "description": "Mini hotcakes con tus ingredientes favoritos",
+    "category": "Postres",
+    "ingredients": "chocolate, mermelada, lechera, durazno o fresas",
+    "size": "",
+    "price": "$55",
+    "numericPrice": 55,
+    "image": "/productos/Postres/minihotcakes.png"
+  },
+  {
     "id": "crepa-dulce",
     "name": "Crepa Dulce",
     "description": "Crepa suave y esponjosa con tus ingredientes favoritos",
@@ -517,47 +539,113 @@
     "image": "/productos/Postres/crepadulce.jpg"
   },
   {
-    "id": "cheesecake",
-    "name": "Cheesecake",
-    "description": "Suave cheesecake con base de galleta",
+    "id": "Fresas-Duraznos",
+    "name": "Fresas/Duraznos con crema",
+    "description": "Fresas/Duraznos con crema",
     "category": "Postres",
-    "ingredients": "Queso crema, Galletas, Mantequilla, Azúcar, Mermelada",
-    "size": "Rebanada",
-    "price": "$65",
-    "numericPrice": 65,
-    "image": ""
-  },
-  {
-    "id": "brownie",
-    "name": "Brownie de Chocolate",
-    "description": "Brownie tibio con helado de vainilla",
-    "category": "Postres",
-    "ingredients": "Chocolate, Harina, Huevo, Mantequilla, Nueces",
-    "size": "Individual",
-    "price": "$55",
-    "numericPrice": 55,
-    "image": ""
-  },
-  {
-    "id": "croissant-jamon",
-    "name": "Croissant de Jamón y Queso",
-    "description": "Croissant horneado con jamón y queso",
-    "category": "Salados",
-    "ingredients": "Masa hojaldre, Jamón, Queso, Mantequilla",
-    "size": "Individual",
+    "ingredients": "Fresas/Duraznos, Crema",
+    "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": ""
+    "image": "/productos/Postres/fresasduraznos.png"
   },
   {
-    "id": "galletas-chispas",
-    "name": "Galletas con Chispas de Chocolate",
-    "description": "Galletas recién horneadas con chispas de chocolate",
-    "category": "Galletas",
-    "ingredients": "Harina, Mantequilla, Azúcar, Huevo, Chispas de chocolate",
-    "size": "3 piezas",
-    "price": "$40",
-    "numericPrice": 40,
-    "image": ""
+    "id": "Pastel-chocolate",
+    "name": "Pastel de Chocolate",
+    "description": "Pastel de chocolate",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$45",
+    "numericPrice": 45,
+    "image": "/productos/Postres/PastelChocolate.jpg"
+  },
+  {
+    "id": "Pastel-zanahoria",
+    "name": "Pastel de Zanahoria",
+    "description": "Pastel de zanahoria",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$45",
+    "numericPrice": 45,
+    "image": "/productos/Postres/PastelZanahoria.png"
+  },
+  {
+    "id": "Panque-nata",
+    "name": "Panque de Nata",
+    "description": "Panque de nata",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$25",
+    "numericPrice": 25,
+    "image": "/productos/Postres/PanqueNata.png"
+  },
+  {
+    "id": "Pay-limon",
+    "name": "Pay de Limon",
+    "description": "Pay de limon",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$35",
+    "numericPrice": 35,
+    "image": "/productos/Postres/PayLimon.png"
+  },
+  {
+    "id": "Pay-piña",
+    "name": "Pay de Piña con queso",
+    "description": "Pay de piña con queso",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$30",
+    "numericPrice": 30,
+    "image": "/productos/Postres/Paypiñaqueso.png"
+  },
+  {
+    "id": "Pay-frambuesa",
+    "name": "Pay de queso con frambuesa",
+    "description": "Pay de queso con frambuesa",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$35",
+    "numericPrice": 35,
+    "image": "/productos/Postres/Payframbuesa.png"
+  },
+  {
+    "id": "Pay-tortuga",
+    "name": "Pay tortuga",
+    "description": "Pay tortuga",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$45",
+    "numericPrice": 45,
+    "image": "/productos/Postres/Paytortuga.png"
+  },
+  {
+    "id": "Gelatina-piña",
+    "name": "Gelatina de piña con Zanahoria",
+    "description": "Gelatina de piña con Zanahoria",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$35",
+    "numericPrice": 35,
+    "image": "/productos/Postres/Gelatinapiñazanahoria.png"
+  },
+  {
+    "id": "Carlota",
+    "name": "Carlota de fresa/limon",
+    "description": "Carlota de fresa/limon",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$35",
+    "numericPrice": 35,
+    "image": "/productos/Postres/CarlotaFresa.png"
   }
 ]
