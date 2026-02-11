@@ -647,5 +647,60 @@
     "price": "$35",
     "numericPrice": 35,
     "image": "/productos/Postres/CarlotaFresa.png"
+  },
+  {
+    "id": "Galletas-NY",
+    "name": "Galletas New York",
+    "description": "Galletas New York",
+    "category": "Galletas",
+    "ingredients": "",
+    "size": "",
+    "price": "$20",
+    "numericPrice": 20,
+    "image": "/productos/Galletas/GalletasNewYork.png"
+  },
+  {
+    "id": "Tartinas",
+    "name": "Tartinas",
+    "description": "Tartinas",
+    "category": "Galletas",
+    "ingredients": "",
+    "size": "",
+    "price": "$20",
+    "numericPrice": 20,
+    "image": "/productos/Galletas/Tartinas.png"
+  },
+  {
+    "id": "Curnitos",
+    "name": "Cuernitos",
+    "description": "",
+    "category": "Salados",
+    "ingredients": "",
+    "size": "",
+    "price": "$40",
+    "numericPrice": 40,
+    "image": "/productos/Salados/Cuernitos.png"
+  },
+  {
+    "id": "Croissant",
+    "name": "Croissant de jamon y queso",
+    "description": "",
+    "category": "Salados",
+    "ingredients": "",
+    "size": "",
+    "price": "$50",
+    "numericPrice": 50,
+    "image": "/productos/Salados/Croissant.png"
+  },
+  {
+    "id": "Crepa-jamon",
+    "name": "Crepa de jamon y queso",
+    "description": "",
+    "category": "Salados",
+    "ingredients": "",
+    "size": "",
+    "price": "$70",
+    "numericPrice": 70,
+    "image": "/productos/Salados/CrepaJamonQueso.png"
   }
 ]

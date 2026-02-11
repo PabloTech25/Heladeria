@@ -1,12 +1,13 @@
 // Product categories
-export type ProductCategory = 
-  | "Helados" 
-  | "Paletas de Hielo" 
-  | "Bebidas Frias" 
-  | "Bebidas Calientes" 
-  | "Postres" 
-  | "Salados" 
-  | "Galletas";
+export type ProductCategory =
+  | "Helados"
+  | "Paletas de Hielo"
+  | "Bebidas Frias"
+  | "Bebidas Calientes"
+  | "Postres"
+  | "Salados"
+  | "Galletas"
+  | "Completos";
 
 // Product interface
 export interface Product {
