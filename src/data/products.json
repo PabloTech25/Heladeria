@@ -6,8 +6,8 @@
     "category": "Helados",
     "ingredients": "",
     "size": "1 bola de helado",
-    "price": "$15",
-    "numericPrice": 15,
+    "price": "$20",
+    "numericPrice": 20,
     "image": "/productos/Helados/HeladoSencillo.jpg"
   },
   {
@@ -17,8 +17,8 @@
     "category": "Helados",
     "ingredients": "",
     "size": "2 bolas de helado",
-    "price": "$25",
-    "numericPrice": 25,
+    "price": "$30",
+    "numericPrice": 30,
     "image": "/productos/Helados/HeladoDoble.webp"
   },
   {
@@ -50,20 +50,9 @@
     "category": "Helados",
     "ingredients": "",
     "size": "3 bolas de helado",
-    "price": "$45",
-    "numericPrice": 45,
+    "price": "$50",
+    "numericPrice": 50,
     "image": "/productos/Helados/HeladoVasoToppings.jpg"
-  },
-  {
-    "id": "sandwich-helado",
-    "name": "Sandwich de Helado",
-    "description": "Sandwich de helado cremoso entre suaves galletas, perfecto para disfrutar un postre fresco y delicioso en cualquier momento.",
-    "category": "Helados",
-    "ingredients": "",
-    "size": "",
-    "price": "$20",
-    "numericPrice": 20,
-    "image": "/productos/Helados/SandwichHelado.jpg"
   },
   {
     "id": "helado-flotante",
@@ -94,8 +83,8 @@
     "category": "Paletas de Hielo",
     "ingredients": "",
     "size": "",
-    "price": "$15",
-    "numericPrice": 15,
+    "price": "$20",
+    "numericPrice": 20,
     "image": "/productos/Paletas/PaletaAgua.jpg"
   },
   {
@@ -110,15 +99,15 @@
     "image": "/productos/Paletas/PaletaLeche.png"
   },
   {
-    "id": "bolis",
-    "name": "Bolis",
+    "id": "paleta-mini",
+    "name": "Paleta Mini ferrero/magnum",
     "description": "Paleta cremosa con sabores deliciosos",
     "category": "Paletas de Hielo",
     "ingredients": "",
     "size": "",
-    "price": "$15",
-    "numericPrice": 15,
-    "image": "/productos/Paletas/Bolis.jpg"
+    "price": "$20",
+    "numericPrice": 20,
+    "image": "/productos/Paletas/MiniMagnum.png"
   },
   {
     "id": "frappe-clasico",
@@ -138,8 +127,8 @@
     "category": "Bebidas Frias",
     "ingredients": "",
     "size": "16 oz",
-    "price": "$65",
-    "numericPrice": 65,
+    "price": "$80",
+    "numericPrice": 80,
     "image": "/productos/BebidasFrias/FrappeOreo.png"
   },
   {
@@ -177,29 +166,18 @@
   },
   {
     "id": "Chai",
-    "name": "Chai",
+    "name": "Frappe Chai",
     "description": "Nuestra exclusiva mezcla de té Chai en versión frappe: intensamente aromático, cremoso y refrescante.",
     "category": "Bebidas Frias",
     "ingredients": "",
     "size": "16 oz",
-    "price": "$80",
-    "numericPrice": 80,
+    "price": "$85",
+    "numericPrice": 85,
     "image": "/productos/BebidasFrias/Chai.jpg"
   },
   {
-    "id": "DirtyChai",
-    "name": "Dirty Chai",
-    "description": "Nuestra exclusiva mezcla de té Chai en versión frappe: intensamente aromático, cremoso y refrescante.",
-    "category": "Bebidas Frias",
-    "ingredients": "",
-    "size": "16 oz",
-    "price": "$80",
-    "numericPrice": 80,
-    "image": "/productos/BebidasFrias/DirtyChai.jpg"
-  },
-  {
     "id": "Taro",
-    "name": "Taro",
+    "name": "Frappe Taro",
     "description": "Delicioso frappe sabor Taro, una bebida exótica y refrescante con un toque dulce y cremoso.",
     "category": "Bebidas Frias",
     "ingredients": "",
@@ -209,15 +187,15 @@
     "image": "/productos/BebidasFrias/Taro.jpg"
   },
   {
-    "id": "smoothie",
-    "name": "Smoothie",
-    "description": "Smoothie cremoso de fresas naturales",
+    "id": "Choco-Avellana",
+    "name": "Frappe Chocoavellana",
+    "description": "Delicioso frappe sabor Choco-Avellana, una bebida exótica y refrescante con un toque dulce y cremoso.",
     "category": "Bebidas Frias",
     "ingredients": "",
     "size": "16 oz",
-    "price": "$65",
-    "numericPrice": 65,
-    "image": "/productos/BebidasFrias/smoothie.jpg"
+    "price": "$80",
+    "numericPrice": 80,
+    "image": "/productos/BebidasFrias/Chocoavellana.png"
   },
   {
     "id": "Soda Italiana",
@@ -226,9 +204,31 @@
     "category": "Bebidas Frias",
     "ingredients": "",
     "size": "16 oz",
-    "price": "$55",
-    "numericPrice": 55,
+    "price": "$60",
+    "numericPrice": 60,
     "image": "/productos/BebidasFrias/SodaItaliana.jpg"
+  },
+  {
+    "id": "smoothie",
+    "name": "Smoothie",
+    "description": "Smoothie cremoso de fresas naturales",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$70",
+    "numericPrice": 70,
+    "image": "/productos/BebidasFrias/smoothie.jpg"
+  },
+  {
+    "id": "Malteada",
+    "name": "Malteada",
+    "description": "",
+    "category": "Bebidas Frias",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$65",
+    "numericPrice": 65,
+    "image": "/productos/BebidasFrias/Malteada.png"
   },
   {
     "id": "Tisana fria",
@@ -242,15 +242,26 @@
     "image": "/productos/BebidasFrias/TisanaFria.jpg"
   },
   {
-    "id": "Malteadas",
-    "name": "Malteadas",
+    "id": "Agua embotellada",
+    "name": "Agua Embotellada",
     "description": "",
     "category": "Bebidas Frias",
     "ingredients": "",
-    "size": "Grande",
-    "price": "$60",
-    "numericPrice": 60,
-    "image": "/productos/BebidasFrias/Malteada.png"
+    "size": "",
+    "price": "$10",
+    "numericPrice": 10,
+    "image": "/productos/BebidasFrias/Agua.png",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$10",
+        "numericPrice": 10
+      },
+      "grande": {
+        "price": "$18",
+        "numericPrice": 18
+      }
+    }
   },
   {
     "id": "capuchino",
@@ -259,24 +270,24 @@
     "category": "Bebidas Calientes",
     "ingredients": "",
     "size": "",
-    "price": "$40",
-    "numericPrice": 40,
+    "price": "$50",
+    "numericPrice": 50,
     "image": "/productos/BebidasCalientes/Capuchino.jpg",
     "hasSizes": true,
     "prices": {
       "chico": {
-        "price": "$40",
-        "numericPrice": 40
-      },
-      "grande": {
         "price": "$50",
         "numericPrice": 50
+      },
+      "grande": {
+        "price": "$65",
+        "numericPrice": 65
       }
     }
   },
   {
     "id": "capuchino sabor",
-    "name": "Capuchino de Sabor",
+    "name": "Capuchino con Sabor",
     "description": "La combinación perfecta de café y cremosidad con un toque especial. Personalízalo con Crema Irlandesa, Baileys o Rompope.",
     "category": "Bebidas Calientes",
     "ingredients": "",
@@ -291,70 +302,48 @@
         "numericPrice": 60
       },
       "grande": {
-        "price": "$70",
-        "numericPrice": 70
+        "price": "$75",
+        "numericPrice": 75
       }
     }
   },
   {
     "id": "cafe-americano",
     "name": "Café Americano",
-    "description": "Café recién hecho, servido caliente",
+    "description": "Es la compañía ideal para iniciar el día o disfrutar de una pausa reconfortante en nuestro espacio.",
     "category": "Bebidas Calientes",
     "ingredients": "",
     "size": "",
-    "price": "$30",
-    "numericPrice": 30,
+    "price": "$35",
+    "numericPrice": 35,
     "image": "/productos/BebidasCalientes/CafeAmericano.jpg",
     "hasSizes": true,
     "prices": {
       "chico": {
-        "price": "$30",
-        "numericPrice": 30
-      },
-      "grande": {
         "price": "$35",
         "numericPrice": 35
+      },
+      "grande": {
+        "price": "$40",
+        "numericPrice": 40
       }
     }
   },
   {
     "id": "chocolate-caliente",
     "name": "Chocolate Caliente",
-    "description": "Delicioso chocolate caliente",
+    "description": "Un abrazo dulce y cremoso para el corazón. Disfruta de una experiencia entrañable con nuestra receta de la casa.",
     "category": "Bebidas Calientes",
     "ingredients": "",
     "size": "",
-    "price": "$40",
-    "numericPrice": 40,
+    "price": "$50",
+    "numericPrice": 50,
     "image": "/productos/BebidasCalientes/ChocolateCaliente.jpg",
     "hasSizes": true,
     "prices": {
       "chico": {
-        "price": "$40",
-        "numericPrice": 40
-      },
-      "grande": {
         "price": "$50",
         "numericPrice": 50
-      }
-    }
-  },
-  {
-    "id": "Tisana-caliente",
-    "name": "Tisana Caliente",
-    "description": "Deliciosa tisana caliente",
-    "category": "Bebidas Calientes",
-    "ingredients": "",
-    "size": "",
-    "price": "$55",
-    "numericPrice": 55,
-    "image": "/productos/BebidasCalientes/TisanaCaliente.webp",
-    "hasSizes": true,
-    "prices": {
-      "chico": {
-        "price": "$55",
-        "numericPrice": 55
       },
       "grande": {
         "price": "$65",
@@ -363,31 +352,53 @@
     }
   },
   {
-    "id": "Te",
-    "name": "Té",
-    "description": "Delicioso té caliente",
+    "id": "Tisana-caliente",
+    "name": "Tisana Caliente",
+    "description": "Una infusión vibrante que captura la esencia pura de la naturaleza en cada sorbo. Es el refugio ligero y delicioso, ideal para relajarse en el corazón de Ciudad Serdán.",
     "category": "Bebidas Calientes",
     "ingredients": "",
     "size": "",
-    "price": "$25",
-    "numericPrice": 25,
+    "price": "$65",
+    "numericPrice": 65,
+    "image": "/productos/BebidasCalientes/TisanaCaliente.webp",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$65",
+        "numericPrice": 65
+      },
+      "grande": {
+        "price": "$75",
+        "numericPrice": 75
+      }
+    }
+  },
+  {
+    "id": "Te",
+    "name": "Té",
+    "description": "La elegancia de lo simple servida en una taza que invita a la pausa y la calma. Compañero perfecto para una charla amena o un momento de paz en nuestro espacio.",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$35",
+    "numericPrice": 35,
     "image": "/productos/BebidasCalientes/Te.jpg",
     "hasSizes": true,
     "prices": {
       "chico": {
-        "price": "$25",
-        "numericPrice": 25
-      },
-      "grande": {
         "price": "$35",
         "numericPrice": 35
+      },
+      "grande": {
+        "price": "$45",
+        "numericPrice": 45
       }
     }
   },
   {
     "id": "RedVelvetCaliente",
     "name": "Red Velvet Caliente",
-    "description": "Delicioso té caliente",
+    "description": "Una experiencia visual y sedosa que transforma un postre clásico en calidez líquida. Su textura aterciopelada y sabor dulce están diseñados para consentir a tu niño interior.",
     "category": "Bebidas Calientes",
     "ingredients": "",
     "size": "",
@@ -409,100 +420,111 @@
   {
     "id": "MokaCaliente",
     "name": "Moka Caliente",
-    "description": "Deliciosa bebida de moka caliente",
+    "description": "El encuentro irresistible donde la fuerza del café abraza la dulzura profunda del cacao. La opción artesanal favorita para quienes buscan un gusto especial y revitalizante.",
     "category": "Bebidas Calientes",
     "ingredients": "",
     "size": "",
-    "price": "$60",
-    "numericPrice": 60,
+    "price": "$65",
+    "numericPrice": 65,
     "image": "/productos/BebidasCalientes/MokaCaliente.png",
     "hasSizes": true,
     "prices": {
       "chico": {
-        "price": "$60",
-        "numericPrice": 60
+        "price": "$65",
+        "numericPrice": 65
       },
       "grande": {
-        "price": "$70",
-        "numericPrice": 70
+        "price": "$75",
+        "numericPrice": 75
       }
     }
   },
   {
-    "id": "ChaiCaliente",
-    "name": "Chai Caliente",
-    "description": "Deliciosa bebida de chai caliente",
+    "id": "Chai-latte",
+    "name": "Chai Latte",
+    "description": "Para los espíritus audaces que buscan la intensidad del café con el aroma de las especias. Una mezcla potente que despierta los sentidos con un equilibrio perfecto de energía.",
     "category": "Bebidas Calientes",
     "ingredients": "",
     "size": "",
-    "price": "$60",
-    "numericPrice": 60,
-    "image": "/productos/BebidasCalientes/ChaiCaliente.jpg",
-    "hasSizes": true,
-    "prices": {
-      "chico": {
-        "price": "$60",
-        "numericPrice": 60
-      },
-      "grande": {
-        "price": "$70",
-        "numericPrice": 70
-      }
-    }
-  },
-  {
-    "id": "DirtyChaiCaliente",
-    "name": "Dirty Chai Caliente",
-    "description": "Deliciosa bebida de Dirty Chai caliente",
-    "category": "Bebidas Calientes",
-    "ingredients": "",
-    "size": "",
-    "price": "$60",
-    "numericPrice": 60,
+    "price": "$65",
+    "numericPrice": 65,
     "image": "/productos/BebidasCalientes/DirtyChaiCaliente.jpg",
     "hasSizes": true,
     "prices": {
       "chico": {
-        "price": "$60",
-        "numericPrice": 60
+        "price": "$65",
+        "numericPrice": 65
       },
       "grande": {
-        "price": "$70",
-        "numericPrice": 70
+        "price": "$75",
+        "numericPrice": 75
       }
     }
   },
   {
     "id": "TaroCaliente",
     "name": "Taro Caliente",
-    "description": "Deliciosa bebida de Taro caliente",
+    "description": "Descubre un capricho morado con notas dulces de vainilla y una textura sumamente sedosa. Un momento de magia y originalidad que alegra tu día desde el primer contacto.",
     "category": "Bebidas Calientes",
     "ingredients": "",
     "size": "",
-    "price": "$60",
-    "numericPrice": 60,
+    "price": "$75",
+    "numericPrice": 75,
     "image": "/productos/BebidasCalientes/TaroCaliente.jpeg",
     "hasSizes": true,
     "prices": {
       "chico": {
-        "price": "$60",
-        "numericPrice": 60
+        "price": "$75",
+        "numericPrice": 75
       },
       "grande": {
-        "price": "$70",
-        "numericPrice": 70
+        "price": "$85",
+        "numericPrice": 85
       }
     }
+  },
+  {
+    "id": "MazapanLatte",
+    "name": "Mazapan Latte",
+    "description": "Una invitación a la nostalgia con el sabor dulce y reconfortante de nuestra tradición. Su textura sedosa se funde en una danza de calidez que acaricia suavemente tu paladar.",
+    "category": "Bebidas Calientes",
+    "ingredients": "",
+    "size": "",
+    "price": "$75",
+    "numericPrice": 75,
+    "image": "/productos/BebidasCalientes/MazapanLatte.png",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$75",
+        "numericPrice": 75
+      },
+      "grande": {
+        "price": "$85",
+        "numericPrice": 85
+      }
+    }
+  },
+  {
+    "id": "concha-nata",
+    "name": "Concha Rellena de Nata",
+    "description": "Deliciosa concha artesanal rellena de nata",
+    "category": "Postres",
+    "ingredients": "Nata",
+    "size": "",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/Postres/ConchaNata.png"
   },
   {
     "id": "concha-rellena",
     "name": "Concha Rellena de Nutella y Fruta",
     "description": "Deliciosa concha artesanal rellena de Nutella y frutas frescas",
     "category": "Postres",
-    "ingredients": "Nutella, Fruta (fresa, durazno o platano), Crema batida",
+    "ingredients": "Nutella, Fruta, Crema batida",
     "size": "",
-    "price": "$50",
-    "numericPrice": 50,
+    "price": "$55",
+    "numericPrice": 55,
     "image": "/productos/Postres/concharellena.jpg"
   },
   {
@@ -512,8 +534,8 @@
     "category": "Postres",
     "ingredients": "Helado y fruta (fresa o durazno)",
     "size": "",
-    "price": "$45",
-    "numericPrice": 45,
+    "price": "$50",
+    "numericPrice": 50,
     "image": "/productos/Postres/conchahelado.png"
   },
   {
@@ -534,20 +556,86 @@
     "category": "Postres",
     "ingredients": "Nutella, Frutas de temporada, Queso crema",
     "size": "",
-    "price": "$75",
-    "numericPrice": 75,
+    "price": "$65",
+    "numericPrice": 65,
     "image": "/productos/Postres/crepadulce.jpg"
+  },
+  {
+    "id": "Carlota",
+    "name": "Carlota de fresa/limon",
+    "description": "Carlota de fresa/limon",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$35",
+    "numericPrice": 35,
+    "image": "/productos/Postres/CarlotaFresa.png"
   },
   {
     "id": "Fresas-Duraznos",
     "name": "Fresas/Duraznos con crema",
     "description": "Fresas/Duraznos con crema",
     "category": "Postres",
-    "ingredients": "Fresas/Duraznos, Crema",
+    "ingredients": "",
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/Postres/fresasduraznos.png"
+    "image": "/productos/Postres/fresasduraznos.png",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$50",
+        "numericPrice": 50
+      },
+      "grande": {
+        "price": "$60",
+        "numericPrice": 60
+      }
+    }
+  },
+  {
+    "id": "Fresas-topping",
+    "name": "Fresas/Duraznos con crema + topping",
+    "description": "Fresas/Duraznos con crema + topping",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/Postres/fresasduraznos.png",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$60",
+        "numericPrice": 60
+      },
+      "grande": {
+        "price": "$75",
+        "numericPrice": 75
+      }
+    }
+  },
+  {
+    "id": "Wafles-topping",
+    "name": "Wafles (3)",
+    "description": "3 wafles con decoracion a elegir",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$60",
+    "numericPrice": 60,
+    "image": "/productos/Postres/Wafle.png",
+    "hasSizes": true,
+    "prices": {
+      "chico": {
+        "price": "$60",
+        "numericPrice": 60
+      },
+      "grande": {
+        "price": "$70",
+        "numericPrice": 70
+      }
+    }
   },
   {
     "id": "Pastel-chocolate",
@@ -556,8 +644,8 @@
     "category": "Postres",
     "ingredients": "",
     "size": "",
-    "price": "$45",
-    "numericPrice": 45,
+    "price": "$35",
+    "numericPrice": 35,
     "image": "/productos/Postres/PastelChocolate.jpg"
   },
   {
@@ -594,6 +682,17 @@
     "image": "/productos/Postres/PayLimon.png"
   },
   {
+    "id": "Chocoflan",
+    "name": "Chocoflan",
+    "description": "",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$35",
+    "numericPrice": 35,
+    "image": "/productos/Postres/Chocoflan.png"
+  },
+  {
     "id": "Pay-piña",
     "name": "Pay de Piña con queso",
     "description": "Pay de piña con queso",
@@ -611,8 +710,8 @@
     "category": "Postres",
     "ingredients": "",
     "size": "",
-    "price": "$35",
-    "numericPrice": 35,
+    "price": "$40",
+    "numericPrice": 40,
     "image": "/productos/Postres/Payframbuesa.png"
   },
   {
@@ -638,15 +737,59 @@
     "image": "/productos/Postres/Gelatinapiñazanahoria.png"
   },
   {
-    "id": "Carlota",
-    "name": "Carlota de fresa/limon",
-    "description": "Carlota de fresa/limon",
+    "id": "Croissant-fruta",
+    "name": "Croissant con Nutella y fruta",
+    "description": "",
     "category": "Postres",
     "ingredients": "",
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/Postres/CarlotaFresa.png"
+    "image": "/productos/Postres/CroissantFruta.png"
+  },
+  {
+    "id": "Matilda",
+    "name": "Pastel Matilda",
+    "description": "",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$45",
+    "numericPrice": 45,
+    "image": "/productos/Postres/Matilda.png"
+  },
+  {
+    "id": "Mini roles",
+    "name": "Mini roles",
+    "description": "",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$15",
+    "numericPrice": 15,
+    "image": "/productos/Postres/MiniRoles.png"
+  },
+  {
+    "id": "Muffin",
+    "name": "Mini Muffin",
+    "description": "",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$15",
+    "numericPrice": 15,
+    "image": "/productos/Postres/Muffin.png"
+  },
+  {
+    "id": "Brownie",
+    "name": "Brownie",
+    "description": "",
+    "category": "Postres",
+    "ingredients": "",
+    "size": "",
+    "price": "$15",
+    "numericPrice": 15,
+    "image": "/productos/Postres/Brownie.png"
   },
   {
     "id": "Galletas-NY",
@@ -702,5 +845,126 @@
     "price": "$70",
     "numericPrice": 70,
     "image": "/productos/Salados/CrepaJamonQueso.png"
+  },
+  {
+    "id": "Completo-Gelatina-Zanahoria",
+    "name": "Gelatina de piña con Zanahoria",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$140",
+    "numericPrice": 140,
+    "image": "/productos/Completos/CompletoGelatina.png"
+  },
+  {
+    "id": "Completo-Matilda",
+    "name": "Pastel Matilda",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$437",
+    "numericPrice": 437,
+    "image": "/productos/Completos/PastelMatilda.jpg"
+  },
+  {
+    "id": "Completo-Chocolate",
+    "name": "Pastel Chocolate",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$295",
+    "numericPrice": 295,
+    "image": "/productos/Completos/PastelChocolateCom.jpg"
+  },
+  {
+    "id": "Completo-Tortuga",
+    "name": "Pay Tortuga",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$395",
+    "numericPrice": 395,
+    "image": "/productos/Completos/PayTortugaCom.jpg"
+  },
+  {
+    "id": "Completo-Frambuesa",
+    "name": "Pay de queso con frambuesa",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$357",
+    "numericPrice": 357,
+    "image": "/productos/Completos/FrambuesaCom.png"
+  },
+  {
+    "id": "Completo-limon",
+    "name": "Pay de limon",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$265",
+    "numericPrice": 265,
+    "image": "/productos/Completos/PayLimonCom.png"
+  },
+  {
+    "id": "Completo-Piña",
+    "name": "Pay de piña",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$350",
+    "numericPrice": 350,
+    "image": "/productos/Completos/PayPiñaCom.png"
+  },
+  {
+    "id": "Completo-Flan-Napolitano",
+    "name": "Flan Napolitano",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$140",
+    "numericPrice": 140,
+    "image": "/productos/Completos/FlanNapolitanoCom.png"
+  },
+  {
+    "id": "Completo-Chocoflan",
+    "name": "Chocoflan",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$240",
+    "numericPrice": 240,
+    "image": "/productos/Completos/ChocoflanCom.png"
+  },
+  {
+    "id": "Caja-Macarrones",
+    "name": "Caja de Macarrones",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$390",
+    "numericPrice": 390,
+    "image": "/productos/Completos/CajaMacarrones.png"
+  },
+  {
+    "id": "Caja-Galletas-NewYork",
+    "name": "Caja de Galletas New York",
+    "description": "",
+    "category": "Completos",
+    "ingredients": "",
+    "size": "",
+    "price": "$249",
+    "numericPrice": 249,
+    "image": "/productos/Completos/CajaGalletasNewYork.png"
   }
 ]
