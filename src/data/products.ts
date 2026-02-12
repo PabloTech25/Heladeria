@@ -1,7 +1,7 @@
 export type ProductCategory =
-  | "Heladería"
   | "Bebidas"
   | "Reposteria y Snacks"
+  | "Heladería"
   | "Salados"
   | "Completos";
 

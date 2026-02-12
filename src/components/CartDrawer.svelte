@@ -142,24 +142,24 @@
 
     <!-- Drawer panel -->
     <div
-      class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col"
+      class="absolute right-0 top-0 h-full w-full sm:max-w-md bg-white shadow-2xl flex flex-col"
       transition:fly={{ x: 400, duration: 300 }}
     >
       <!-- ─── Header ─── -->
-      <div class="flex items-center justify-between p-5 border-b border-warm-100">
+      <div class="flex items-center justify-between p-4 sm:p-5 border-b border-warm-100">
         {#if step === 'checkout'}
           <button
             on:click={backToCart}
-            class="flex items-center gap-1 text-sm font-semibold text-chaud-600 hover:text-chaud-700 transition-colors"
+            class="flex items-center gap-1 text-xs sm:text-sm font-semibold text-chaud-600 hover:text-chaud-700 transition-colors"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             Volver
           </button>
-          <h2 class="text-lg font-bold text-warm-900">Finalizar Pedido</h2>
+          <h2 class="text-base sm:text-lg font-bold text-warm-900">Finalizar Pedido</h2>
         {:else}
-          <h2 class="text-lg font-bold text-warm-900">
+          <h2 class="text-base sm:text-lg font-bold text-warm-900">
             Tu Carrito
             {#if count > 0}
               <span class="text-chaud-600">({count})</span>
@@ -207,19 +207,19 @@
             </div>
           {:else}
             <!-- Items list -->
-            <div class="p-5 space-y-4">
+            <div class="p-4 sm:p-5 space-y-3 sm:space-y-4">
               {#each items as item (item.product.id)}
                 <div
-                  class="flex gap-4 p-3 bg-warm-50 rounded-xl border border-warm-100"
+                  class="flex gap-3 sm:gap-4 p-3 bg-warm-50 rounded-xl border border-warm-100"
                   transition:slide={{ duration: 200 }}
                 >
                   <img
                     src={item.product.image}
                     alt={item.product.name}
-                    class="w-20 h-20 object-cover rounded-lg shrink-0"
+                    class="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-lg shrink-0 bg-white"
                   />
                   <div class="flex-1 min-w-0">
-                    <h4 class="font-bold text-warm-900 text-sm leading-tight truncate">
+                    <h4 class="font-bold text-warm-900 text-sm sm:text-base leading-tight truncate">
                       {item.product.name}
                     </h4>
                     {#if item.product.size}
@@ -289,12 +289,12 @@
 
         {:else}
           <!-- Checkout view -->
-          <div class="p-5 space-y-5">
-            <h3 class="text-lg font-bold text-warm-900">Datos del pedido</h3>
+          <div class="p-4 sm:p-5 space-y-4 sm:space-y-5">
+            <h3 class="text-base sm:text-lg font-bold text-warm-900">Datos del pedido</h3>
 
             {#if formError}
               <div
-                class="bg-red-50 text-red-600 p-3 rounded-xl text-sm font-medium flex items-center gap-2 border border-red-100"
+                class="bg-red-50 text-red-600 p-3 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 border border-red-100"
                 transition:slide={{ duration: 200 }}
               >
                 <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -306,7 +306,7 @@
 
             <!-- Name -->
             <div>
-              <label class="block text-sm font-semibold text-warm-700 mb-1.5" for="checkout-name">
+              <label class="block text-xs sm:text-sm font-semibold text-warm-700 mb-1 sm:mb-1.5" for="checkout-name">
                 Nombre *
               </label>
               <input
@@ -314,13 +314,13 @@
                 type="text"
                 bind:value={customerName}
                 placeholder="Tu nombre completo"
-                class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition text-warm-900 placeholder-warm-400"
+                class="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition text-warm-900 placeholder-warm-400"
               />
             </div>
 
             <!-- Phone -->
             <div>
-              <label class="block text-sm font-semibold text-warm-700 mb-1.5" for="checkout-phone">
+              <label class="block text-xs sm:text-sm font-semibold text-warm-700 mb-1 sm:mb-1.5" for="checkout-phone">
                 Teléfono *
               </label>
               <input
@@ -328,52 +328,52 @@
                 type="tel"
                 bind:value={customerPhone}
                 placeholder="Tu número de teléfono"
-                class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition text-warm-900 placeholder-warm-400"
+                class="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition text-warm-900 placeholder-warm-400"
               />
             </div>
 
             <!-- Delivery method -->
             <div>
-              <label class="block text-sm font-semibold text-warm-700 mb-2">
+              <label class="block text-xs sm:text-sm font-semibold text-warm-700 mb-2">
                 Método de entrega *
               </label>
-              <div class="grid grid-cols-2 gap-3">
+              <div class="grid grid-cols-2 gap-2 sm:gap-3">
                 <button
                   type="button"
-                  class={`p-3 rounded-xl border-2 text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                  class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
                     deliveryMethod === 'pickup'
                       ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                       : 'border-warm-200 text-warm-500 hover:border-warm-300'
                   }`}
                   on:click={() => (deliveryMethod = 'pickup')}
                 >
-                  <span class="text-lg">🏪</span>
-                  Recoger en tienda
+                  <span class="text-base sm:text-lg">🏪</span>
+                  <span class="text-xs sm:text-sm">Recoger en tienda</span>
                 </button>
                 <button
                   type="button"
-                  class={`p-3 rounded-xl border-2 text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                  class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
                     deliveryMethod === 'delivery'
                       ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                       : 'border-warm-200 text-warm-500 hover:border-warm-300'
                   }`}
                   on:click={() => (deliveryMethod = 'delivery')}
                 >
-                  <span class="text-lg">🛵</span>
-                  A domicilio
+                  <span class="text-base sm:text-lg">🛵</span>
+                  <span class="text-xs sm:text-sm">A domicilio</span>
                 </button>
               </div>
             </div>
 
             <!-- Payment method -->
             <div>
-              <label class="block text-sm font-semibold text-warm-700 mb-2">
+              <label class="block text-xs sm:text-sm font-semibold text-warm-700 mb-2">
                 Método de pago *
               </label>
-              <div class="grid grid-cols-2 gap-3">
+              <div class="grid grid-cols-2 gap-2 sm:gap-3">
                 <button
                   type="button"
-                  class={`p-3 rounded-xl border-2 text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                  class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
                     paymentMethod === 'cash'
                       ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                       : 'border-warm-200 text-warm-500 hover:border-warm-300'
@@ -459,17 +459,17 @@
 
       <!-- ─── Footer (cart step only, when items exist) ─── -->
       {#if step === 'cart' && items.length > 0}
-        <div class="border-t border-warm-100 p-5 bg-white">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-warm-600 font-medium">Total</span>
-            <span class="text-2xl font-bold text-warm-900">${total}</span>
+        <div class="border-t border-warm-100 p-4 sm:p-5 bg-white">
+          <div class="flex justify-between items-center mb-3 sm:mb-4">
+            <span class="text-warm-600 font-medium text-sm sm:text-base">Total</span>
+            <span class="text-xl sm:text-2xl font-bold text-warm-900">${total}</span>
           </div>
           <button
             on:click={proceedToCheckout}
-            class="w-full bg-chaud-600 hover:bg-chaud-700 text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-lg"
+            class="w-full bg-chaud-600 hover:bg-chaud-700 text-white py-3 sm:py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-base sm:text-lg"
           >
             Proceder al pedido
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </button>

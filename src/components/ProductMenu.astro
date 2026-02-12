@@ -9,42 +9,42 @@ const { products } = Astro.props;
 
 // Get unique categories from products
 const categories: ProductCategory[] = [
-  "Heladería",
   "Bebidas",
   "Reposteria y Snacks",
+  "Heladería",
   "Salados",
   "Completos"
 ];
 ---
 
-<section id="menu" class="py-24 bg-gradient-to-b from-white to-chaud-50">
-  <div class="container mx-auto px-4">
+<section id="menu" class="py-12 sm:py-16 md:py-20 lg:py-24 bg-linear-to-b from-white to-chaud-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center mb-16">
-      <span class="inline-block px-4 py-2 bg-chaud-100 text-chaud-700 rounded-full text-sm font-semibold mb-4">
+    <div class="text-center mb-10 sm:mb-12 md:mb-16">
+      <span class="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-chaud-100 text-chaud-700 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
         Nuestras Especialidades
       </span>
-      <h2 class="text-4xl md:text-5xl font-bold text-warm-900 mb-4">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-warm-900 mb-3 sm:mb-4 px-4">
         Menú Artesanal
       </h2>
-      <p class="text-warm-600 text-lg max-w-2xl mx-auto leading-relaxed">
+      <p class="text-warm-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed px-4">
         Cada producto es elaborado al momento con ingredientes frescos y de la más alta calidad
       </p>
     </div>
 
     <!-- Category Filters -->
-    <div class="mb-12">
-      <div class="flex flex-wrap justify-center gap-3">
+    <div class="mb-8 sm:mb-10 md:mb-12">
+      <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
         <button
           data-category="all"
-          class="category-filter active px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-chaud-600 text-white shadow-lg hover:shadow-xl hover:scale-105"
+          class="category-filter active px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-chaud-600 text-white shadow-lg hover:shadow-xl hover:scale-105"
         >
           Todos los productos
         </button>
         {categories.map((category) => (
           <button
             data-category={category}
-            class="category-filter px-6 py-3 rounded-full font-semibold transition-all duration-300 bg-white text-warm-700 border-2 border-warm-200 hover:border-chaud-400 hover:text-chaud-600 hover:scale-105"
+            class="category-filter px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-white text-warm-700 border-2 border-warm-200 hover:border-chaud-400 hover:text-chaud-600 hover:scale-105"
           >
             {category}
           </button>
@@ -53,69 +53,69 @@ const categories: ProductCategory[] = [
     </div>
 
     <!-- Products Grid -->
-    <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
       {products.map((product) => (
         <div 
-          class="product-card flex flex-col bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-chaud-100"
+          class="product-card flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border border-chaud-100"
           data-category={product.category}
         >
           <!-- Product Image -->
-          <div class="relative overflow-hidden h-64 bg-gradient-to-br from-chaud-50 to-chaud-100">
+          <div class="relative overflow-hidden aspect-4/3 sm:aspect-square lg:aspect-4/3 bg-white">
             <img 
               src={product.image} 
               alt={product.name}
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
             />
             <!-- Price Badge -->
-            <div class="absolute top-4 right-4 bg-chaud-600 text-white px-5 py-2.5 rounded-full font-bold shadow-xl backdrop-blur-sm z-10">
+            <div class="absolute top-2 right-2 sm:top-4 sm:right-4 bg-chaud-600 text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-full font-bold shadow-xl backdrop-blur-sm z-10">
               {product.hasSizes && product.prices ? (
                 <div class="flex flex-col items-center leading-tight">
-                  <span class="text-[10px] uppercase tracking-widest opacity-80">Desde</span>
-                  <span class="text-lg">{product.prices.chico.price}</span>
+                  <span class="text-[9px] sm:text-[10px] uppercase tracking-widest opacity-80">Desde</span>
+                  <span class="text-base sm:text-lg">{product.prices.chico.price}</span>
                 </div>
               ) : (
-                product.price
+                <span class="text-sm sm:text-base">{product.price}</span>
               )}
             </div>
           </div>
           
           <!-- Product Info -->
-          <div class="p-6 flex-grow flex flex-col">
-            <h3 class="text-2xl font-bold text-warm-900 mb-3 leading-tight">
+          <div class="p-4 sm:p-5 lg:p-6 grow flex flex-col">
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-warm-900 mb-2 sm:mb-3 leading-tight">
               {product.name}
             </h3>
             
-            <p class="text-warm-600 mb-4 leading-relaxed">
+            <p class="text-sm sm:text-base text-warm-600 mb-3 sm:mb-4 leading-relaxed line-clamp-3">
               {product.description}
             </p>
             
             {product.ingredients && (
-              <div class="mb-3 p-3 bg-chaud-50 rounded-lg">
-                <span class="text-sm font-bold text-chaud-700 block mb-1">
+              <div class="mb-3 p-2.5 sm:p-3 bg-chaud-50 rounded-lg">
+                <span class="text-xs sm:text-sm font-bold text-chaud-700 block mb-1">
                   Ingredientes:
                 </span>
-                <p class="text-sm text-warm-700 leading-relaxed">
+                <p class="text-xs sm:text-sm text-warm-700 leading-relaxed line-clamp-2">
                   {product.ingredients}
                 </p>
               </div>
             )}
             
             {product.hasSizes && product.prices ? (
-              <div class="flex gap-3 mb-6">
-                <div class="flex-1 p-3 bg-chaud-50 rounded-2xl border border-chaud-100 text-center">
-                  <span class="block text-[10px] uppercase text-chaud-600 font-bold mb-1 tracking-wider">Chico</span>
-                  <span class="font-bold text-warm-900 text-lg">{product.prices.chico.price}</span>
+              <div class="flex gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div class="flex-1 p-2 sm:p-3 bg-chaud-50 rounded-xl sm:rounded-2xl border border-chaud-100 text-center">
+                  <span class="block text-[9px] sm:text-[10px] uppercase text-chaud-600 font-bold mb-0.5 sm:mb-1 tracking-wider">Chico</span>
+                  <span class="font-bold text-warm-900 text-base sm:text-lg">{product.prices.chico.price}</span>
                 </div>
-                <div class="flex-1 p-3 bg-chaud-50 rounded-2xl border border-chaud-100 text-center">
-                  <span class="block text-[10px] uppercase text-chaud-600 font-bold mb-1 tracking-wider">Grande</span>
-                  <span class="font-bold text-warm-900 text-lg">{product.prices.grande.price}</span>
+                <div class="flex-1 p-2 sm:p-3 bg-chaud-50 rounded-xl sm:rounded-2xl border border-chaud-100 text-center">
+                  <span class="block text-[9px] sm:text-[10px] uppercase text-chaud-600 font-bold mb-0.5 sm:mb-1 tracking-wider">Grande</span>
+                  <span class="font-bold text-warm-900 text-base sm:text-lg">{product.prices.grande.price}</span>
                 </div>
               </div>
             ) : product.size && (
-              <div class="mb-4">
-                <span class="inline-flex items-center gap-2 text-sm font-semibold text-chaud-600 bg-chaud-50 px-3 py-1.5 rounded-full">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="mb-3 sm:mb-4">
+                <span class="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-chaud-600 bg-chaud-50 px-2.5 py-1.5 sm:px-3 rounded-full">
+                  <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012 2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
                   </svg>
                   {product.size}
