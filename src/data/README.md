@@ -120,13 +120,11 @@ Productos/
 - Considera optimizar el tamaño de las imágenes (máximo 1MB recomendado)
 
 ## 📋 Categorías disponibles:
-- `Helados`
-- `Paletas de Hielo`
-- `Bebidas Frias`
-- `Bebidas Calientes`
-- `Postres`
+- `Heladería`
+- `Bebidas`
+- `Reposteria y Snacks`
 - `Salados`
-- `Galletas`
+- `Completos`
 
 ### ✏️ Ejemplo de producto completo:
 
@@ -135,7 +133,7 @@ Productos/
   "id": "frappe-caramelo",
   "name": "Frappe de Caramelo",
   "description": "Delicioso frappe con sabor a caramelo y crema",
-  "category": "Bebidas Frias",
+  "category": "Bebidas",
   "ingredients": "Café, Leche, Hielo, Jarabe de caramelo, Crema batida",
   "size": "16 oz",
   "price": "$65",
@@ -155,13 +153,11 @@ Si necesitas una categoría nueva, debes actualizar el archivo `src/data/product
 
 ```typescript
 export type ProductCategory = 
-  | "Helados" 
-  | "Paletas de Hielo" 
-  | "Bebidas Frias" 
-  | "Bebidas Calientes" 
-  | "Postres" 
-  | "Salados" 
-  | "Galletas"
+  | "Heladería" 
+  | "Bebidas" 
+  | "Reposteria y Snacks" 
+  | "Salados"
+  | "Completos"
   | "TU NUEVA CATEGORÍA";  // Agregar aquí
 ```
 
@@ -199,13 +195,11 @@ Si necesitas una categoría nueva, debes actualizar el archivo `src/data/product
 
 ```typescript
 export type ProductCategory = 
-  | "Helados" 
-  | "Paletas de Hielo" 
-  | "Bebidas Frias" 
-  | "Bebidas Calientes" 
-  | "Postres" 
-  | "Salados" 
-  | "Galletas"
+  | "Heladería" 
+  | "Bebidas" 
+  | "Reposteria y Snacks" 
+  | "Salados"
+  | "Completos"
   | "TU NUEVA CATEGORÍA";  // Agregar aquí
 ```
 
