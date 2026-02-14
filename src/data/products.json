@@ -8,7 +8,7 @@
     "size": "1 bola de helado",
     "price": "$20",
     "numericPrice": 20,
-    "image": "/productos/Helados/HeladoSencillo.jpg"
+    "image": "/productos/Helados/HeladoSencillo.webp"
   },
   {
     "id": "helado-doble",
@@ -30,7 +30,7 @@
     "size": "3 bolas de helado",
     "price": "$45",
     "numericPrice": 45,
-    "image": "/productos/Helados/CanastaHelado.jpg"
+    "image": "/productos/Helados/CanastaHelado.webp"
   },
   {
     "id": "helado-vaso",
@@ -52,7 +52,7 @@
     "size": "3 bolas de helado",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/Helados/HeladoVasoToppings.jpg"
+    "image": "/productos/Helados/HeladoVasoToppings.webp"
   },
   {
     "id": "helado-flotante",
@@ -74,7 +74,7 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/Helados/bananasplit.jpg"
+    "image": "/productos/Helados/bananasplit.webp"
   },
   {
     "id": "paleta-agua",
@@ -85,7 +85,7 @@
     "size": "",
     "price": "$20",
     "numericPrice": 20,
-    "image": "/productos/Paletas/PaletaAgua.jpg"
+    "image": "/productos/Paletas/PaletaAgua.webp"
   },
   {
     "id": "paleta-leche",
@@ -96,7 +96,7 @@
     "size": "",
     "price": "$25",
     "numericPrice": 25,
-    "image": "/productos/Paletas/PaletaLeche.png"
+    "image": "/productos/Paletas/PaletaLeche.webp"
   },
   {
     "id": "paleta-mini",
@@ -107,7 +107,7 @@
     "size": "",
     "price": "$20",
     "numericPrice": 20,
-    "image": "/productos/Paletas/MiniMagnum.png"
+    "image": "/productos/Paletas/MiniMagnum.webp"
   },
   {
     "id": "frappe-clasico",
@@ -118,7 +118,7 @@
     "size": "16 oz",
     "price": "$60",
     "numericPrice": 60,
-    "image": "/productos/BebidasFrias/FrappeClasico.png"
+    "image": "/productos/BebidasFrias/FrappeClasico.webp"
   },
   {
     "id": "frappe-oreo",
@@ -129,7 +129,7 @@
     "size": "16 oz",
     "price": "$80",
     "numericPrice": 80,
-    "image": "/productos/BebidasFrias/FrappeOreo.png"
+    "image": "/productos/BebidasFrias/FrappeOreo.webp"
   },
   {
     "id": "frappe-red-velvet",
@@ -140,7 +140,7 @@
     "size": "16 oz",
     "price": "$80",
     "numericPrice": 80,
-    "image": "/productos/BebidasFrias/FrappeRedVelvet.png"
+    "image": "/productos/BebidasFrias/FrappeRedVelvet.webp"
   },
   {
     "id": "frappe-mazapan",
@@ -151,7 +151,7 @@
     "size": "16 oz",
     "price": "$80",
     "numericPrice": 80,
-    "image": "/productos/BebidasFrias/FrappeMazapan.jpeg"
+    "image": "/productos/BebidasFrias/FrappeMazapan.webp"
   },
   {
     "id": "frappe-moka",
@@ -162,7 +162,7 @@
     "size": "16 oz",
     "price": "$75",
     "numericPrice": 75,
-    "image": "/productos/BebidasFrias/FrappeMoka.jpeg"
+    "image": "/productos/BebidasFrias/FrappeMoka.webp"
   },
   {
     "id": "Chai",
@@ -173,7 +173,7 @@
     "size": "16 oz",
     "price": "$85",
     "numericPrice": 85,
-    "image": "/productos/BebidasFrias/Chai.jpg"
+    "image": "/productos/BebidasFrias/Chai.webp"
   },
   {
     "id": "Taro",
@@ -184,7 +184,7 @@
     "size": "16 oz",
     "price": "$80",
     "numericPrice": 80,
-    "image": "/productos/BebidasFrias/Taro.jpg"
+    "image": "/productos/BebidasFrias/Taro.webp"
   },
   {
     "id": "Choco-Avellana",
@@ -195,7 +195,7 @@
     "size": "16 oz",
     "price": "$80",
     "numericPrice": 80,
-    "image": "/productos/BebidasFrias/Chocoavellana.png"
+    "image": "/productos/BebidasFrias/Chocoavellana.webp"
   },
   {
     "id": "Soda Italiana",
@@ -206,7 +206,7 @@
     "size": "16 oz",
     "price": "$60",
     "numericPrice": 60,
-    "image": "/productos/BebidasFrias/SodaItaliana.jpg"
+    "image": "/productos/BebidasFrias/SodaItaliana.webp"
   },
   {
     "id": "smoothie",
@@ -217,7 +217,7 @@
     "size": "16 oz",
     "price": "$70",
     "numericPrice": 70,
-    "image": "/productos/BebidasFrias/smoothie.jpg"
+    "image": "/productos/BebidasFrias/smoothie.webp"
   },
   {
     "id": "Malteada",
@@ -228,7 +228,7 @@
     "size": "16 oz",
     "price": "$65",
     "numericPrice": 65,
-    "image": "/productos/BebidasFrias/Malteada.png"
+    "image": "/productos/BebidasFrias/Malteada.webp"
   },
   {
     "id": "Tisana fria",
@@ -239,7 +239,7 @@
     "size": "Chico",
     "price": "$55",
     "numericPrice": 55,
-    "image": "/productos/BebidasFrias/TisanaFria.jpg"
+    "image": "/productos/BebidasFrias/TisanaFria.webp"
   },
   {
     "id": "Agua embotellada",
@@ -250,7 +250,7 @@
     "size": "",
     "price": "$10",
     "numericPrice": 10,
-    "image": "/productos/BebidasFrias/Agua.png",
+    "image": "/productos/BebidasFrias/Agua.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -272,7 +272,7 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/BebidasCalientes/Capuchino.jpg",
+    "image": "/productos/BebidasCalientes/Capuchino.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -294,7 +294,7 @@
     "size": "",
     "price": "$60",
     "numericPrice": 60,
-    "image": "/productos/BebidasCalientes/CapuchinoSabor.jpg",
+    "image": "/productos/BebidasCalientes/CapuchinoSabor.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -316,7 +316,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/BebidasCalientes/CafeAmericano.jpg",
+    "image": "/productos/BebidasCalientes/CafeAmericano.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -338,7 +338,7 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/BebidasCalientes/ChocolateCaliente.jpg",
+    "image": "/productos/BebidasCalientes/ChocolateCaliente.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -382,7 +382,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/BebidasCalientes/Te.jpg",
+    "image": "/productos/BebidasCalientes/Te.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -404,7 +404,7 @@
     "size": "",
     "price": "$70",
     "numericPrice": 70,
-    "image": "/productos/BebidasCalientes/RedVelvetCaliente.jpg",
+    "image": "/productos/BebidasCalientes/RedVelvetCaliente.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -426,7 +426,7 @@
     "size": "",
     "price": "$65",
     "numericPrice": 65,
-    "image": "/productos/BebidasCalientes/MokaCaliente.png",
+    "image": "/productos/BebidasCalientes/MokaCaliente.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -448,7 +448,7 @@
     "size": "",
     "price": "$65",
     "numericPrice": 65,
-    "image": "/productos/BebidasCalientes/DirtyChaiCaliente.jpg",
+    "image": "/productos/BebidasCalientes/DirtyChaiCaliente.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -470,7 +470,7 @@
     "size": "",
     "price": "$75",
     "numericPrice": 75,
-    "image": "/productos/BebidasCalientes/TaroCaliente.jpeg",
+    "image": "/productos/BebidasCalientes/TaroCaliente.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -492,7 +492,7 @@
     "size": "",
     "price": "$75",
     "numericPrice": 75,
-    "image": "/productos/BebidasCalientes/MazapanLatte.png",
+    "image": "/productos/BebidasCalientes/MazapanLatte.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -514,7 +514,7 @@
     "size": "",
     "price": "$60",
     "numericPrice": 60,
-    "image": "/productos/Postres/ConchaNata.png"
+    "image": "/productos/Postres/ConchaNata.webp"
   },
   {
     "id": "concha-rellena",
@@ -525,7 +525,7 @@
     "size": "",
     "price": "$55",
     "numericPrice": 55,
-    "image": "/productos/Postres/concharellena.jpg"
+    "image": "/productos/Postres/concharellena.webp"
   },
   {
     "id": "concha-helado",
@@ -536,7 +536,7 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/Postres/conchahelado.png"
+    "image": "/productos/Postres/conchahelado.webp"
   },
   {
     "id": "mini-hotcakes",
@@ -547,7 +547,7 @@
     "size": "",
     "price": "$55",
     "numericPrice": 55,
-    "image": "/productos/Postres/minihotcakes.png"
+    "image": "/productos/Postres/minihotcakes.webp"
   },
   {
     "id": "crepa-dulce",
@@ -558,7 +558,7 @@
     "size": "",
     "price": "$65",
     "numericPrice": 65,
-    "image": "/productos/Postres/crepadulce.jpg"
+    "image": "/productos/Postres/crepadulce.webp"
   },
   {
     "id": "Carlota",
@@ -569,7 +569,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/Postres/CarlotaFresa.png"
+    "image": "/productos/Postres/CarlotaFresa.webp"
   },
   {
     "id": "Fresas-Duraznos",
@@ -580,7 +580,7 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/Postres/fresasduraznos.png",
+    "image": "/productos/Postres/fresasduraznos.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -602,7 +602,7 @@
     "size": "",
     "price": "$60",
     "numericPrice": 60,
-    "image": "/productos/Postres/fresasduraznos.png",
+    "image": "/productos/Postres/fresasduraznos.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -624,7 +624,7 @@
     "size": "",
     "price": "$60",
     "numericPrice": 60,
-    "image": "/productos/Postres/Wafle.png",
+    "image": "/productos/Postres/Wafle.webp",
     "hasSizes": true,
     "prices": {
       "chico": {
@@ -646,7 +646,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/Postres/PastelChocolate.jpg"
+    "image": "/productos/Postres/PastelChocolate.webp"
   },
   {
     "id": "Pastel-zanahoria",
@@ -657,7 +657,7 @@
     "size": "",
     "price": "$45",
     "numericPrice": 45,
-    "image": "/productos/Postres/PastelZanahoria.png"
+    "image": "/productos/Postres/PastelZanahoria.webp"
   },
   {
     "id": "Panque-nata",
@@ -668,7 +668,7 @@
     "size": "",
     "price": "$25",
     "numericPrice": 25,
-    "image": "/productos/Postres/PanqueNata.png"
+    "image": "/productos/Postres/PanqueNata.webp"
   },
   {
     "id": "Pay-limon",
@@ -679,7 +679,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/Postres/PayLimon.png"
+    "image": "/productos/Postres/PayLimon.webp"
   },
   {
     "id": "Chocoflan",
@@ -690,7 +690,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/Postres/Chocoflan.png"
+    "image": "/productos/Postres/Chocoflan.webp"
   },
   {
     "id": "Pay-piña",
@@ -701,7 +701,7 @@
     "size": "",
     "price": "$30",
     "numericPrice": 30,
-    "image": "/productos/Postres/Paypiñaqueso.png"
+    "image": "/productos/Postres/Paypiñaqueso.webp"
   },
   {
     "id": "Pay-frambuesa",
@@ -712,7 +712,7 @@
     "size": "",
     "price": "$40",
     "numericPrice": 40,
-    "image": "/productos/Postres/Payframbuesa.png"
+    "image": "/productos/Postres/Payframbuesa.webp"
   },
   {
     "id": "Pay-tortuga",
@@ -723,7 +723,7 @@
     "size": "",
     "price": "$45",
     "numericPrice": 45,
-    "image": "/productos/Postres/Paytortuga.png"
+    "image": "/productos/Postres/Paytortuga.webp"
   },
   {
     "id": "Gelatina-piña",
@@ -734,7 +734,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/Postres/Gelatinapiñazanahoria.png"
+    "image": "/productos/Postres/Gelatinapiñazanahoria.webp"
   },
   {
     "id": "Croissant-fruta",
@@ -745,7 +745,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/Postres/CroissantFruta.png"
+    "image": "/productos/Postres/CroissantFruta.webp"
   },
   {
     "id": "Matilda",
@@ -756,7 +756,7 @@
     "size": "",
     "price": "$45",
     "numericPrice": 45,
-    "image": "/productos/Postres/Matilda.png"
+    "image": "/productos/Postres/Matilda.webp"
   },
   {
     "id": "Mini roles",
@@ -767,7 +767,7 @@
     "size": "",
     "price": "$15",
     "numericPrice": 15,
-    "image": "/productos/Postres/MiniRoles.png"
+    "image": "/productos/Postres/MiniRoles.webp"
   },
   {
     "id": "Muffin",
@@ -778,7 +778,7 @@
     "size": "",
     "price": "$15",
     "numericPrice": 15,
-    "image": "/productos/Postres/Muffin.png"
+    "image": "/productos/Postres/Muffin.webp"
   },
   {
     "id": "Brownie",
@@ -789,7 +789,7 @@
     "size": "",
     "price": "$15",
     "numericPrice": 15,
-    "image": "/productos/Postres/Brownie.png"
+    "image": "/productos/Postres/Brownie.webp"
   },
   {
     "id": "Galletas-NY",
@@ -800,7 +800,7 @@
     "size": "",
     "price": "$20",
     "numericPrice": 20,
-    "image": "/productos/Galletas/GalletasNewYork.png"
+    "image": "/productos/Galletas/GalletasNewYork.webp"
   },
   {
     "id": "Tartinas",
@@ -811,7 +811,7 @@
     "size": "",
     "price": "$20",
     "numericPrice": 20,
-    "image": "/productos/Galletas/Tartinas.png"
+    "image": "/productos/Galletas/Tartinas.webp"
   },
   {
     "id": "Curnitos",
@@ -822,7 +822,7 @@
     "size": "",
     "price": "$40",
     "numericPrice": 40,
-    "image": "/productos/Salados/Cuernitos.png"
+    "image": "/productos/Salados/Cuernitos.webp"
   },
   {
     "id": "Croissant",
@@ -833,7 +833,7 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/Salados/Croissant.png"
+    "image": "/productos/Salados/Croissant.webp"
   },
   {
     "id": "Crepa-jamon",
@@ -844,7 +844,7 @@
     "size": "",
     "price": "$70",
     "numericPrice": 70,
-    "image": "/productos/Salados/CrepaJamonQueso.png"
+    "image": "/productos/Salados/CrepaJamonQueso.webp"
   },
   {
     "id": "Completo-Gelatina-Zanahoria",
@@ -855,7 +855,7 @@
     "size": "",
     "price": "$140",
     "numericPrice": 140,
-    "image": "/productos/Completos/CompletoGelatina.png"
+    "image": "/productos/Completos/CompletoGelatina.webp"
   },
   {
     "id": "Completo-Matilda",
@@ -866,7 +866,7 @@
     "size": "",
     "price": "$437",
     "numericPrice": 437,
-    "image": "/productos/Completos/PastelMatilda.jpg"
+    "image": "/productos/Completos/PastelMatilda.webp"
   },
   {
     "id": "Completo-Chocolate",
@@ -877,7 +877,7 @@
     "size": "",
     "price": "$295",
     "numericPrice": 295,
-    "image": "/productos/Completos/PastelChocolateCom.jpg"
+    "image": "/productos/Completos/PastelChocolateCom.webp"
   },
   {
     "id": "Completo-Tortuga",
@@ -888,7 +888,7 @@
     "size": "",
     "price": "$395",
     "numericPrice": 395,
-    "image": "/productos/Completos/PayTortugaCom.jpg"
+    "image": "/productos/Completos/PayTortugaCom.webp"
   },
   {
     "id": "Completo-Frambuesa",
@@ -899,7 +899,7 @@
     "size": "",
     "price": "$357",
     "numericPrice": 357,
-    "image": "/productos/Completos/FrambuesaCom.png"
+    "image": "/productos/Completos/FrambuesaCom.webp"
   },
   {
     "id": "Completo-limon",
@@ -910,7 +910,7 @@
     "size": "",
     "price": "$265",
     "numericPrice": 265,
-    "image": "/productos/Completos/PayLimonCom.png"
+    "image": "/productos/Completos/PayLimonCom.webp"
   },
   {
     "id": "Completo-Piña",
@@ -921,7 +921,7 @@
     "size": "",
     "price": "$350",
     "numericPrice": 350,
-    "image": "/productos/Completos/PayPiñaCom.png"
+    "image": "/productos/Completos/PayPiñaCom.webp"
   },
   {
     "id": "Completo-Flan-Napolitano",
@@ -932,7 +932,7 @@
     "size": "",
     "price": "$140",
     "numericPrice": 140,
-    "image": "/productos/Completos/FlanNapolitanoCom.png"
+    "image": "/productos/Completos/FlanNapolitanoCom.webp"
   },
   {
     "id": "Completo-Chocoflan",
@@ -943,7 +943,7 @@
     "size": "",
     "price": "$240",
     "numericPrice": 240,
-    "image": "/productos/Completos/ChocoflanCom.png"
+    "image": "/productos/Completos/ChocoflanCom.webp"
   },
   {
     "id": "Caja-Macarrones",
@@ -954,7 +954,7 @@
     "size": "",
     "price": "$390",
     "numericPrice": 390,
-    "image": "/productos/Completos/CajaMacarrones.png"
+    "image": "/productos/Completos/CajaMacarrones.webp"
   },
   {
     "id": "Caja-Galletas-NewYork",
@@ -965,6 +965,6 @@
     "size": "",
     "price": "$249",
     "numericPrice": 249,
-    "image": "/productos/Completos/CajaGalletasNewYork.png"
+    "image": "/productos/Completos/CajaGalletasNewYork.webp"
   }
 ]
