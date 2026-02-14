@@ -16,12 +16,16 @@ import "../styles/global.css";
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta
 			name="description"
-			content="Chaud & Glace - Heladería y cafetería donde el sabor y la calidez existen en un mismo lugar. Ubicados en Calle 3 poniente y Av. Revolución #202"
+			content="Chaud & Glace - Heladería y cafetería en Ciudad Serdán, Puebla. Helados artesanales, frappes, crepas y postres. Ubicados en Calle 3 poniente y Av. Revolución #202, Ciudad Serdán, Pue."
 		/>
 		<meta
 			name="keywords"
-			content="heladería, cafetería, frappes, crepas, helados artesanales, postres"
+			content="heladería Ciudad Serdán, cafetería Ciudad Serdán, helados artesanales Puebla, frappes Ciudad Serdán, crepas Ciudad Serdán, postres Ciudad Serdán, heladería cerca de mí, cafetería Puebla, bebidas frías Ciudad Serdán, repostería Ciudad Serdán, Chaud & Glace"
 		/>
+		<meta name="geo.region" content="MX-PUE" />
+		<meta name="geo.placename" content="Ciudad Serdán" />
+		<meta name="geo.position" content="18.9833;-97.4500" />
+		<meta name="ICBM" content="18.9833, -97.4500" />
 		<title>Chaud & Glace - Cafe con encanto</title>
 
 		<!-- Canonical URL -->
@@ -33,7 +37,7 @@ import "../styles/global.css";
 		<meta property="og:title" content="Chaud & Glace - Cafe con encanto" />
 		<meta
 			property="og:description"
-			content="Heladería y cafetería donde el sabor y la calidez existen en un mismo lugar. Disfruta de helados artesanales, frappes, crepas y más. Ubicados en Calle 3 poniente y Av. Revolución #202"
+			content="Heladería y cafetería en Ciudad Serdán, Puebla. Disfruta de helados artesanales, frappes, crepas y más. Ubicados en Calle 3 poniente, Ciudad Serdán, Pue."
 		/>
 		<meta
 			property="og:image"
@@ -43,7 +47,7 @@ import "../styles/global.css";
 		<meta property="og:image:height" content="630" />
 		<meta
 			property="og:image:alt"
-			content="Chaud & Glace - Heladería y Cafetería"
+			content="Chaud & Glace - Heladería y Cafetería en Ciudad Serdán, Puebla"
 		/>
 		<meta property="og:locale" content="es_MX" />
 		<meta property="og:site_name" content="Chaud & Glace" />
@@ -54,7 +58,7 @@ import "../styles/global.css";
 		<meta name="twitter:title" content="Chaud & Glace - Cafe con encanto" />
 		<meta
 			name="twitter:description"
-			content="Heladería y cafetería donde el sabor y la calidez existen en un mismo lugar. Disfruta de helados artesanales, frappes, crepas y más."
+			content="Heladería y cafetería en Ciudad Serdán, Puebla. Disfruta de helados artesanales, frappes, crepas y más."
 		/>
 		<meta
 			name="twitter:image"
@@ -97,20 +101,64 @@ import "../styles/global.css";
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@type": "Restaurant",
+				"@type": ["Restaurant", "IceCreamShop", "Cafe"],
 				"name": "Chaud & Glace",
-				"image": "https://chaudglace.com/logo/LogoChaud.png",
-				"description": "Heladería y cafetería donde el sabor y la calidez existen en un mismo lugar. Disfruta de helados artesanales, frappes, crepas y más.",
+				"image": [
+					"https://chaudglace.com/logo/LogoChaud.png",
+					"https://chaudglace.com/hero-background.png",
+					"https://chaudglace.com/about-image.jpeg"
+				],
+				"description": "Heladería y cafetería artesanal en Ciudad Serdán, Puebla. Especialistas en helados artesanales, frappes, crepas, bebidas frías y calientes, repostería y snacks. Donde el sabor y la calidez existen en un mismo lugar.",
 				"address": {
 					"@type": "PostalAddress",
 					"streetAddress": "Calle 3 poniente y Av. Revolución #202",
-					"addressLocality": "México",
+					"addressLocality": "Ciudad Serdán",
+					"addressRegion": "Puebla",
+					"postalCode": "75220",
 					"addressCountry": "MX"
 				},
-				"servesCuisine": ["Helados", "Cafetería", "Postres", "Bebidas"],
-				"priceRange": "$$",
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": 18.9833,
+					"longitude": -97.45
+				},
 				"url": "https://chaudglace.com",
+				"telephone": "+52-245-452-2978",
+				"servesCuisine": [
+					"Helados Artesanales",
+					"Cafetería",
+					"Postres",
+					"Bebidas Frías",
+					"Bebidas Calientes",
+					"Repostería",
+					"Crepas"
+				],
+				"priceRange": "$$",
 				"logo": "https://chaudglace.com/logo/LogoChaud.png",
+				"openingHoursSpecification": [
+					{
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": [
+							"Monday",
+							"Tuesday",
+							"Wednesday",
+							"Thursday",
+							"Friday",
+							"Saturday",
+							"Sunday"
+						],
+						"opens": "09:00",
+						"closes": "22:00"
+					}
+				],
+				"areaServed": {
+					"@type": "City",
+					"name": "Ciudad Serdán",
+					"containedIn": {
+						"@type": "State",
+						"name": "Puebla"
+					}
+				},
 				"sameAs": []
 			}
 		</script>
@@ -153,6 +201,7 @@ import "../styles/global.css";
 				<p
 					class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-2xl mx-auto px-4"
 				>
+					Heladería y cafetería en Ciudad Serdán, Puebla<br />
 					Donde el sabor y la calidez existen en un mismo lugar
 				</p>
 				<div

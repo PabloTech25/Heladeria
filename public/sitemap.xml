@@ -8,7 +8,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://chaudglace.com/logo/LogoChaud.png</image:loc>
-      <image:title>Chaud &amp; Glace Logo</image:title>
+      <image:title>Chaud &amp; Glace - Heladería y Cafetería en Ciudad Serdán, Puebla</image:title>
     </image:image>
     <image:image>
       <image:loc>https://chaudglace.com/hero-background.png</image:loc>
@@ -16,7 +16,7 @@
     </image:image>
     <image:image>
       <image:loc>https://chaudglace.com/about-image.jpeg</image:loc>
-      <image:title>Chaud &amp; Glace Interior</image:title>
+      <image:title>Chaud &amp; Glace Interior - Ciudad Serdán</image:title>
     </image:image>
   </url>
 </urlset>
