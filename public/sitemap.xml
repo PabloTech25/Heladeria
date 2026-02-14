@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://chaudglace.com/</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://chaudglace.com/logo/LogoChaud.png</image:loc>
+      <image:title>Chaud &amp; Glace Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://chaudglace.com/hero-background.png</image:loc>
+      <image:title>Chaud &amp; Glace Hero Background</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://chaudglace.com/about-image.jpeg</image:loc>
+      <image:title>Chaud &amp; Glace Interior</image:title>
+    </image:image>
+  </url>
+</urlset>

@@ -23,11 +23,66 @@ import "../styles/global.css";
 			content="heladería, cafetería, frappes, crepas, helados artesanales, postres"
 		/>
 		<title>Chaud & Glace - Cafe con encanto</title>
-		
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://chaudglace.com/" />
+
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://chaudglace.com/" />
+		<meta property="og:title" content="Chaud & Glace - Cafe con encanto" />
+		<meta
+			property="og:description"
+			content="Heladería y cafetería donde el sabor y la calidez existen en un mismo lugar. Disfruta de helados artesanales, frappes, crepas y más. Ubicados en Calle 3 poniente y Av. Revolución #202"
+		/>
+		<meta
+			property="og:image"
+			content="https://chaudglace.com/logo/LogoChaud.png"
+		/>
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta
+			property="og:image:alt"
+			content="Chaud & Glace - Heladería y Cafetería"
+		/>
+		<meta property="og:locale" content="es_MX" />
+		<meta property="og:site_name" content="Chaud & Glace" />
+
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://chaudglace.com/" />
+		<meta name="twitter:title" content="Chaud & Glace - Cafe con encanto" />
+		<meta
+			name="twitter:description"
+			content="Heladería y cafetería donde el sabor y la calidez existen en un mismo lugar. Disfruta de helados artesanales, frappes, crepas y más."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://chaudglace.com/logo/LogoChaud.png"
+		/>
+		<meta
+			name="twitter:image:alt"
+			content="Chaud & Glace - Heladería y Cafetería"
+		/>
+
 		<!-- Favicons para mejor visibilidad -->
-		<link rel="icon" type="image/png" sizes="32x32" href="/logo/LogoIcon.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/logo/LogoIcon.png" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/logo/LogoIcon.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/logo/LogoIcon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/logo/LogoIcon.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/logo/LogoIcon.png"
+		/>
 		<link rel="shortcut icon" href="/logo/LogoIcon.png" />
 
 		<!-- Google Fonts -->
@@ -37,6 +92,28 @@ import "../styles/global.css";
 			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
+
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Restaurant",
+				"name": "Chaud & Glace",
+				"image": "https://chaudglace.com/logo/LogoChaud.png",
+				"description": "Heladería y cafetería donde el sabor y la calidez existen en un mismo lugar. Disfruta de helados artesanales, frappes, crepas y más.",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Calle 3 poniente y Av. Revolución #202",
+					"addressLocality": "México",
+					"addressCountry": "MX"
+				},
+				"servesCuisine": ["Helados", "Cafetería", "Postres", "Bebidas"],
+				"priceRange": "$$",
+				"url": "https://chaudglace.com",
+				"logo": "https://chaudglace.com/logo/LogoChaud.png",
+				"sameAs": []
+			}
+		</script>
 	</head>
 	<body class="font-['Outfit',sans-serif] antialiased">
 		<Header />
@@ -63,7 +140,9 @@ import "../styles/global.css";
 			<div
 				class="relative z-10 container mx-auto px-4 sm:px-6 text-center text-white"
 			>
-				<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 animate-fade-in px-2">
+				<h1
+					class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 animate-fade-in px-2"
+				>
 					Bienvenidos a<br />
 					<span
 						class="text-transparent bg-clip-text bg-linear-to-r from-chaud-300 to-chaud-500"
@@ -76,7 +155,9 @@ import "../styles/global.css";
 				>
 					Donde el sabor y la calidez existen en un mismo lugar
 				</p>
-				<div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+				<div
+					class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
+				>
 					<a
 						href="#menu"
 						class="bg-linear-to-r from-chaud-500 to-chaud-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
@@ -131,14 +212,19 @@ import "../styles/global.css";
 						class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
 					>
 						<div class="space-y-4 sm:space-y-6">
-							<p class="text-base sm:text-lg text-gray-700 leading-relaxed px-2">
-								<span class="text-xl sm:text-2xl font-bold text-chaud-700"
+							<p
+								class="text-base sm:text-lg text-gray-700 leading-relaxed px-2"
+							>
+								<span
+									class="text-xl sm:text-2xl font-bold text-chaud-700"
 									>Chaud & Glace</span
 								>
 								es una heladería y cafetería donde el sabor y calidez
 								existen en un mismo lugar.
 							</p>
-							<p class="text-sm sm:text-base text-gray-600 leading-relaxed px-2">
+							<p
+								class="text-sm sm:text-base text-gray-600 leading-relaxed px-2"
+							>
 								Nos especializamos en crear experiencias únicas
 								para nuestros clientes, ofreciendo productos
 								frescos hechos al momento con los mejores
@@ -146,13 +232,17 @@ import "../styles/global.css";
 								hasta nuestras crepas artesanales, cada producto
 								está hecho con amor y dedicación.
 							</p>
-							<p class="text-sm sm:text-base text-gray-600 leading-relaxed px-2">
+							<p
+								class="text-sm sm:text-base text-gray-600 leading-relaxed px-2"
+							>
 								Ven y descubre por qué somos el lugar favorito
 								de la comunidad para disfrutar de un momento
 								dulce y especial.
 							</p>
 
-							<div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-6 px-2">
+							<div
+								class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-6 px-2"
+							>
 								<div class="text-center">
 									<div
 										class="text-3xl font-bold text-chaud-700 mb-2"
@@ -199,8 +289,14 @@ import "../styles/global.css";
 							<div
 								class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-linear-to-br from-chaud-500 to-chaud-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl"
 							>
-								<div class="text-2xl sm:text-3xl font-bold">2+</div>
-								<div class="text-xs sm:text-sm whitespace-nowrap">Años de experiencia</div>
+								<div class="text-2xl sm:text-3xl font-bold">
+									2+
+								</div>
+								<div
+									class="text-xs sm:text-sm whitespace-nowrap"
+								>
+									Años de experiencia
+								</div>
 							</div>
 						</div>
 					</div>
