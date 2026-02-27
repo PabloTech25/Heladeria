@@ -110,8 +110,41 @@
     "image": "/productos/Paletas/MiniMagnum.webp"
   },
   {
-    "id": "frappe-clasico",
-    "name": "Frappe Clásico",
+    "id": "Iced-latte",
+    "name": "Iced Latte",
+    "description": "Espresso premium servido sobre hielo, fusionado con leche cremosa para una experiencia suave y revitalizante.",
+    "category": "Bebidas",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$70",
+    "numericPrice": 70,
+    "image": "/productos/BebidasFrias/IcedLatte.webp"
+  },
+  {
+    "id": "Iced-latte-sabor",
+    "name": "Iced Latte con Sabor",
+    "description": "Espresso premium servido sobre hielo, fusionado con leche cremosa para una experiencia suave y revitalizante.",
+    "category": "Bebidas",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$80",
+    "numericPrice": 80,
+    "image": "/productos/BebidasFrias/IcedLatteSabor.webp"
+  },
+  {
+    "id": "Moka-frio",
+    "name": "Moka Frío",
+    "description": "Bebida refrescante que combina café y chocolate, servida con hielo. Ideal para disfrutar en días calurosos, balance perfecto entre el sabor intenso del café y la dulzura del chocolate.",
+    "category": "Bebidas",
+    "ingredients": "",
+    "size": "16 oz",
+    "price": "$80",
+    "numericPrice": 80,
+    "image": "/productos/BebidasFrias/MokaFrio.webp"
+  },
+  {
+    "id": "frappe-capuchino",
+    "name": "Frappe Capuchino",
     "description": "El balance ideal entre café y frescura, coronado con un toque artesanal que lo hace único.",
     "category": "Bebidas",
     "ingredients": "",
