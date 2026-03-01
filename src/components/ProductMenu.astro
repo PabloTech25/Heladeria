@@ -1,6 +1,8 @@
 ---
 import AddToCartButton from './AddToCartButton.svelte';
 import type { Product, ProductCategory } from '../data/products';
+import { getCloudinaryUrl, getResponsiveSrcSet, getBlurPlaceholder } from '../lib/cloudinary';
+
 interface Props {
   products: Product[];
 }
@@ -62,10 +64,13 @@ const categories: ProductCategory[] = [
           <!-- Product Image -->
           <div class="relative overflow-hidden aspect-4/3 sm:aspect-square lg:aspect-4/3 bg-white">
             <img 
-              src={product.image} 
+              src={getCloudinaryUrl(product.image, { width: 400 })}
+              srcset={getResponsiveSrcSet(product.image, [320, 400, 640])}
+              sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 640px"
               alt={product.name}
               class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
+              decoding="async"
             />
             <!-- Price Badge -->
             <div class="absolute top-2 right-2 sm:top-4 sm:right-4 bg-chaud-600 text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-full font-bold shadow-xl backdrop-blur-sm z-10">

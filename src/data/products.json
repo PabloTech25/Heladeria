@@ -8,7 +8,7 @@
     "size": "1 bola de helado",
     "price": "$20",
     "numericPrice": 20,
-    "image": "/productos/Helados/HeladoSencillo.webp"
+    "image": "productos/Helados/HeladoSencillo.webp"
   },
   {
     "id": "helado-doble",
