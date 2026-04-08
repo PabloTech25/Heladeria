@@ -9,16 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.2.5",
-    "@tailwindcss/vite": "^4.1.17",
-    "astro": "^5.16.15",
+    "@astrojs/svelte": "^8.0.4",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.1.5",
     "cloudinary": "^2.9.0",
-    "nanostores": "^1.1.0",
+    "nanostores": "^1.2.0",
     "sharp": "^0.34.5",
-    "svelte": "^5.50.0",
-    "tailwindcss": "^4.1.17"
+    "svelte": "^5.55.2",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
-    "dotenv": "^17.3.1"
+    "dotenv": "^17.4.1"
   }
 }
