@@ -16,6 +16,8 @@ export interface Product {
   price: string;
   numericPrice: number;
   image: string;
+  featured?: boolean;
+  breakfastSpecial?: boolean;
   hasSizes?: boolean;
   prices?: {
     chico: { price: string; numericPrice: number };

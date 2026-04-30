@@ -19,7 +19,8 @@
     "size": "2 bolas de helado",
     "price": "$30",
     "numericPrice": 30,
-    "image": "/productos/Helados/HeladoDoble.webp"
+    "image": "/productos/Helados/HeladoDoble.webp",
+    "featured": true
   },
   {
     "id": "canasta-helado",
@@ -63,7 +64,8 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/Helados/heladoflotante.webp"
+    "image": "/productos/Helados/heladoflotante.webp",
+    "featured": true
   },
   {
     "id": "banana-split",
@@ -74,7 +76,8 @@
     "size": "",
     "price": "$50",
     "numericPrice": 50,
-    "image": "/productos/Helados/bananasplit.webp"
+    "image": "/productos/Helados/bananasplit.webp",
+    "featured": true
   },
   {
     "id": "paleta-agua",
@@ -151,7 +154,8 @@
     "size": "16 oz",
     "price": "$60",
     "numericPrice": 60,
-    "image": "/productos/BebidasFrias/FrappeClasico.webp"
+    "image": "/productos/BebidasFrias/FrappeClasico.webp",
+    "featured": true
   },
   {
     "id": "frappe-oreo",
@@ -162,7 +166,8 @@
     "size": "16 oz",
     "price": "$80",
     "numericPrice": 80,
-    "image": "/productos/BebidasFrias/FrappeOreo.webp"
+    "image": "/productos/BebidasFrias/FrappeOreo.webp",
+    "featured": true
   },
   {
     "id": "frappe-red-velvet",
@@ -261,7 +266,8 @@
     "size": "16 oz",
     "price": "$65",
     "numericPrice": 65,
-    "image": "/productos/BebidasFrias/Malteada.webp"
+    "image": "/productos/BebidasFrias/Malteada.webp",
+    "featured": true
   },
   {
     "id": "Tisana fria",
@@ -580,7 +586,8 @@
     "size": "",
     "price": "$55",
     "numericPrice": 55,
-    "image": "/productos/Postres/minihotcakes.webp"
+    "image": "/Desayunos/Sorpresa1.jpg",
+    "breakfastSpecial": true
   },
   {
     "id": "crepa-dulce",
@@ -591,7 +598,8 @@
     "size": "",
     "price": "$65",
     "numericPrice": 65,
-    "image": "/productos/Postres/crepadulce.webp"
+    "image": "/Desayunos/Sorpresa2.jpg",
+    "breakfastSpecial": true
   },
   {
     "id": "Carlota",
@@ -701,7 +709,8 @@
     "size": "",
     "price": "$25",
     "numericPrice": 25,
-    "image": "/productos/Postres/PanqueNata.webp"
+    "image": "/Desayunos/Sorpresa3.jpg",
+    "breakfastSpecial": true
   },
   {
     "id": "Pay-limon",
@@ -778,7 +787,8 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/productos/Postres/CroissantFruta.webp"
+    "image": "/Desayunos/Sorpresa4.jpg",
+    "breakfastSpecial": true
   },
   {
     "id": "Matilda",
@@ -800,7 +810,8 @@
     "size": "",
     "price": "$15",
     "numericPrice": 15,
-    "image": "/productos/Postres/MiniRoles.webp"
+    "image": "/Desayunos/Sorpresa5.jpg",
+    "breakfastSpecial": true
   },
   {
     "id": "Muffin",
