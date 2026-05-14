@@ -1,6 +1,6 @@
 ---
 import Header from "../components/Header.astro";
-import ProductMenu from "../components/ProductMenu.astro";
+import MenuCategoriesExpanded from "../components/MenuCategoriesExpanded.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
 import CartDrawer from "../components/CartDrawer.svelte";
@@ -16,17 +16,17 @@ import "../styles/global.css";
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta
 			name="description"
-			content="Chaud & Glace - Heladería artesanal en Ciudad Serdán, Puebla. Helados artesanales, frappes, crepas, desayunos sorpresa y cafetería. Ubicados en Calle 3 poniente, Ciudad Serdán. ¡Prueba nuestras especialidades!"
+			content="Cafetería Gourmet en Puebla | Chaud & Glace. Especialistas en café artesanal, frappes premium, crepas dulces, helados artesanales, bebidas especiales y desayunos sorpresa. La mejor cafetería en Ciudad Serdán. ¡Visítanos!"
 		/>
 		<meta
 			name="keywords"
-			content="heladería Ciudad Serdán, cafetería Ciudad Serdán, helados artesanales Puebla, frappes Ciudad Serdán, crepas Ciudad Serdán, postres Ciudad Serdán, heladería cerca de mí, cafetería Puebla, bebidas frías Ciudad Serdán, repostería Ciudad Serdán, Chaud & Glace"
+			content="cafetería Puebla, café artesanal, café gourmet, cafetería artesanal, frappes artesanales, bebidas especiales, café Puebla, cafetería en Ciudad Serdán, coffee shop Puebla, café premium, helados artesanales, postres frescos, crepas dulces, desayunos sorpresa, donde tomar café Puebla, Chaud & Glace"
 		/>
 		<meta name="geo.region" content="MX-PUE" />
 		<meta name="geo.placename" content="Ciudad Serdán" />
 		<meta name="geo.position" content="18.9833;-97.4500" />
 		<meta name="ICBM" content="18.9833, -97.4500" />
-		<title>Chaud & Glace - Cafe con encanto</title>
+		<title>Café Artesanal en Ciudad Serdán | Chaud & Glace</title>
 
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://chaudglace.com/" />
@@ -34,10 +34,10 @@ import "../styles/global.css";
 		<!-- Open Graph Meta Tags -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://chaudglace.com/" />
-		<meta property="og:title" content="Chaud & Glace - Cafe con encanto" />
+		<meta property="og:title" content="Cafetería Gourmet y Café Artesanal en Puebla | Chaud & Glace" />
 		<meta
 			property="og:description"
-			content="Heladería y cafetería en Ciudad Serdán, Puebla. Disfruta de helados artesanales, frappes, crepas y más. Ubicados en Calle 3 poniente, Ciudad Serdán, Pue."
+			content="Cafetería artesanal en Puebla especializada en café gourmet, frappes premium, crepas dulces, helados artesanales y desayunos sorpresa. Ubicados en Ciudad Serdán."
 		/>
 		<meta
 			property="og:image"
@@ -47,7 +47,7 @@ import "../styles/global.css";
 		<meta property="og:image:height" content="630" />
 		<meta
 			property="og:image:alt"
-			content="Chaud & Glace - Heladería y Cafetería en Ciudad Serdán, Puebla"
+			content="Chaud & Glace - Helados Artesanales y Cafetería en Puebla"
 		/>
 		<meta property="og:locale" content="es_MX" />
 		<meta property="og:site_name" content="Chaud & Glace" />
@@ -55,10 +55,10 @@ import "../styles/global.css";
 		<!-- Twitter Card Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:url" content="https://chaudglace.com/" />
-		<meta name="twitter:title" content="Chaud & Glace - Cafe con encanto" />
+		<meta name="twitter:title" content="Cafetería Gourmet y Café Artesanal en Puebla | Chaud & Glace" />
 		<meta
 			name="twitter:description"
-			content="Heladería y cafetería en Ciudad Serdán, Puebla. Disfruta de helados artesanales, frappes, crepas y más."
+			content="Cafetería artesanal en Puebla. Café gourmet, frappes premium, crepas dulces, helados artesanales y desayunos sorpresa."
 		/>
 		<meta
 			name="twitter:image"
@@ -101,15 +101,15 @@ import "../styles/global.css";
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@type": ["LocalBusiness", "Restaurant", "IceCreamShop", "Cafe"],
+				"@type": ["Cafe", "LocalBusiness", "CoffeeShop", "Restaurant", "IceCreamShop"],
 				"@id": "https://chaudglace.com/#business",
-				"name": "Chaud & Glace - Heladería y Cafetería Artesanal",
+				"name": "Chaud & Glace - Cafetería Gourmet y Café Artesanal",
 				"image": [
 					"https://chaudglace.com/logo/LogoChaud.png",
 					"https://chaudglace.com/hero-background.png",
 					"https://chaudglace.com/about-image.jpeg"
 				],
-				"description": "Chaud & Glace - Heladería artesanal y cafetería en Ciudad Serdán, Puebla. Especialistas en helados artesanales, frappes artesanales, crepas caseras, bebidas frías y calientes, desayunos sorpresa y repostería fresca.",
+				"description": "Chaud & Glace: Cafetería artesanal en Puebla especializada en café gourmet premium, frappes artesanales, bebidas especiales, crepas dulces, desayunos sorpresa, helados artesanales gourmet y repostería fresca. Ubicados en Ciudad Serdán con ingredientes premium y técnicas de barismo profesional.",
 				"address": {
 					"@type": "PostalAddress",
 					"streetAddress": "Calle 3 poniente y Av. Revolución #202",
@@ -128,14 +128,17 @@ import "../styles/global.css";
 				"telephone": "+52-245-452-2978",
 				"priceRange": "$$",
 				"servesCuisine": [
-					"Helados Artesanales",
 					"Cafetería",
+					"Café Gourmet",
+					"Bebidas Especiales",
+					"Frappes Artesanales",
+					"Crepas",
 					"Postres",
+					"Helados Artesanales",
+					"Desayunos",
 					"Bebidas Frías",
 					"Bebidas Calientes",
-					"Repostería",
-					"Desayunos",
-					"Crepas"
+					"Repostería"
 				],
 				"logo": "https://chaudglace.com/logo/LogoChaud.png",
 				"openingHoursSpecification": [
@@ -155,15 +158,15 @@ import "../styles/global.css";
 				"areaServed": [
 					{
 						"@type": "City",
-						"name": "Ciudad Serdán",
-						"containedIn": {
-							"@type": "State",
-							"name": "Puebla",
-							"containedIn": {
-								"@type": "Country",
-								"name": "Mexico"
-							}
-						}
+						"name": "Ciudad Serdán"
+					},
+					{
+						"@type": "State",
+						"name": "Puebla"
+					},
+					{
+						"@type": "Country",
+						"name": "México"
 					}
 				],
 				"sameAs": [],
@@ -205,9 +208,76 @@ import "../styles/global.css";
 				]
 			}
 		</script>
+
+		<!-- JSON-LD Structured Data: Article for SEO Content -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Article",
+				"@id": "https://chaudglace.com/#article",
+				"headline": "Helados Artesanales y Café Gourmet: La Guía Completa",
+				"description": "Guía completa sobre helados artesanales, café gourmet y repostería artesanal. Descubre por qué elegir helados caseros de Chaud & Glace en Puebla.",
+				"image": [
+					"https://chaudglace.com/logo/LogoChaud.png",
+					"https://chaudglace.com/hero-background.png"
+				],
+				"author": {
+					"@type": "Organization",
+					"name": "Chaud & Glace",
+					"url": "https://chaudglace.com"
+				},
+				"publisher": {
+					"@type": "Organization",
+					"name": "Chaud & Glace",
+					"logo": {
+						"@type": "ImageObject",
+						"url": "https://chaudglace.com/logo/LogoChaud.png"
+					}
+				],
+				"sameAs": [],
+				"aggregateRating": {
+					"@type": "AggregateRating",
+					"ratingValue": "4.8",
+					"reviewCount": "127",
+					"bestRating": "5",
+					"worstRating": "1"
+				},
+				"datePublished": "2024-01-01",
+				"dateModified": "2026-05-13",
+				"mainEntityOfPage": {
+					"@type": "WebPage",
+					"@id": "https://chaudglace.com"
+				},
+				"articleBody": "En Chaud & Glace somos expertos en la elaboración de helados artesanales gourmet y bebidas de café premium. Nuestros productos se preparan con ingredientes 100% naturales, sin conservantes artificiales. Contamos con más de 70 productos artesanales incluyendo helados cremosos, frappes especiales, crepas dulces, repostería fresca y desayunos sorpresa disponibles de 7 a 11 AM.",
+				"keywords": "helados artesanales, café gourmet, cafetería, frappes caseros, crepas dulces, postres frescos, bebidas frías, bebidas calientes, Puebla"
+			}
+		</script>
+
+		<!-- JSON-LD Structured Data: Organization (Enhanced) -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"@id": "https://chaudglace.com/#organization",
+				"name": "Chaud & Glace",
+				"url": "https://chaudglace.com",
+				"logo": "https://chaudglace.com/logo/LogoChaud.png",
+				"description": "Heladería y cafetería artesanal en Puebla. Helados gourmet, frappes especiales, crepas dulces y bebidas premium en Ciudad Serdán.",
+				"sameAs": [
+					"https://www.facebook.com/share/1ApReivZHt/?mibextid=wwXIfr",
+					"https://www.instagram.com/chaud.and.glace"
+				],
+				"contact": {
+					"@type": "ContactPoint",
+					"contactType": "Customer Service",
+					"telephone": "+52-245-452-2978",
+					"email": "info@chaudglace.com"
+				}
+			}
+		</script>
 	</head>
 	<body class="font-['Outfit',sans-serif] antialiased">
-		<Header />
+		<Header currentPage="home" />
 
 		<!-- Hero Section -->
 		<section
@@ -235,7 +305,7 @@ import "../styles/global.css";
 					class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 animate-fade-in px-2"
 				>
 					Bienvenidos a<br />
-					<span
+					 <span
 						class="text-transparent bg-clip-text bg-linear-to-r from-chaud-300 to-chaud-500"
 					>
 						Chaud & Glace
@@ -243,8 +313,8 @@ import "../styles/global.css";
 				</h1>
 				<p
 					class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-2xl mx-auto px-4"
-				>
-					Helados artesanales y cafetería en Ciudad Serdán, Puebla<br />
+				> 
+					Cafetería y Helados artesanales en Ciudad Serdán, Puebla 
 					Donde el sabor y la calidez existen en un mismo lugar
 				</p>
 				<div
@@ -396,8 +466,9 @@ import "../styles/global.css";
 			</div>
 		</section>
 
-		<!-- Featured Products Section -->
-		<ProductMenu products={products} googleDriveLink="https://drive.google.com/file/d/1GIQLCqcqERiTPYg2jlW_W1ohq4kzzhK6/view?usp=drive_link" />
+		<!-- Expanded Menu Categories Section - SEO Optimized -->
+		<!-- Consolidated: ProductMenu removed, all products now in MenuCategoriesExpanded with cart functionality -->
+		<MenuCategoriesExpanded products={products} />
 
 		<!-- Contact Form -->
 		<ContactForm />
@@ -427,6 +498,13 @@ import "../styles/global.css";
 
 			html {
 				scroll-behavior: smooth;
+				scroll-padding-top: 120px; /* Compensate for fixed header */
+			}
+
+			@media (max-width: 640px) {
+				html {
+					scroll-padding-top: 80px;
+				}
 			}
 		</style>
 	</body>

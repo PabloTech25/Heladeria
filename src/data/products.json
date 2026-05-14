@@ -8,7 +8,7 @@
     "size": "1 bola de helado",
     "price": "$20",
     "numericPrice": 20,
-    "image": "productos/Helados/HeladoSencillo.webp"
+    "image": "/productos/Helados/HeladoSencillo.webp"
   },
   {
     "id": "helado-doble",
@@ -586,7 +586,7 @@
     "size": "",
     "price": "$55",
     "numericPrice": 55,
-    "image": "/Desayunos/Sorpresa1.jpg",
+    "image": "/productos/Postres/minihotcakes.webp",
     "breakfastSpecial": true
   },
   {
@@ -598,7 +598,7 @@
     "size": "",
     "price": "$65",
     "numericPrice": 65,
-    "image": "/Desayunos/Sorpresa2.jpg",
+    "image": "/productos/Postres/crepadulce.webp",
     "breakfastSpecial": true
   },
   {
@@ -709,7 +709,7 @@
     "size": "",
     "price": "$25",
     "numericPrice": 25,
-    "image": "/Desayunos/Sorpresa3.jpg",
+    "image": "/productos/Postres/panquenata.webp",
     "breakfastSpecial": true
   },
   {
@@ -787,7 +787,7 @@
     "size": "",
     "price": "$35",
     "numericPrice": 35,
-    "image": "/Desayunos/Sorpresa4.jpg",
+    "image": "/productos/Postres/croissantfruta.webp",
     "breakfastSpecial": true
   },
   {
@@ -810,7 +810,7 @@
     "size": "",
     "price": "$15",
     "numericPrice": 15,
-    "image": "/Desayunos/Sorpresa5.jpg",
+    "image": "/productos/Postres/MiniRoles.webp",
     "breakfastSpecial": true
   },
   {

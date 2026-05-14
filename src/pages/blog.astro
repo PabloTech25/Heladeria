@@ -1,0 +1,110 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEOContentBlog from '../components/SEOContentBlog.astro';
+import '../styles/global.css';
+
+// Blog page - Articles about artisanal ice cream, coffee, and gastronomy
+const title = "Blog | Helados Artesanales y Café Gourmet - Chaud & Glace";
+const description = "Descubre artículos sobre helados artesanales gourmet, café artesanal, repostería, y las mejores prácticas de una cafetería gourmet en Puebla.";
+const keywords = "helados artesanales, café artesanal, recetas, barismo, cafetería gourmet, blog Puebla";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chaudyglace.com/blog" />
+    <meta property="og:image" content="https://chaudyglace.com/logo/LogoChaud.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://chaudyglace.com/blog" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- JSON-LD Schema for Blog/Article -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Blog de Chaud & Glace",
+        "description": "Artículos sobre helados artesanales, café gourmet y gastronomía",
+        "url": "https://chaudyglace.com/blog",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Chaud & Glace",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://chaudyglace.com/logo/LogoChaud.png"
+          }
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Chaud & Glace",
+          "url": "https://chaudyglace.com"
+        }
+      }
+    </script>
+  </head>
+  <body class="font-['Outfit',sans-serif] antialiased">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main" class="sr-only">Saltar al contenido principal</a>
+    
+    <!-- Header Navigation -->
+    <Header currentPage="blog" />
+    
+    <!-- Main Content -->
+    <main id="main" class="min-h-screen mt-24 sm:mt-28 md:mt-32 pt-8">
+      <!-- Blog Section Header -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
+        <div class="text-center">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-warm-900 mb-4">
+            Blog de Chaud & Glace
+          </h1>
+          <p class="text-warm-600 text-lg sm:text-xl max-w-2xl mx-auto">
+            Artículos, recetas y consejos sobre helados artesanales, café gourmet y gastronomía en Puebla.
+          </p>
+        </div>
+      </div>
+      
+      <!-- SEO Content Blog Component -->
+      <SEOContentBlog />
+    </main>
+    
+    <!-- Footer -->
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>

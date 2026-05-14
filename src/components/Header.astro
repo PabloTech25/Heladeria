@@ -1,6 +1,19 @@
 ---
 import CartIcon from './CartIcon.svelte';
-// Header component for Chaud & Glace
+
+interface Props {
+  currentPage?: 'home' | 'blog';
+}
+
+const { currentPage = 'home' } = Astro.props;
+
+// Helper function to get correct link based on current page
+const getLink = (anchor: string) => {
+  if (currentPage === 'blog') {
+    return `/${anchor}`;
+  }
+  return anchor;
+};
 ---
 
 <header
@@ -9,11 +22,11 @@ import CartIcon from './CartIcon.svelte';
     <nav class="container mx-auto px-4 py-2 sm:py-3">
         <div class="flex items-center justify-between">
             <!-- Logo and Brand -->
-            <a href="#inicio" class="flex items-center gap-2 sm:gap-3 lg:gap-4 group transition-transform hover:scale-105 duration-300">
+            <a href={getLink("#inicio")} class="flex items-center gap-2 sm:gap-3 lg:gap-4 group transition-transform hover:scale-105 duration-300">
                 <img
                     src="/logo/LogoChaud.png"
                     alt="Chaud & Glace Logo"
-                    class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 object-contain transition-transform group-hover:rotate-6 duration-300"
+                    class="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 object-contain transition-transform group-hover:rotate-6 duration-300"
                 />
                 <div class="flex flex-col">
                     <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-warm-900 leading-tight">
@@ -29,7 +42,7 @@ import CartIcon from './CartIcon.svelte';
             <ul class="hidden md:flex items-center gap-8">
                 <li>
                     <a
-                        href="#inicio"
+                        href={getLink("#inicio")}
                         class="text-warm-700 hover:text-chaud-600 transition-colors font-medium text-sm uppercase tracking-wide"
                     >
                         Inicio
@@ -37,7 +50,7 @@ import CartIcon from './CartIcon.svelte';
                 </li>
                 <li>
                     <a
-                        href="#sobre-nosotros"
+                        href={getLink("#sobre-nosotros")}
                         class="text-warm-700 hover:text-chaud-600 transition-colors font-medium text-sm uppercase tracking-wide"
                     >
                         Nosotros
@@ -45,7 +58,7 @@ import CartIcon from './CartIcon.svelte';
                 </li>
                 <li>
                     <a
-                        href="#menu"
+                        href={getLink("#menu")}
                         class="text-warm-700 hover:text-chaud-600 transition-colors font-medium text-sm uppercase tracking-wide"
                     >
                         Menú
@@ -53,7 +66,15 @@ import CartIcon from './CartIcon.svelte';
                 </li>
                 <li>
                     <a
-                        href="#contacto"
+                        href="/blog"
+                        class="text-warm-700 hover:text-chaud-600 transition-colors font-medium text-sm uppercase tracking-wide"
+                    >
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href={getLink("#contacto")}
                         class="text-warm-700 hover:text-chaud-600 transition-colors font-medium text-sm uppercase tracking-wide"
                     >
                         Contacto
@@ -117,7 +138,7 @@ import CartIcon from './CartIcon.svelte';
             <ul class="flex flex-col gap-4">
                 <li>
                     <a
-                        href="#inicio"
+                        href={getLink("#inicio")}
                         class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
                     >
                         Inicio
@@ -125,7 +146,7 @@ import CartIcon from './CartIcon.svelte';
                 </li>
                 <li>
                     <a
-                        href="#sobre-nosotros"
+                        href={getLink("#sobre-nosotros")}
                         class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
                     >
                         Sobre Nosotros
@@ -133,7 +154,7 @@ import CartIcon from './CartIcon.svelte';
                 </li>
                 <li>
                     <a
-                        href="#menu"
+                        href={getLink("#menu")}
                         class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
                     >
                         Menú
@@ -141,7 +162,15 @@ import CartIcon from './CartIcon.svelte';
                 </li>
                 <li>
                     <a
-                        href="#contacto"
+                        href="/blog"
+                        class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
+                    >
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href={getLink("#contacto")}
                         class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
                     >
                         Contacto
@@ -182,20 +211,24 @@ import CartIcon from './CartIcon.svelte';
         mobileMenu?.classList.toggle("hidden");
     });
 
-    // Smooth scrolling for anchor links
+    // Smooth scrolling for anchor links with header offset (fixed header)
+    // Only for same-page anchors (e.g., #menu), not for cross-page navigation (e.g., /#menu)
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", (e) => {
-            e.preventDefault();
             const href = anchor.getAttribute("href");
-            const target = href ? document.querySelector(href) : null;
-            if (target) {
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                });
-                // Close mobile menu after clicking
-                mobileMenu?.classList.add("hidden");
-            }
+            if (!href || href === "#") return;
+            const target = document.querySelector(href);
+            if (!target) return;
+            e.preventDefault();
+
+            const headerEl = document.querySelector('header');
+            const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+
+            const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+
+            // Close mobile menu after clicking
+            mobileMenu?.classList.add("hidden");
         });
     });
 </script>
