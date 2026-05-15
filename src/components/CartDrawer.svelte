@@ -78,7 +78,7 @@
 
     // Build message
     // Número de WhatsApp del negocio (cambiar si es necesario)
-    const phoneNumber = '522451051911';
+    const phoneNumber = '522451099498';
 
     let message = `🧁 *Nuevo Pedido - Chaud & Glace*\n\n`;
     message += `👤 *Cliente:* ${customerName.trim()}\n`;
