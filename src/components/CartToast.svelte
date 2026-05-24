@@ -7,7 +7,7 @@
 
 {#if message}
   <div
-    class="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto md:left-auto md:translate-x-0 md:right-6 z-[70] bg-warm-900 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-2 sm:gap-3 max-w-sm mx-auto sm:mx-0"
+    class="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto md:left-auto md:translate-x-0 md:right-6 z-70 bg-warm-900 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-2 sm:gap-3 max-w-sm mx-auto sm:mx-0"
     in:fly={{ y: 30, duration: 300 }}
     out:fade={{ duration: 200 }}
   >

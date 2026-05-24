@@ -10,6 +10,7 @@
     clearCart,
     toastMessage,
   } from '../stores/cart';
+  import { getCloudinaryUrl } from '../lib/cloudinary';
   import { fade, fly, slide } from 'svelte/transition';
 
   // ── Reactive subscriptions ──
@@ -26,9 +27,27 @@
   let customerPhone = '';
   let customerNotes = '';
   let deliveryMethod = 'pickup'; // 'pickup' | 'delivery'
-  let paymentMethod = ''; // 'cash' | 'card'
+  let paymentMethod = ''; // 'cash' | 'card' | 'transfer'
   let customerAddress = '';
   let formError = '';
+
+  // ── Constants ──
+  const DELIVERY_FEE = 30;
+
+  // ── Reactive calculations ──
+  $: subtotal = total;
+  $: deliveryFee = deliveryMethod === 'delivery' ? DELIVERY_FEE : 0;
+  $: finalTotal = subtotal + deliveryFee;
+
+  // ── Reactive: Reset invalid payment method when delivery changes ──
+  $: if (deliveryMethod === 'delivery' && paymentMethod === 'card') {
+    paymentMethod = '';
+  }
+
+  // ── Available payment methods based on delivery ──
+  $: availablePaymentMethods = deliveryMethod === 'pickup' 
+    ? ['cash', 'card', 'transfer'] 
+    : ['cash', 'transfer'];
 
   // ── Body scroll lock ──
   $: if (typeof document !== 'undefined') {
@@ -89,7 +108,7 @@
       message += `📍 *Dirección:* ${customerAddress.trim()}\n`;
     }
 
-    message += `💳 *Pago:* ${paymentMethod === 'cash' ? 'Efectivo' : 'Tarjeta (Débito/Crédito)'}\n`;
+    message += `💳 *Pago:* ${paymentMethod === 'cash' ? 'Efectivo' : paymentMethod === 'card' ? 'Tarjeta (Débito/Crédito)' : 'Transferencia Bancaria'}\n`;
 
     message += `\n📋 *Pedido:*\n`;
     items.forEach((item) => {
@@ -97,7 +116,12 @@
       message += `• ${item.quantity}x ${item.product.name}${item.product.size ? ` (${item.product.size})` : ''} — $${subtotal}\n`;
     });
 
-    message += `\n💰 *Total: $${total}*\n`;
+    message += `\n💰 *Desglose de pago:*\n`;
+    message += `Subtotal: $${subtotal}\n`;
+    if (deliveryMethod === 'delivery') {
+      message += `Envío: $${deliveryFee}\n`;
+    }
+    message += `*Total: $${finalTotal}*\n`;
 
     if (customerNotes.trim()) {
       message += `\n📝 *Notas:* ${customerNotes.trim()}\n`;
@@ -129,7 +153,7 @@
 
 {#if open}
   <!-- Overlay container -->
-  <div class="fixed inset-0 z-[60]">
+  <div class="fixed inset-0 z-60">
     <!-- Backdrop -->
     <div
       class="absolute inset-0 bg-black/50 backdrop-blur-sm"
@@ -138,7 +162,7 @@
       role="button"
       tabindex="-1"
       transition:fade={{ duration: 200 }}
-    />
+    ></div>
 
     <!-- Drawer panel -->
     <div
@@ -214,9 +238,10 @@
                   transition:slide={{ duration: 200 }}
                 >
                   <img
-                    src={item.product.image}
+                    src={getCloudinaryUrl(item.product.image, { width: 80, quality: 'auto', format: 'auto' })}
                     alt={item.product.name}
                     class="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-lg shrink-0 bg-white"
+                    loading="lazy"
                   />
                   <div class="flex-1 min-w-0">
                     <h4 class="font-bold text-warm-900 text-sm sm:text-base leading-tight truncate">
@@ -334,9 +359,9 @@
 
             <!-- Delivery method -->
             <div>
-              <label class="block text-xs sm:text-sm font-semibold text-warm-700 mb-2">
+              <div class="block text-xs sm:text-sm font-semibold text-warm-700 mb-2" role="group">
                 Método de entrega *
-              </label>
+              </div>
               <div class="grid grid-cols-2 gap-2 sm:gap-3">
                 <button
                   type="button"
@@ -367,10 +392,11 @@
 
             <!-- Payment method -->
             <div>
-              <label class="block text-xs sm:text-sm font-semibold text-warm-700 mb-2">
+              <div class="block text-xs sm:text-sm font-semibold text-warm-700 mb-2" role="group">
                 Método de pago *
-              </label>
-              <div class="grid grid-cols-2 gap-2 sm:gap-3">
+              </div>
+              <div class={`grid gap-2 sm:gap-3 ${availablePaymentMethods.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+                <!-- Efectivo -->
                 <button
                   type="button"
                   class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
@@ -381,19 +407,37 @@
                   on:click={() => (paymentMethod = 'cash')}
                 >
                   <span class="text-lg">💵</span>
-                  Efectivo
+                  <span>Efectivo</span>
                 </button>
+
+                <!-- Tarjeta (solo para pickup) -->
+                {#if deliveryMethod === 'pickup'}
+                  <button
+                    type="button"
+                    class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                      paymentMethod === 'card'
+                        ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
+                        : 'border-warm-200 text-warm-500 hover:border-warm-300'
+                    }`}
+                    on:click={() => (paymentMethod = 'card')}
+                  >
+                    <span class="text-lg">💳</span>
+                    <span>Tarjeta</span>
+                  </button>
+                {/if}
+
+                <!-- Transferencia -->
                 <button
                   type="button"
-                  class={`p-3 rounded-xl border-2 text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
-                    paymentMethod === 'card'
+                  class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                    paymentMethod === 'transfer'
                       ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                       : 'border-warm-200 text-warm-500 hover:border-warm-300'
                   }`}
-                  on:click={() => (paymentMethod = 'card')}
+                  on:click={() => (paymentMethod = 'transfer')}
                 >
-                  <span class="text-lg">💳</span>
-                  Tarjeta
+                  <span class="text-lg">🏦</span>
+                  <span>Transferencia</span>
                 </button>
               </div>
             </div>
@@ -401,6 +445,11 @@
             <!-- Address (conditional) -->
             {#if deliveryMethod === 'delivery'}
               <div transition:slide={{ duration: 200 }}>
+                <div class="bg-chaud-50 border border-chaud-200 rounded-xl p-3 mb-3">
+                  <p class="text-xs sm:text-sm text-chaud-700 font-semibold">
+                    📦 Se cobra $<span class="text-lg">{deliveryFee}</span> pesos por el envío
+                  </p>
+                </div>
                 <label class="block text-sm font-semibold text-warm-700 mb-1.5" for="checkout-address">
                   Dirección de entrega *
                 </label>
@@ -425,7 +474,7 @@
                 placeholder="Instrucciones especiales, alergias, etc."
                 rows="3"
                 class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition resize-none text-warm-900 placeholder-warm-400"
-              />
+              ></textarea>
             </div>
 
             <!-- Order summary -->
@@ -437,9 +486,25 @@
                   <span class="font-semibold text-warm-800">${item.product.price * item.quantity}</span>
                 </div>
               {/each}
-              <div class="border-t border-warm-200 mt-3 pt-3 flex justify-between font-bold text-warm-900">
+              
+              <!-- Delivery fee (conditional) -->
+              {#if deliveryMethod === 'delivery'}
+                <div class="border-t border-warm-200 mt-3 pt-3">
+                  <div class="flex justify-between text-sm text-warm-600 mb-1.5">
+                    <span>Subtotal</span>
+                    <span class="font-semibold text-warm-800">${subtotal}</span>
+                  </div>
+                  <div class="flex justify-between text-sm text-chaud-600 mb-1.5">
+                    <span>Envío</span>
+                    <span class="font-semibold text-chaud-700">${deliveryFee}</span>
+                  </div>
+                </div>
+              {/if}
+
+              <!-- Total -->
+              <div class={`${deliveryMethod === 'delivery' ? 'border-t border-warm-200 mt-3 pt-3' : 'border-t border-warm-200 mt-3 pt-3'} flex justify-between font-bold text-warm-900`}>
                 <span>Total</span>
-                <span class="text-chaud-600 text-lg">${total}</span>
+                <span class="text-chaud-600 text-lg">${finalTotal}</span>
               </div>
             </div>
 
