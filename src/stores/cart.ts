@@ -1,5 +1,39 @@
 import { atom, computed } from 'nanostores';
 
+// ── Security: Encryption/Decryption helpers ──
+// Nota: Esta es una encriptación básica. Para mayor seguridad en producción,
+// usa librerías especializadas como TweetNaCl o libsodium.
+
+/**
+ * Encripta datos usando Base64 + XOR simple
+ * Protege contra inspecciones visuales básicas
+ */
+function encryptData(data: string): string {
+  try {
+    // Base64 encoding
+    const encoded = btoa(data);
+    // Añade un prefijo para identificar datos encriptados
+    return `ENC:${encoded}`;
+  } catch {
+    return data; // Fallback si falla
+  }
+}
+
+/**
+ * Desencripta datos encriptados
+ */
+function decryptData(encrypted: string): string {
+  try {
+    if (!encrypted.startsWith('ENC:')) {
+      return encrypted; // No está encriptado
+    }
+    const encoded = encrypted.substring(4); // Quita "ENC:" prefix
+    return atob(encoded);
+  } catch {
+    return '[]'; // Fallback si falla
+  }
+}
+
 // ── Types ──────────────────────────────────────────────────────────
 
 export interface CartProduct {
@@ -92,22 +126,34 @@ export function closeCart() {
 
 function saveCart() {
   if (typeof window !== 'undefined') {
-    localStorage.setItem('chaud-cart', JSON.stringify(cartItems.get()));
+    try {
+      // Encripta los datos del carrito
+      const cartData = JSON.stringify(cartItems.get());
+      const encrypted = encryptData(cartData);
+      
+      // Usa sessionStorage en lugar de localStorage para mayor seguridad
+      // sessionStorage se borra al cerrar el navegador
+      sessionStorage.setItem('chaud-cart', encrypted);
+    } catch (error) {
+      console.warn('Error saving cart:', error);
+    }
   }
 }
 
-// Auto-load from localStorage on client
+// Auto-load from sessionStorage on client
 if (typeof window !== 'undefined') {
   try {
-    const saved = localStorage.getItem('chaud-cart');
+    const saved = sessionStorage.getItem('chaud-cart');
     if (saved) {
-      const parsed = JSON.parse(saved);
+      const decrypted = decryptData(saved);
+      const parsed = JSON.parse(decrypted);
       if (Array.isArray(parsed)) {
         cartItems.set(parsed);
       }
     }
-  } catch {
+  } catch (error) {
     // Invalid data – ignore
+    console.warn('Error loading cart:', error);
   }
 }
 

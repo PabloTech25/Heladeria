@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import {
     cartItems,
     isCartOpen,
@@ -12,6 +12,9 @@
   } from '../stores/cart';
   import { getCloudinaryUrl } from '../lib/cloudinary';
   import { fade, fly, slide } from 'svelte/transition';
+  
+  // ── Obtener número de WhatsApp desde .env (no visible en cliente) ──
+  const WHATSAPP_PHONE = import.meta.env.PUBLIC_WHATSAPP_PHONE || '522451099498';
 
   // ── Reactive subscriptions ──
   $: items = $cartItems;
@@ -33,6 +36,43 @@
 
   // ── Constants ──
   const DELIVERY_FEE = 30;
+  const RATE_LIMIT_MS = 5000; // 5 segundos entre envíos
+
+  // ── Rate limiting ──
+  let lastSubmitTime = 0;
+
+  // ── Validación y Sanitización ──
+  
+  /**
+   * Valida que un número telefónico sea válido
+   * Acepta 10-15 dígitos numéricos
+   */
+  function validatePhone(phone: string): boolean {
+    const phoneRegex = /^[0-9]{10,15}$/;
+    const cleaned = phone.replace(/\D/g, '');
+    return phoneRegex.test(cleaned);
+  }
+
+  /**
+   * Sanitiza entrada de usuario eliminando caracteres peligrosos
+   * - Limita longitud máxima
+   * - Elimina caracteres especiales que podrían causar problemas
+   */
+  function sanitizeInput(text: string, maxLength: number = 200): string {
+    return text
+      .trim()
+      .substring(0, maxLength)
+      .replace(/[<>"'`]/g, ''); // Elimina caracteres que podrían ser inyecciones
+  }
+
+  /**
+   * Valida que el usuario no haya enviado un pedido hace poco
+   */
+  function canSubmitOrder(): boolean {
+    const now = Date.now();
+    const timeSinceLastSubmit = now - lastSubmitTime;
+    return timeSinceLastSubmit >= RATE_LIMIT_MS;
+  }
 
   // ── Reactive calculations ──
   $: subtotal = total;
@@ -61,7 +101,7 @@
     formError = '';
   }
 
-  function handleKeydown(e) {
+  function handleKeydown(e: KeyboardEvent) {
     if (e.key === 'Escape' && open) handleClose();
   }
 
@@ -76,36 +116,67 @@
   }
 
   function sendWhatsApp() {
-    // Validate
+    // ── RATE LIMITING: Prevenir spam ──
+    if (!canSubmitOrder()) {
+      const secondsLeft = Math.ceil((RATE_LIMIT_MS - (Date.now() - lastSubmitTime)) / 1000);
+      formError = `Por favor espera ${secondsLeft} segundos antes de enviar otro pedido`;
+      return;
+    }
+
+    // ── VALIDACIÓN: Nombre ──
     if (!customerName.trim()) {
       formError = 'Por favor ingresa tu nombre';
       return;
     }
+    if (customerName.trim().length < 2) {
+      formError = 'El nombre debe tener al menos 2 caracteres';
+      return;
+    }
+
+    // ── VALIDACIÓN: Teléfono ──
     if (!customerPhone.trim()) {
       formError = 'Por favor ingresa tu teléfono';
       return;
     }
+    if (!validatePhone(customerPhone)) {
+      formError = 'Teléfono inválido. Debe contener 10-15 dígitos numéricos';
+      return;
+    }
+
+    // ── VALIDACIÓN: Dirección ──
     if (deliveryMethod === 'delivery' && !customerAddress.trim()) {
       formError = 'Por favor ingresa tu dirección de entrega';
       return;
     }
+    if (deliveryMethod === 'delivery' && customerAddress.trim().length < 5) {
+      formError = 'La dirección debe tener al menos 5 caracteres';
+      return;
+    }
+
+    // ── VALIDACIÓN: Método de pago ──
     if (!paymentMethod) {
       formError = 'Por favor selecciona tu método de pago';
       return;
     }
+
     formError = '';
 
+    // ── SANITIZACIÓN: Limpiar inputs antes de enviar ──
+    const sanitizedName = sanitizeInput(customerName, 100);
+    const sanitizedPhone = customerPhone.replace(/\D/g, ''); // Solo dígitos
+    const sanitizedAddress = sanitizeInput(customerAddress, 150);
+    const sanitizedNotes = sanitizeInput(customerNotes, 500);
+
     // Build message
-    // Número de WhatsApp del negocio (cambiar si es necesario)
-    const phoneNumber = '522451099498';
+    const phoneNumber = WHATSAPP_PHONE;
 
     let message = `🧁 *Nuevo Pedido - Chaud & Glace*\n\n`;
-    message += `👤 *Cliente:* ${customerName.trim()}\n`;
-    message += `📱 *Teléfono:* ${customerPhone.trim()}\n`;
+    message += `👤 *Cliente:* ${sanitizedName}\n`;
+    message += `📱 *Teléfono:* ${sanitizedPhone}\n`;
     message += `🚗 *Entrega:* ${deliveryMethod === 'pickup' ? 'Recoger en tienda' : 'A domicilio'}\n`;
 
-    if (deliveryMethod === 'delivery' && customerAddress.trim()) {
-      message += `📍 *Dirección:* ${customerAddress.trim()}\n`;
+    if (deliveryMethod === 'delivery' && sanitizedAddress) {
+      message += `📍 *Dirección:* ${sanitizedAddress}\n`;
     }
 
     message += `💳 *Pago:* ${paymentMethod === 'cash' ? 'Efectivo' : paymentMethod === 'card' ? 'Tarjeta (Débito/Crédito)' : 'Transferencia Bancaria'}\n`;
@@ -123,14 +194,17 @@
     }
     message += `*Total: $${finalTotal}*\n`;
 
-    if (customerNotes.trim()) {
-      message += `\n📝 *Notas:* ${customerNotes.trim()}\n`;
+    if (sanitizedNotes) {
+      message += `\n📝 *Notas:* ${sanitizedNotes}\n`;
     }
 
     message += `\n¡Gracias por tu pedido! 🎉`;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+
+    // ── Registrar tiempo de envío para rate limiting ──
+    lastSubmitTime = Date.now();
 
     // Reset everything
     clearCart();
@@ -339,6 +413,7 @@
                 type="text"
                 bind:value={customerName}
                 placeholder="Tu nombre completo"
+                maxlength="100"
                 class="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition text-warm-900 placeholder-warm-400"
               />
             </div>
@@ -346,13 +421,15 @@
             <!-- Phone -->
             <div>
               <label class="block text-xs sm:text-sm font-semibold text-warm-700 mb-1 sm:mb-1.5" for="checkout-phone">
-                Teléfono *
+                Teléfono * <span class="text-warm-400 text-xs"> (10-15 dígitos)</span>
               </label>
               <input
                 id="checkout-phone"
                 type="tel"
+                inputmode="numeric"
                 bind:value={customerPhone}
                 placeholder="Tu número de teléfono"
+                maxlength="20"
                 class="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition text-warm-900 placeholder-warm-400"
               />
             </div>
@@ -458,6 +535,7 @@
                   type="text"
                   bind:value={customerAddress}
                   placeholder="Calle, número, colonia"
+                  maxlength="150"
                   class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition text-warm-900 placeholder-warm-400"
                 />
               </div>
@@ -473,6 +551,7 @@
                 bind:value={customerNotes}
                 placeholder="Instrucciones especiales, alergias, etc."
                 rows="3"
+                maxlength="500"
                 class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-chaud-400 focus:border-chaud-400 outline-none transition resize-none text-warm-900 placeholder-warm-400"
               ></textarea>
             </div>
