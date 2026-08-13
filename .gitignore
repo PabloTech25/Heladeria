@@ -27,3 +27,5 @@ pnpm-debug.log*
 # archivos de instrucciones internas
 INSTRUCCIONES.md
 public/README-IMAGENES.md
+
+.kilo/
