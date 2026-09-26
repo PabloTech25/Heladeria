@@ -36,6 +36,7 @@
 
   // ── Constants ──
   const DELIVERY_FEE = 30;
+  const CARD_MINIMUM = 100;
   const RATE_LIMIT_MS = 5000; // 5 segundos entre envíos
 
   // ── Rate limiting ──
@@ -156,6 +157,10 @@
     // ── VALIDACIÓN: Método de pago ──
     if (!paymentMethod) {
       formError = 'Por favor selecciona tu método de pago';
+      return;
+    }
+    if (paymentMethod === 'card' && subtotal < CARD_MINIMUM) {
+      formError = `El pago con tarjeta está disponible a partir de $${CARD_MINIMUM}`;
       return;
     }
 
@@ -499,7 +504,7 @@
                     on:click={() => (paymentMethod = 'card')}
                   >
                     <span class="text-lg">💳</span>
-                    <span>Tarjeta</span>
+                    <span>Tarjeta (mín. $100)</span>
                   </button>
                 {/if}
 
