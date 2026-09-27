@@ -93,7 +93,7 @@ import "../styles/global.css";
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -270,83 +270,38 @@ import "../styles/global.css";
 			}
 		</script>
 	</head>
-	<body class="font-['Outfit',sans-serif] antialiased">
+	<body class="font-['Manrope',sans-serif] antialiased">
 		<Header currentPage="home" />
 
-		<!-- Hero Section -->
-		<section
-			id="inicio"
-			class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20"
-		>
-			<!-- Background Image -->
-			<div class="absolute inset-0 z-0">
-				<img
-					src="/hero-background.png"
-					alt="Chaud & Glace Background"
-					class="w-full h-full object-cover"
-				/>
-				<div
-					class="absolute inset-0 bg-linear-to-br from-black/60 via-black/40 to-chaud-900/60"
-				>
-				</div>
+		<!-- Storefront entrance -->
+		<section id="inicio" class="relative overflow-hidden bg-warm-900 pt-24 text-white sm:pt-28">
+			<div class="absolute inset-0">
+				<img src="/hero-background.png" alt="Preparaciones de Chaud & Glace" class="h-full w-full object-cover object-center opacity-55" />
+				<div class="absolute inset-0 bg-linear-to-r from-warm-900 via-warm-900/80 to-chaud-900/45"></div>
 			</div>
-
-			<!-- Hero Content -->
-			<div
-				class="relative z-10 container mx-auto px-4 sm:px-6 text-center text-white"
-			>
-				<h1
-					class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 animate-fade-in px-2"
-				>
-					Bienvenidos a<br />
-					 <span
-						class="text-transparent bg-clip-text bg-linear-to-r from-chaud-300 to-chaud-500"
-					>
-						Chaud & Glace
-					</span>
-				</h1>
-				<p
-					class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-2xl mx-auto px-4"
-				> 
-					Cafetería y Helados artesanales en Ciudad Serdán, Puebla 
-					Donde el sabor y la calidez existen en un mismo lugar
-				</p>
-				<div
-					class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
-				>
-					<a
-						href="#menu"
-						class="bg-linear-to-r from-chaud-500 to-chaud-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
-					>
-						Ver Menú
-					</a>
-					<a
-						href="#contacto"
-						class="bg-white/20 backdrop-blur-md text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg border-2 border-white/50 hover:bg-white/30 hover:scale-105 transition-all duration-300"
-					>
-						Contáctanos
-					</a>
+			<div class="relative mx-auto grid min-h-124 max-w-7xl items-end gap-10 px-4 pb-12 sm:px-6 sm:pb-16 lg:grid-cols-[1fr_23rem] lg:gap-20 lg:px-8">
+				<div class="max-w-3xl">
+					<p class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-chaud-300">Café · helado · algo dulce</p>
+					<h1 class="store-display max-w-3xl text-5xl font-semibold leading-[0.9] sm:text-7xl lg:text-8xl">Tu pausa favorita, servida al momento.</h1>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">Una carta para disfrutar aquí, pedir para llevar o mandar directo a WhatsApp desde Ciudad Serdán.</p>
+					<div class="mt-8 flex flex-col gap-3 sm:flex-row">
+						<a href="#menu" class="inline-flex min-h-12 items-center justify-center rounded-full bg-chaud-500 px-7 font-bold text-white transition-colors hover:bg-chaud-400">Explorar la carta</a>
+						<a href="https://wa.me/522451099498" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">Pedir por WhatsApp</a>
+					</div>
 				</div>
-			</div>
-
-			<!-- Scroll Indicator -->
-			<div
-				class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce"
-			>
-				<svg
-					class="w-6 h-6 text-white"
-					fill="none"
-					stroke="currentColor"
-					viewBox="0 0 24 24"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-				</svg>
+				<div class="border-t border-white/25 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+					<p class="text-sm font-semibold text-white/70">Hecho para antojos reales</p>
+					<div class="mt-5 grid grid-cols-2 gap-x-5 gap-y-6 text-sm">
+						<div><strong class="block text-2xl text-white">70+</strong><span class="text-white/65">opciones artesanales</span></div>
+						<div><strong class="block text-2xl text-white">4.8</strong><span class="text-white/65">reseña promedio</span></div>
+						<div><strong class="block text-2xl text-white">11:00</strong><span class="text-white/65">abrimos todos los días</span></div>
+						<div><strong class="block text-2xl text-white">$20</strong><span class="text-white/65">antojos desde</span></div>
+					</div>
+				</div>
 			</div>
 		</section>
+
+		<MenuCategoriesExpanded products={products} />
 
 		<!-- About Section -->
 		<section id="sobre-nosotros" class="py-12 sm:py-16 md:py-20 bg-white">
@@ -462,8 +417,6 @@ import "../styles/global.css";
 
 		<!-- Expanded Menu Categories Section - SEO Optimized -->
 		<!-- Consolidated: ProductMenu removed, all products now in MenuCategoriesExpanded with cart functionality -->
-		<MenuCategoriesExpanded products={products} />
-
 		<!-- Contact Form -->
 		<ContactForm />
 

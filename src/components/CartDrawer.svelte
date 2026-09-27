@@ -245,11 +245,11 @@
 
     <!-- Drawer panel -->
     <div
-      class="absolute right-0 top-0 h-full w-full sm:max-w-md bg-white shadow-2xl flex flex-col"
+      class="absolute right-0 top-0 flex h-full w-full flex-col bg-white shadow-2xl sm:max-w-md"
       transition:fly={{ x: 400, duration: 300 }}
     >
       <!-- ─── Header ─── -->
-      <div class="flex items-center justify-between p-4 sm:p-5 border-b border-warm-100">
+      <div class="flex items-center justify-between border-b border-warm-200 p-4 sm:p-5">
         {#if step === 'checkout'}
           <button
             on:click={backToCart}
@@ -272,7 +272,7 @@
 
         <button
           on:click={handleClose}
-          class="p-2 text-warm-400 hover:text-warm-700 transition-colors rounded-lg hover:bg-warm-100"
+          class="min-h-11 min-w-11 rounded-full p-2 text-warm-400 transition-colors hover:bg-warm-100 hover:text-warm-700"
           aria-label="Cerrar carrito"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -313,7 +313,7 @@
             <div class="p-4 sm:p-5 space-y-3 sm:space-y-4">
               {#each items as item (item.product.id)}
                 <div
-                  class="flex gap-3 sm:gap-4 p-3 bg-warm-50 rounded-xl border border-warm-100"
+                  class="flex gap-3 border border-warm-200 bg-warm-50 p-3 sm:gap-4"
                   transition:slide={{ duration: 200 }}
                 >
                   <img
@@ -336,7 +336,7 @@
                       <div class="flex items-center gap-1.5">
                         <button
                           on:click={() => updateQuantity(item.product.id, item.quantity - 1)}
-                          class="w-7 h-7 rounded-lg bg-warm-200 hover:bg-warm-300 flex items-center justify-center text-warm-700 font-bold transition-colors text-sm"
+                          class="flex h-11 w-11 items-center justify-center rounded-lg bg-warm-200 text-sm font-bold text-warm-700 transition-colors hover:bg-warm-300"
                           aria-label="Reducir cantidad"
                         >
                           −
@@ -346,7 +346,7 @@
                         </span>
                         <button
                           on:click={() => updateQuantity(item.product.id, item.quantity + 1)}
-                          class="w-7 h-7 rounded-lg bg-chaud-100 hover:bg-chaud-200 flex items-center justify-center text-chaud-700 font-bold transition-colors text-sm"
+                          class="flex h-11 w-11 items-center justify-center rounded-lg bg-chaud-100 text-sm font-bold text-chaud-700 transition-colors hover:bg-chaud-200"
                           aria-label="Aumentar cantidad"
                         >
                           +
@@ -360,7 +360,7 @@
                         </span>
                         <button
                           on:click={() => removeFromCart(item.product.id)}
-                          class="text-warm-400 hover:text-red-500 transition-colors p-1"
+                          class="min-h-11 min-w-11 p-2 text-warm-400 transition-colors hover:text-red-500"
                           aria-label="Eliminar {item.product.name}"
                         >
                           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -447,26 +447,26 @@
               <div class="grid grid-cols-2 gap-2 sm:gap-3">
                 <button
                   type="button"
-                  class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                  class={`min-h-11 p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center justify-center gap-1 ${
                     deliveryMethod === 'pickup'
                       ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                       : 'border-warm-200 text-warm-500 hover:border-warm-300'
                   }`}
                   on:click={() => (deliveryMethod = 'pickup')}
+                  aria-pressed={deliveryMethod === 'pickup'}
                 >
-                  <span class="text-base sm:text-lg">🏪</span>
                   <span class="text-xs sm:text-sm">Recoger en tienda</span>
                 </button>
                 <button
                   type="button"
-                  class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                  class={`min-h-11 p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center justify-center gap-1 ${
                     deliveryMethod === 'delivery'
                       ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                       : 'border-warm-200 text-warm-500 hover:border-warm-300'
                   }`}
                   on:click={() => (deliveryMethod = 'delivery')}
+                  aria-pressed={deliveryMethod === 'delivery'}
                 >
-                  <span class="text-base sm:text-lg">🛵</span>
                   <span class="text-xs sm:text-sm">A domicilio</span>
                 </button>
               </div>
@@ -481,14 +481,14 @@
                 <!-- Efectivo -->
                 <button
                   type="button"
-                  class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                  class={`min-h-11 p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center justify-center gap-1 ${
                     paymentMethod === 'cash'
                       ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                       : 'border-warm-200 text-warm-500 hover:border-warm-300'
                   }`}
                   on:click={() => (paymentMethod = 'cash')}
+                  aria-pressed={paymentMethod === 'cash'}
                 >
-                  <span class="text-lg">💵</span>
                   <span>Efectivo</span>
                 </button>
 
@@ -496,14 +496,14 @@
                 {#if deliveryMethod === 'pickup'}
                   <button
                     type="button"
-                    class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                    class={`min-h-11 p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center justify-center gap-1 ${
                       paymentMethod === 'card'
                         ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                         : 'border-warm-200 text-warm-500 hover:border-warm-300'
                     }`}
                     on:click={() => (paymentMethod = 'card')}
+                    aria-pressed={paymentMethod === 'card'}
                   >
-                    <span class="text-lg">💳</span>
                     <span>Tarjeta (mín. $100)</span>
                   </button>
                 {/if}
@@ -511,14 +511,14 @@
                 <!-- Transferencia -->
                 <button
                   type="button"
-                  class={`p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center gap-1 ${
+                  class={`min-h-11 p-2.5 sm:p-3 rounded-xl border-2 text-xs sm:text-sm font-semibold transition-all flex flex-col items-center justify-center gap-1 ${
                     paymentMethod === 'transfer'
                       ? 'border-chaud-500 bg-chaud-50 text-chaud-700'
                       : 'border-warm-200 text-warm-500 hover:border-warm-300'
                   }`}
                   on:click={() => (paymentMethod = 'transfer')}
+                  aria-pressed={paymentMethod === 'transfer'}
                 >
-                  <span class="text-lg">🏦</span>
                   <span>Transferencia</span>
                 </button>
               </div>

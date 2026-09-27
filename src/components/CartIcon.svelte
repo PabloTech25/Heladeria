@@ -7,7 +7,7 @@
 
 <button
   on:click={toggleCart}
-  class="relative p-2 text-warm-700 hover:text-chaud-600 transition-colors"
+  class="relative flex min-h-11 min-w-11 items-center justify-center p-2 text-warm-700 transition-colors hover:text-chaud-600"
   aria-label="Carrito de compras"
 >
   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@
     {#key count}
       <span
         in:scale={{ duration: 300, start: 0.5 }}
-        class="absolute -top-1 -right-1 bg-chaud-600 text-white text-xs font-bold rounded-full min-w-[20px] h-5 flex items-center justify-center px-1"
+        class="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-chaud-600 px-1 text-xs font-bold text-white"
       >
         {count}
       </span>
