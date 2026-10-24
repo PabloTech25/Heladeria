@@ -10,13 +10,13 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "@astrojs/svelte": "^9.0.1",
+    "@astrojs/svelte": "^9.1.1",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.3.5",
+    "astro": "^7.4.2",
     "cloudinary": "^2.11.0",
-    "nanostores": "^1.5.4",
-    "sharp": "^0.35.4",
-    "svelte": "^5.57.1",
+    "nanostores": "^1.5.5",
+    "sharp": "^0.35.5",
+    "svelte": "^5.57.2",
     "tailwindcss": "^4.3.3"
   },
   "pnpm": {
@@ -25,6 +25,6 @@
     }
   },
   "devDependencies": {
-    "dotenv": "^18.0.4"
+    "dotenv": "^18.0.9"
   }
 }
