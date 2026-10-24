@@ -6,214 +6,169 @@ interface Props {
 }
 
 const { currentPage = 'home' } = Astro.props;
-
-const getLink = (anchor: string) => anchor;
+const whatsappHref = 'https://wa.me/522451099498';
+const navigationItems = [
+    { label: 'Inicio', href: '#inicio' },
+    { label: 'Nuestra historia', href: '#sobre-nosotros' },
+    { label: 'Menú', href: '#menu' },
+    { label: 'Contacto', href: '#contacto' },
+];
 ---
 
 <header
+    data-site-header
     class="fixed left-0 right-0 top-0 z-50 border-b border-warm-200/80 bg-white/92 backdrop-blur-xl"
 >
-    <nav class="mx-auto max-w-7xl px-4 py-2.5 sm:px-6 lg:px-8">
+    <nav class="relative mx-auto max-w-7xl px-4 py-2.5 sm:px-6 lg:px-8" aria-label="Navegación principal">
         <div class="flex items-center justify-between">
-            <!-- Logo and Brand -->
-            <a href={getLink("#inicio")} class="group flex items-center gap-2.5 transition-opacity duration-200 hover:opacity-80 sm:gap-3">
+            <a
+                href="#inicio"
+                class="group flex items-center gap-2.5 rounded-sm transition-opacity duration-200 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chaud-500 focus-visible:ring-offset-2 sm:gap-3"
+            >
                 <img
                     src="/logo/LogoChaud.png"
                     alt="Chaud & Glace Logo"
                     class="h-10 w-10 object-contain sm:h-11 sm:w-11"
                 />
-                <div class="flex flex-col">
+                <span class="flex flex-col">
                     <span class="text-base font-bold leading-tight text-warm-900 sm:text-lg">
                         Chaud &amp; Glace
                     </span>
                     <span class="hidden text-[0.65rem] font-bold uppercase tracking-[0.16em] text-chaud-600 sm:block">
                         Cafetería · Heladería
                     </span>
-                </div>
+                </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <ul class="hidden items-center gap-6 md:flex">
-                <li>
+            <ul
+                id="mobile-menu"
+                data-mobile-menu
+                class="absolute left-4 right-4 top-full mt-0 hidden flex-col gap-1 border-t border-chaud-100 bg-white py-4 md:left-1/2 md:right-auto md:top-1/2 md:flex md:-translate-x-1/2 md:-translate-y-1/2 md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0"
+            >
+                {navigationItems.map(({ label, href }) => (
+                    <li>
+                        <a
+                            href={href}
+                            aria-current={currentPage === 'home' && href === '#inicio' ? 'page' : undefined}
+                            class="block rounded-sm py-2 text-sm font-semibold text-warm-700 transition-colors hover:text-chaud-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chaud-500 focus-visible:ring-offset-2 md:py-1"
+                        >
+                            {label}
+                        </a>
+                    </li>
+                ))}
+                <li class="md:hidden">
                     <a
-                        href={getLink("#inicio")}
-                        class="text-sm font-semibold text-warm-700 transition-colors hover:text-chaud-600"
+                        href={whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-2 flex min-h-11 items-center justify-center gap-2 rounded-full bg-chaud-600 px-6 py-3 font-semibold text-white shadow-md transition-colors hover:bg-chaud-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chaud-500 focus-visible:ring-offset-2"
                     >
-                        Inicio
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getLink("#sobre-nosotros")}
-                        class="text-sm font-semibold text-warm-700 transition-colors hover:text-chaud-600"
-                    >
-                        Nuestra historia
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getLink("#menu")}
-                        class="text-sm font-semibold text-warm-700 transition-colors hover:text-chaud-600"
-                    >
-                        Menú
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getLink("#contacto")}
-                        class="text-sm font-semibold text-warm-700 transition-colors hover:text-chaud-600"
-                    >
-                        Contacto
+                        <svg class="h-5 w-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a11 11 0 011.21-.502l4.493 1.498a2 2 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                            ></path>
+                        </svg>
+                        Pedir por WhatsApp
                     </a>
                 </li>
             </ul>
 
-            <!-- Action Buttons -->
             <div class="flex items-center gap-3">
-                <!-- Cart Icon -->
                 <CartIcon client:load />
 
-                <!-- Call Button -->
                 <a
-                    href="https://wa.me/522451099498"
+                    href={whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="hidden min-h-11 items-center gap-2 rounded-full bg-warm-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-chaud-600 hover:shadow-lg md:flex"
+                    class="hidden min-h-11 items-center gap-2 rounded-full bg-warm-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-chaud-600 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chaud-500 focus-visible:ring-offset-2 md:flex"
                 >
-                    <svg
-                        class="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
+                    <svg class="h-5 w-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a11 11 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a11 11 0 011.21-.502l4.493 1.498a2 2 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         ></path>
                     </svg>
                     Pedir por WhatsApp
                 </a>
 
-                <!-- Mobile Menu Button -->
                 <button
-                    id="mobile-menu-button"
-                    class="min-h-11 min-w-11 p-2 text-warm-700 transition-colors hover:text-chaud-600 md:hidden"
-                    aria-label="Toggle menu"
+                    type="button"
+                    data-mobile-menu-toggle
+                    class="min-h-11 min-w-11 rounded-sm p-2 text-warm-700 transition-colors hover:text-chaud-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chaud-500 focus-visible:ring-offset-2 md:hidden"
+                    aria-label="Abrir menú"
                     aria-expanded="false"
                     aria-controls="mobile-menu"
                 >
-                    <svg
-                        class="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
+                    <svg class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
+                            d="M4 6h16M4 12h16M4 18h16"
+                        ></path>
                     </svg>
                 </button>
             </div>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <div
-            id="mobile-menu"
-            class="hidden md:hidden mt-4 pb-4 border-t border-chaud-100 pt-4"
-        >
-            <ul class="flex flex-col gap-4">
-                <li>
-                    <a
-                        href={getLink("#inicio")}
-                        class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
-                    >
-                        Inicio
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getLink("#sobre-nosotros")}
-                        class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
-                    >
-                        Sobre Nosotros
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getLink("#menu")}
-                        class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
-                    >
-                        Menú
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getLink("#contacto")}
-                        class="block text-warm-700 hover:text-chaud-600 transition-colors font-medium py-2"
-                    >
-                        Contacto
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://wa.me/522451099498"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="flex items-center justify-center gap-2 bg-chaud-600 hover:bg-chaud-700 text-white px-6 py-3 rounded-full font-semibold shadow-md transition-all duration-300"
-                    >
-                        <svg
-                            class="w-5 h-5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                            ></path>
-                        </svg>
-                        Ordenar por WhatsApp
-                    </a>
-                </li>
-            </ul>
         </div>
     </nav>
 </header>
 
 <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
+    const header = document.querySelector<HTMLElement>('[data-site-header]');
+    const mobileMenuButton = header?.querySelector<HTMLButtonElement>('[data-mobile-menu-toggle]');
+    const mobileMenu = header?.querySelector<HTMLElement>('[data-mobile-menu]');
 
-    mobileMenuButton?.addEventListener("click", () => {
-        mobileMenu?.classList.toggle("hidden");
-        mobileMenuButton.setAttribute("aria-expanded", String(!mobileMenu?.classList.contains("hidden")));
-    });
+    if (header && mobileMenuButton && mobileMenu) {
+        const setMenuState = (isOpen: boolean) => {
+            mobileMenu.classList.toggle('hidden', !isOpen);
+            mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+            mobileMenuButton.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+        };
 
-    // Smooth scrolling for anchor links with header offset (fixed header)
-    // Only for same-page anchors (e.g., #menu), not for cross-page navigation (e.g., /#menu)
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", (e) => {
-            const href = anchor.getAttribute("href");
-            if (!href || href === "#") return;
-            const target = document.querySelector(href);
-            if (!target) return;
-            e.preventDefault();
-
-            const headerEl = document.querySelector('header');
-            const headerHeight = headerEl ? headerEl.offsetHeight : 0;
-
-            const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
-            window.scrollTo({ top: targetY, behavior: 'smooth' });
-
-            // Close mobile menu after clicking
-            mobileMenu?.classList.add("hidden");
+        mobileMenuButton.addEventListener('click', () => {
+            setMenuState(mobileMenuButton.getAttribute('aria-expanded') !== 'true');
         });
-    });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && mobileMenuButton.getAttribute('aria-expanded') === 'true') {
+                setMenuState(false);
+                mobileMenuButton.focus();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+
+            const link = target.closest<HTMLAnchorElement>('a[href^="#"]');
+            if (link && header.contains(link)) {
+                const href = link.getAttribute('href');
+                const section = href ? document.getElementById(href.slice(1)) : null;
+                if (section) {
+                    event.preventDefault();
+                    const targetY =
+                        section.getBoundingClientRect().top + window.scrollY - header.offsetHeight - 12;
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                    window.scrollTo({
+                        top: Math.max(0, targetY),
+                        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                    });
+                    setMenuState(false);
+                }
+            }
+
+            if (
+                mobileMenuButton.getAttribute('aria-expanded') === 'true' &&
+                !header.contains(target)
+            ) {
+                setMenuState(false);
+            }
+        });
+    }
 </script>
