@@ -10,11 +10,31 @@ interface Props {
 const { products } = Astro.props;
 
 const categories = {
-  "Heladería": "Nuestros helados artesanales son la estrella de Chaud & Glace. Elaborados con ingredientes premium, técnicas artesanales y sin conservantes.",
-  "Bebidas": "Bebidas frías y calientes pensadas para refrescar y deleitar, desde frappes caseros hasta café gourmet.",
-  "Reposteria y Snacks": "Repostería artesanal y snacks frescos preparados diariamente con los mejores ingredientes.",
-  "Salados": "Opciones saladas para complementar tu visita, desde sándwiches artesanales hasta opciones ligeras.",
-  "Completos": "Nuestras creaciones más elaboradas y especiales, con combinaciones únicas de la casa."
+  "Heladería": {
+    badge: "100% Artesanal",
+    icon: "🍨",
+    description: "Nuestra insignia. Elaborados diariamente en Ciudad Serdán con fruta seleccionada, texturas ultra cremosas y sin conservadores artificiales."
+  },
+  "Bebidas": {
+    badge: "Frío & Caliente",
+    icon: "☕",
+    description: "Desde café gourmet de altura hasta frappes con combinaciones de autor y malteadas irresistibles para revitalizar tu día."
+  },
+  "Reposteria y Snacks": {
+    badge: "Horneado & Dulce",
+    icon: "🥐",
+    description: "Crepas dulces, repostería artesanal y bocadillos frescos preparados al momento con ingredientes de calidad suprema."
+  },
+  "Salados": {
+    badge: "Para Compartir",
+    icon: "🥪",
+    description: "Opciones saladas y sándwiches gourmet con ingredientes selectos para complementar una pausa perfecta."
+  },
+  "Completos": {
+    badge: "Especiales de la Casa",
+    icon: "✨",
+    description: "Nuestras combinaciones más abundantes y festivas, diseñadas para regalar, consentirte o celebrar con amigos."
+  }
 };
 
 type CategoryKey = keyof typeof categories;
@@ -27,74 +47,353 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
 }, {} as Record<CategoryKey, Product[]>);
 ---
 
-<section id="menu" class="border-t border-warm-200 bg-white py-16 sm:py-20">
+<section id="menu" class="store-section border-t border-warm-200/80 bg-[#fdfbf7] py-20 sm:py-28" aria-label="Menú y Carta E-commerce">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-10 flex flex-col gap-6 border-b border-warm-200 pb-8 sm:mb-12 sm:pb-10 lg:flex-row lg:items-end lg:justify-between">
-      <div>
-        <div class="mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-chaud-700"><span class="h-2 w-2 rounded-full bg-chaud-500"></span>La carta de hoy</div>
-        <h2 class="store-display max-w-2xl text-4xl font-semibold leading-[0.95] text-warm-900 sm:text-6xl">Algo rico para cada antojo.</h2>
-        <p class="mt-5 max-w-xl text-sm leading-relaxed text-warm-600 sm:text-base">Explora la carta, elige tus favoritos y arma tu pedido. Todo se prepara al momento en Ciudad Serdán.</p>
+    
+    <!-- Section Header -->
+    <div class="relative mb-12 flex flex-col gap-6 border-b border-warm-200/80 pb-10 sm:mb-16 sm:pb-12 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-2xl">
+        <div class="store-kicker mb-3.5 flex items-center gap-2.5">
+          <span class="inline-block h-2 w-2 rounded-full bg-chaud-500 animate-pulse"></span>
+          <span>Catálogo y Pedidos en Línea</span>
+        </div>
+        <h2 class="store-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-espresso-950 leading-[0.98]">
+          Nuestra Carta Artesanal
+        </h2>
+        <p class="mt-4 text-base sm:text-lg leading-relaxed text-warm-600">
+          Explora más de 70 creaciones preparadas al instante con técnicas artesanales. Elige tus favoritos, personaliza y envía tu orden directa a WhatsApp.
+        </p>
       </div>
-      <div class="flex items-center gap-3 text-sm text-warm-600"><span class="flex h-10 w-10 items-center justify-center rounded-full bg-chaud-50 text-chaud-700">★</span><span><strong class="block text-warm-900">4.8 / 5</strong>Favorito de la comunidad</span></div>
+
+      <!-- Trust highlights -->
+      <div class="flex items-center gap-4 rounded-2xl border border-warm-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-chaud-50 text-chaud-700 font-bold text-lg border border-chaud-200/60">
+          4.8★
+        </div>
+        <div>
+          <strong class="block text-sm font-bold text-espresso-950">Favorito de Ciudad Serdán</strong>
+          <span class="text-xs text-warm-500">Más de 120 reseñas comunitarias</span>
+        </div>
+      </div>
     </div>
 
-    <nav aria-label="Categorías del catálogo" class="sticky top-16 z-20 -mx-4 mb-12 overflow-x-auto border-y border-warm-200 bg-white/95 px-4 py-3 backdrop-blur-xl sm:top-20 sm:static sm:mx-0 sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0">
-      <div class="flex min-w-max gap-2 sm:min-w-0 sm:flex-wrap sm:gap-3">
-        <a href="#menu" class="rounded-full bg-chaud-600 px-4 py-2 text-sm font-bold text-white shadow-sm">Todo</a>
-        {Object.entries(groupedProducts).map(([categoryName], index) => (
-          <a href={`#categoria-${index + 1}`} class="rounded-full border border-warm-200 bg-white px-4 py-2 text-sm font-semibold text-warm-700 transition-colors hover:border-chaud-500 hover:text-chaud-700">
-            {categoryName === "Reposteria y Snacks" ? "Repostería y snacks" : categoryName}
-          </a>
-        ))}
-      </div>
-    </nav>
-
-    {Object.entries(groupedProducts).map(([categoryName, categoryProducts], index) => {
-      const description = categories[categoryName as CategoryKey];
-      if (!description) return null;
-
-      return (
-        <div id={`categoria-${index + 1}`} class="mb-16 scroll-mt-28 sm:mb-20">
-          <div class="mb-8">
-            <div class="mb-4 flex items-end justify-between gap-4 border-b border-warm-200 pb-4">
-              <h3 class="store-display text-3xl font-semibold text-warm-900 sm:text-4xl">{categoryName === "Reposteria y Snacks" ? "Repostería y Snacks" : categoryName}</h3>
-              <span class="shrink-0 text-xs font-semibold text-warm-500">{categoryProducts.length} opciones</span>
-            </div>
-            <p class="max-w-2xl text-sm leading-relaxed text-warm-600 sm:text-base">{description}</p>
+    <!-- Search & Category Filters Bar -->
+    <div class="sticky top-16 z-30 mb-12 rounded-3xl border border-warm-200/90 bg-white/90 p-4 shadow-lg backdrop-blur-xl transition-all sm:top-20 sm:p-5">
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        
+        <!-- Live Search Input -->
+        <div class="relative flex-1 max-w-md">
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-warm-400">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
           </div>
+          <input
+            type="search"
+            id="catalog-search"
+            placeholder="Buscar por nombre (ej. Frappe, Oreo, Helado...)"
+            class="w-full rounded-full border border-warm-200 bg-warm-50/70 py-2.5 pl-10 pr-4 text-xs sm:text-sm text-espresso-950 placeholder-warm-400 focus:border-chaud-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-chaud-200 transition-all"
+            aria-label="Buscar en la carta"
+          />
+        </div>
 
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {categoryProducts.map((product) => (
-              <article class="group overflow-hidden rounded-2xl border border-warm-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-chaud-300 hover:shadow-xl hover:shadow-chaud-900/8">
-                <div class="relative aspect-[1.15] overflow-hidden bg-chaud-50">
-                  <img
-                    src={getCloudinaryUrl(product.image, { width: 400 })}
-                    srcset={getResponsiveSrcSet(product.image, [320, 400, 640])}
-                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 640px"
-                    alt={`${product.name} - ${categoryName} artesanal en Ciudad Serdán, Puebla - Chaud & Glace`}
-                    class="h-full w-full object-contain p-5 transition-transform duration-500 group-hover:scale-105 sm:p-7"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="absolute left-3 top-3 rounded-full bg-white px-3 py-1.5 text-sm font-bold text-warm-900 shadow-sm sm:left-4 sm:top-4">{product.price}</div>
-                </div>
-
-                <div class="p-5 sm:p-6">
-                  <h4 class="mb-2 text-lg font-semibold leading-snug text-warm-900 sm:text-xl">{product.name}</h4>
-                  <p class="mb-4 line-clamp-2 text-sm leading-relaxed text-warm-600">{product.description}</p>
-                  {product.size && <div class="mb-4 inline-flex border border-chaud-200 bg-chaud-50 px-2.5 py-1.5 text-xs font-semibold text-chaud-600">{product.size}</div>}
-                  <div class="mt-5 border-t border-warm-200 pt-4">
-                    <AddToCartButton client:idle id={product.id} name={product.name} price={product.numericPrice} image={product.image} size={product.size} />
-                  </div>
-                </div>
-              </article>
+        <!-- Filter Pills Scroll Container -->
+        <nav aria-label="Filtrar por categoría" class="overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+          <div class="flex items-center gap-2 min-w-max">
+            <button
+              type="button"
+              data-category-filter="all"
+              class="active-category-btn rounded-full bg-espresso-950 px-4 py-2 text-xs font-bold text-white shadow-sm transition-all hover:bg-chaud-600"
+            >
+              Todos ({products.length})
+            </button>
+            {Object.entries(groupedProducts).map(([categoryName, items]) => (
+              <button
+                type="button"
+                data-category-filter={categoryName}
+                class="rounded-full border border-warm-200 bg-warm-50/60 px-4 py-2 text-xs font-semibold text-warm-800 transition-all hover:border-chaud-400 hover:bg-chaud-50 hover:text-chaud-700"
+              >
+                {categoryName === "Reposteria y Snacks" ? "Repostería" : categoryName} ({items.length})
+              </button>
             ))}
           </div>
+        </nav>
+      </div>
 
-          {categoryProducts.length < 5 && <div class="mt-8 border border-dashed border-chaud-300 bg-chaud-50 p-5 text-center"><p class="text-sm text-warm-600">Tenemos más opciones en esta categoría. Contáctanos para conocer nuestras últimas creaciones.</p></div>}
-          <div class="mt-14 border-t border-warm-200 sm:mt-16"></div>
-        </div>
-      );
-    })}
+      <!-- Quick status indicator -->
+      <div id="search-feedback" class="hidden mt-3 text-xs text-warm-500 font-medium"></div>
+    </div>
+
+    <!-- Empty Search State -->
+    <div id="catalog-empty-state" class="hidden py-16 text-center">
+      <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-warm-100 text-2xl">
+        🔍
+      </div>
+      <h3 class="store-display text-xl font-bold text-espresso-950 mb-1">Sin coincidencias</h3>
+      <p class="text-sm text-warm-600 mb-4">No encontramos productos que coincidan con tu término de búsqueda.</p>
+      <button
+        type="button"
+        id="reset-search-btn"
+        class="rounded-full bg-chaud-600 px-5 py-2 text-xs font-bold text-white shadow hover:bg-chaud-700 transition"
+      >
+        Ver toda la carta
+      </button>
+    </div>
+
+    <!-- Product Groups -->
+    <div id="catalog-products-container" class="space-y-16 sm:space-y-24">
+      {Object.entries(groupedProducts).map(([categoryName, categoryProducts], index) => {
+        const catMeta = categories[categoryName as CategoryKey];
+        if (!catMeta) return null;
+
+        return (
+          <section
+            data-category-section={categoryName}
+            id={`categoria-${index + 1}`}
+            class="scroll-mt-36"
+          >
+            <!-- Category Header -->
+            <div class="mb-8 border-b border-warm-200/80 pb-5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl" aria-hidden="true">{catMeta.icon}</span>
+                  <h3 class="store-display text-2xl sm:text-3xl lg:text-4xl font-bold text-espresso-950">
+                    {categoryName === "Reposteria y Snacks" ? "Repostería y Snacks" : categoryName}
+                  </h3>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="rounded-full bg-warm-100 px-3 py-1 text-xs font-semibold text-warm-700">
+                    {catMeta.badge}
+                  </span>
+                  <span class="text-xs font-bold text-chaud-600">
+                    {categoryProducts.length} creaciones
+                  </span>
+                </div>
+              </div>
+              <p class="max-w-3xl text-sm leading-relaxed text-warm-600">
+                {catMeta.description}
+              </p>
+            </div>
+
+            <!-- Products Grid with 3D Card Hover -->
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {categoryProducts.map((product) => (
+                <article
+                  data-product-card
+                  data-product-name={product.name.toLowerCase()}
+                  data-product-category={categoryName}
+                  data-product-desc={(product.description || '').toLowerCase()}
+                  class="card-3d group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-warm-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-chaud-300 hover:shadow-xl hover:shadow-chaud-950/5"
+                >
+                  <div>
+                    <!-- Product Image Container -->
+                    <div class="relative aspect-square w-full overflow-hidden rounded-xl bg-[radial-gradient(circle_at_50%_35%,#ffffff_0%,#fff5f7_60%,#fde8ef_100%)] p-4 flex items-center justify-center">
+                      <img
+                        src={getCloudinaryUrl(product.image, { width: 440 })}
+                        srcset={getResponsiveSrcSet(product.image, [280, 400, 600])}
+                        sizes="(max-width: 640px) 280px, (max-width: 1024px) 400px, 600px"
+                        alt={`${product.name} - ${categoryName} artesanal de Chaud & Glace en Ciudad Serdán`}
+                        class="h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-110"
+                        loading="lazy"
+                        decoding="async"
+                      />
+
+                      <!-- Price Tag Floating Pill -->
+                      <div class="absolute left-3 top-3 rounded-full border border-white/60 bg-white/90 px-3 py-1 text-xs sm:text-sm font-extrabold text-espresso-950 shadow-sm backdrop-blur-md">
+                        {product.price}
+                      </div>
+
+                      {product.featured && (
+                        <div class="absolute right-3 top-3 rounded-full bg-chaud-600 px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-white shadow-sm">
+                          Favorito ⭐
+                        </div>
+                      )}
+                    </div>
+
+                    <!-- Product Details -->
+                    <div class="mt-4">
+                      <div class="flex items-baseline justify-between gap-2 mb-1.5">
+                        <h4 class="font-bold text-base sm:text-lg text-espresso-950 leading-snug group-hover:text-chaud-700 transition-colors">
+                          {product.name}
+                        </h4>
+                      </div>
+
+                      <p class="text-xs sm:text-sm leading-relaxed text-warm-600 line-clamp-2 mb-3">
+                        {product.description}
+                      </p>
+
+                      {product.size && (
+                        <div class="mb-3 inline-flex items-center gap-1 rounded-md border border-warm-200/80 bg-warm-50 px-2.5 py-1 text-[0.68rem] font-semibold text-warm-700">
+                          <span>🥄</span>
+                          <span>{product.size}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <!-- Add to Cart CTA -->
+                  <div class="mt-2 border-t border-warm-100 pt-3">
+                    <AddToCartButton
+                      client:idle
+                      id={product.id}
+                      name={product.name}
+                      price={product.numericPrice}
+                      image={product.image}
+                      size={product.size}
+                    />
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </div>
+
   </div>
 </section>
+
+<!-- Client-side Interactive Filter & Search Script -->
+<script>
+  function setupCatalogFilters() {
+    const searchInput = document.getElementById('catalog-search') as HTMLInputElement | null;
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-category-filter]');
+    const categorySections = document.querySelectorAll<HTMLElement>('[data-category-section]');
+    const productCards = document.querySelectorAll<HTMLElement>('[data-product-card]');
+    const emptyState = document.getElementById('catalog-empty-state');
+    const resetBtn = document.getElementById('reset-search-btn');
+    const feedback = document.getElementById('search-feedback');
+
+    let currentCategory = 'all';
+    let currentSearchTerm = '';
+
+    function filterProducts() {
+      let visibleCount = 0;
+      const term = currentSearchTerm.trim().toLowerCase();
+
+      productCards.forEach((card) => {
+        const name = card.getAttribute('data-product-name') || '';
+        const desc = card.getAttribute('data-product-desc') || '';
+        const category = card.getAttribute('data-product-category') || '';
+
+        const matchesCategory = currentCategory === 'all' || category === currentCategory;
+        const matchesSearch = term === '' || name.includes(term) || desc.includes(term);
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Show/Hide section headers if empty
+      categorySections.forEach((section) => {
+        const visibleInCat = section.querySelectorAll('[data-product-card]:not(.hidden)').length;
+        if (visibleInCat === 0) {
+          section.classList.add('hidden');
+        } else {
+          section.classList.remove('hidden');
+        }
+      });
+
+      // Empty State handling
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+
+      // Feedback text
+      if (feedback) {
+        if (term.length > 0) {
+          feedback.classList.remove('hidden');
+          feedback.textContent = `Mostrando ${visibleCount} producto(s) para "${term}"`;
+        } else {
+          feedback.classList.add('hidden');
+        }
+      }
+    }
+
+    // Search event
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearchTerm = (e.target as HTMLInputElement).value;
+        filterProducts();
+      });
+    }
+
+    // Category button clicks
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category-filter') || 'all';
+        currentCategory = category;
+
+        // Update active button state
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-espresso-950', 'text-white');
+          b.classList.add('border', 'border-warm-200', 'bg-warm-50/60', 'text-warm-800');
+        });
+        btn.classList.remove('border', 'border-warm-200', 'bg-warm-50/60', 'text-warm-800');
+        btn.classList.add('bg-espresso-950', 'text-white');
+
+        filterProducts();
+      });
+    });
+
+    // Reset button
+    if (resetBtn && searchInput) {
+      resetBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentSearchTerm = '';
+        currentCategory = 'all';
+
+        filterButtons.forEach((b) => {
+          const cat = b.getAttribute('data-category-filter');
+          if (cat === 'all') {
+            b.classList.add('bg-espresso-950', 'text-white');
+            b.classList.remove('border', 'border-warm-200', 'bg-warm-50/60', 'text-warm-800');
+          } else {
+            b.classList.remove('bg-espresso-950', 'text-white');
+            b.classList.add('border', 'border-warm-200', 'bg-warm-50/60', 'text-warm-800');
+          }
+        });
+
+        filterProducts();
+      });
+    }
+
+    // 3D Tilt Effect on Product Cards
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion && window.innerWidth > 768) {
+      productCards.forEach((card) => {
+        card.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = ((y - centerY) / centerY) * -5;
+          const rotateY = ((x - centerX) / centerX) * 5;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px) scale(1.01)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+  }
+
+  // Execute on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupCatalogFilters);
+  } else {
+    setupCatalogFilters();
+  }
+</script>

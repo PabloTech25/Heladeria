@@ -5,18 +5,25 @@ import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
 import CartDrawer from "../components/CartDrawer.svelte";
 import CartToast from "../components/CartToast.svelte";
+import AddToCartButton from "../components/AddToCartButton.svelte";
 import { products } from "../data/products";
+import { getCloudinaryUrl } from "../lib/cloudinary";
 import "../styles/global.css";
+
+// Top signature items for Hero Spotlight & Curated Bento
+const heroProduct =
+	products.find((p) => p.id === "helado-doble") || products[0];
+const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta
 			name="description"
-			content="Cafetería Gourmet en Puebla | Chaud & Glace. Especialistas en café artesanal, frappes premium, crepas dulces, helados artesanales, bebidas especiales y desayunos sorpresa. La mejor cafetería en Ciudad Serdán. ¡Visítanos!"
+			content="Cafetería Gourmet y Heladería Artesanal en Puebla | Chaud & Glace. Especialistas en café de especialidad, frappes premium, crepas dulces, helados artesanales y desayunos sorpresa en Ciudad Serdán. ¡Pide en línea!"
 		/>
 		<meta
 			name="keywords"
@@ -26,7 +33,10 @@ import "../styles/global.css";
 		<meta name="geo.placename" content="Ciudad Serdán" />
 		<meta name="geo.position" content="18.9833;-97.4500" />
 		<meta name="ICBM" content="18.9833, -97.4500" />
-		<title>Café Artesanal en Ciudad Serdán | Chaud & Glace</title>
+		<title>
+			Chaud & Glace | Café de Especialidad & Helados Artesanales en Ciudad
+			Serdán
+		</title>
 
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://chaudglace.com/" />
@@ -34,10 +44,13 @@ import "../styles/global.css";
 		<!-- Open Graph Meta Tags -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://chaudglace.com/" />
-		<meta property="og:title" content="Cafetería Gourmet y helado Artesanal en Ciudad Serdan | Chaud & Glace" />
+		<meta
+			property="og:title"
+			content="Chaud & Glace | Cafetería Gourmet y Heladería Artesanal"
+		/>
 		<meta
 			property="og:description"
-			content="Cafetería artesanal en Ciudad Serdan especializada en café gourmet, frappes premium, crepas dulces, helados artesanales y desayunos sorpresa."
+			content="Café gourmet, frappes premium, crepas artesanales y helados de receta tradicional en el corazón de Ciudad Serdán. Pide en línea a través de WhatsApp."
 		/>
 		<meta
 			property="og:image"
@@ -55,21 +68,20 @@ import "../styles/global.css";
 		<!-- Twitter Card Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:url" content="https://chaudglace.com/" />
-		<meta name="twitter:title" content="Cafetería Gourmet y Café Artesanal en Puebla | Chaud & Glace" />
+		<meta
+			name="twitter:title"
+			content="Chaud & Glace | Cafetería Gourmet y Helados Artesanales"
+		/>
 		<meta
 			name="twitter:description"
-			content="Cafetería artesanal en Puebla. Café gourmet, frappes premium, crepas dulces, helados artesanales y desayunos sorpresa."
+			content="Cafetería artesanal en Ciudad Serdán, Puebla. Café gourmet, frappes, crepas dulces y helados artesanales."
 		/>
 		<meta
 			name="twitter:image"
 			content="https://chaudglace.com/logo/LogoChaud.png"
 		/>
-		<meta
-			name="twitter:image:alt"
-			content="Chaud & Glace - Heladería y Cafetería"
-		/>
 
-		<!-- Favicons para mejor visibilidad -->
+		<!-- Favicons -->
 		<link
 			rel="icon"
 			type="image/png"
@@ -89,11 +101,11 @@ import "../styles/global.css";
 		/>
 		<link rel="shortcut icon" href="/logo/LogoIcon.png" />
 
-		<!-- Google Fonts -->
+		<!-- Google Fonts: Bodoni Moda (Editorial Display) + Plus Jakarta Sans & Manrope (Clean Modern UI) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -101,9 +113,15 @@ import "../styles/global.css";
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@type": ["Cafe", "LocalBusiness", "CoffeeShop", "Restaurant", "IceCreamShop"],
+				"@type": [
+					"Cafe",
+					"LocalBusiness",
+					"CoffeeShop",
+					"Restaurant",
+					"IceCreamShop"
+				],
 				"@id": "https://chaudglace.com/#business",
-				"name": "Chaud & Glace - Cafetería Gourmet y Café Artesanal",
+				"name": "Chaud & Glace - Cafetería Gourmet y Helado Artesanal",
 				"image": [
 					"https://chaudglace.com/logo/LogoChaud.png",
 					"https://chaudglace.com/hero-background.png",
@@ -112,7 +130,7 @@ import "../styles/global.css";
 				"description": "Chaud & Glace: Cafetería artesanal en Puebla especializada en café gourmet premium, frappes artesanales, bebidas especiales, crepas dulces, desayunos sorpresa, helados artesanales gourmet y repostería fresca. Ubicados en Ciudad Serdán con ingredientes premium y técnicas de barismo profesional.",
 				"address": {
 					"@type": "PostalAddress",
-				"streetAddress": "Calle 3 Poniente, Col. Centro",
+					"streetAddress": "Calle 3 Poniente #8, Col. Centro",
 					"addressLocality": "Ciudad Serdán",
 					"addressRegion": "Puebla",
 					"postalCode": "75220",
@@ -136,17 +154,23 @@ import "../styles/global.css";
 					"Postres",
 					"Helados Artesanales",
 					"Desayunos",
-					"Bebidas Frías",
-					"Bebidas Calientes",
 					"Repostería"
 				],
 				"logo": "https://chaudglace.com/logo/LogoChaud.png",
 				"openingHoursSpecification": [
 					{
 						"@type": "OpeningHoursSpecification",
-					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-					"opens": "11:00",
-					"closes": "21:00"
+						"dayOfWeek": [
+							"Monday",
+							"Tuesday",
+							"Wednesday",
+							"Thursday",
+							"Friday",
+							"Saturday",
+							"Sunday"
+						],
+						"opens": "11:00",
+						"closes": "21:00"
 					}
 				],
 				"areaServed": [
@@ -163,7 +187,10 @@ import "../styles/global.css";
 						"name": "México"
 					}
 				],
-				"sameAs": [],
+				"sameAs": [
+					"https://www.facebook.com/share/1ApReivZHt/?mibextid=wwXIfr",
+					"https://www.instagram.com/chaud.and.glace"
+				],
 				"aggregateRating": {
 					"@type": "AggregateRating",
 					"ratingValue": "4.8",
@@ -190,269 +217,467 @@ import "../styles/global.css";
 					{
 						"@type": "ListItem",
 						"position": 2,
-						"name": "Menú de Helados Artesanales",
+						"name": "Menú de Helados y Café",
 						"item": "https://chaudglace.com/#menu"
 					},
 					{
 						"@type": "ListItem",
 						"position": 3,
-						"name": "Desayunos Sorpresa",
-						"item": "https://chaudglace.com/#desayunos"
+						"name": "Contacto y Ubicación",
+						"item": "https://chaudglace.com/#contacto"
 					}
 				]
 			}
 		</script>
-
-		<!-- JSON-LD Structured Data: Article for SEO Content -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Article",
-				"@id": "https://chaudglace.com/#article",
-				"headline": "Helados Artesanales y Café Gourmet: La Guía Completa",
-				"description": "Guía completa sobre helados artesanales, café gourmet y repostería artesanal. Descubre por qué elegir helados caseros de Chaud & Glace en Puebla.",
-				"image": [
-					"https://chaudglace.com/logo/LogoChaud.png",
-					"https://chaudglace.com/hero-background.png"
-				],
-				"author": {
-					"@type": "Organization",
-					"name": "Chaud & Glace",
-					"url": "https://chaudglace.com"
-				},
-				"publisher": {
-					"@type": "Organization",
-					"name": "Chaud & Glace",
-					"logo": {
-						"@type": "ImageObject",
-						"url": "https://chaudglace.com/logo/LogoChaud.png"
-					}
-				],
-				"sameAs": [],
-				"aggregateRating": {
-					"@type": "AggregateRating",
-					"ratingValue": "4.8",
-					"reviewCount": "127",
-					"bestRating": "5",
-					"worstRating": "1"
-				},
-				"datePublished": "2024-01-01",
-				"dateModified": "2026-05-13",
-				"mainEntityOfPage": {
-					"@type": "WebPage",
-					"@id": "https://chaudglace.com"
-				},
-				"articleBody": "En Chaud & Glace somos expertos en la elaboración de helados artesanales gourmet y bebidas de café premium. Nuestros productos se preparan con ingredientes 100% naturales, sin conservantes artificiales. Contamos con más de 70 productos artesanales incluyendo helados cremosos, frappes especiales, crepas dulces, repostería fresca y desayunos sorpresa disponibles de 7 a 11 AM.",
-				"keywords": "helados artesanales, café gourmet, cafetería, frappes caseros, crepas dulces, postres frescos, bebidas frías, bebidas calientes, Puebla"
-			}
-		</script>
-
-		<!-- JSON-LD Structured Data: Organization (Enhanced) -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Organization",
-				"@id": "https://chaudglace.com/#organization",
-				"name": "Chaud & Glace",
-				"url": "https://chaudglace.com",
-				"logo": "https://chaudglace.com/logo/LogoChaud.png",
-				"description": "Heladería y cafetería artesanal en Puebla. Helados gourmet, frappes especiales, crepas dulces y bebidas premium en Ciudad Serdán.",
-				"sameAs": [
-					"https://www.facebook.com/share/1ApReivZHt/?mibextid=wwXIfr",
-					"https://www.instagram.com/chaud.and.glace"
-				],
-				"contact": {
-					"@type": "ContactPoint",
-					"contactType": "Customer Service",
-					"telephone": "+52-245-452-2978",
-					"email": "info@chaudglace.com"
-				}
-			}
-		</script>
 	</head>
-	<body class="font-['Manrope',sans-serif] antialiased">
+
+	<body
+		class="font-['Plus_Jakarta_Sans','Manrope',sans-serif] antialiased text-espresso-950 bg-[#fdfbf7]"
+	>
+		<!-- Header -->
 		<Header currentPage="home" />
 
-		<!-- Storefront entrance -->
-		<section id="inicio" class="relative overflow-hidden bg-warm-900 pt-24 text-white sm:pt-28">
-			<div class="absolute inset-0">
-				<img src="/hero-background.png" alt="Preparaciones de Chaud & Glace" class="h-full w-full object-cover object-center opacity-55" />
-				<div class="absolute inset-0 bg-linear-to-r from-warm-900 via-warm-900/80 to-chaud-900/45"></div>
-			</div>
-			<div class="relative mx-auto grid min-h-124 max-w-7xl items-end gap-10 px-4 pb-12 sm:px-6 sm:pb-16 lg:grid-cols-[1fr_23rem] lg:gap-20 lg:px-8">
-				<div class="max-w-3xl">
-					<p class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-chaud-300">Café · helado · algo dulce</p>
-					<h1 class="store-display max-w-3xl text-5xl font-semibold leading-[0.9] sm:text-7xl lg:text-8xl">Tu pausa favorita, servida al momento.</h1>
-					<p class="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">Una carta para disfrutar aquí, pedir para llevar o mandar directo a WhatsApp desde Ciudad Serdán.</p>
-					<div class="mt-8 flex flex-col gap-3 sm:flex-row">
-						<a href="#menu" class="inline-flex min-h-12 items-center justify-center rounded-full bg-chaud-500 px-7 font-bold text-white transition-colors hover:bg-chaud-400">Explorar la carta</a>
-						<a href="https://wa.me/522451099498" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">Pedir por WhatsApp</a>
-					</div>
+		<!-- ═══════════════════════════════════════════════════════════════ -->
+		<!-- HERO SECTION: Inmersión Gourmet & Spotlight 3D -->
+		<!-- ═══════════════════════════════════════════════════════════════ -->
+		<section
+			id="inicio"
+			class="relative isolate overflow-hidden bg-espresso-950 pt-16 sm:pt-20 pb-16 sm:pb-24 text-white"
+		>
+			<!-- Background Layer with Image + Radial Luxury Vignettes -->
+			<div class="absolute inset-0 -z-10 overflow-hidden">
+				<img
+					src="/hero-background.png"
+					alt="Mesa artesanal de Chaud & Glace"
+					class="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity scale-105"
+				/>
+				<!-- Radial Ambient Gradients (Warm roast espresso + berry glow + golden caramel) -->
+				<div
+					class="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(219,39,102,0.3)_0%,transparent_60%)]"
+				>
 				</div>
-				<div class="border-t border-white/25 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-					<p class="text-sm font-semibold text-white/70">Hecho para antojos reales</p>
-					<div class="mt-5 grid grid-cols-2 gap-x-5 gap-y-6 text-sm">
-						<div><strong class="block text-2xl text-white">70+</strong><span class="text-white/65">opciones artesanales</span></div>
-						<div><strong class="block text-2xl text-white">4.8</strong><span class="text-white/65">reseña promedio</span></div>
-						<div><strong class="block text-2xl text-white">11:00</strong><span class="text-white/65">abrimos todos los días</span></div>
-						<div><strong class="block text-2xl text-white">$20</strong><span class="text-white/65">antojos desde</span></div>
+				<div
+					class="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_70%,rgba(212,154,38,0.2)_0%,transparent_60%)]"
+				>
+				</div>
+				<div
+					class="absolute inset-0 bg-gradient-to-b from-espresso-950/80 via-espresso-950/92 to-[#fdfbf7]"
+				>
+				</div>
+			</div>
+
+			<!-- Floating Subtle Geometry -->
+			<div
+				class="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full border border-white/5 opacity-40 blur-2xl"
+			>
+			</div>
+			<div
+				class="pointer-events-none absolute -right-20 top-1/3 h-96 w-96 rounded-full border border-chaud-500/10 opacity-50 blur-3xl"
+			>
+			</div>
+
+			<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div
+					class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16 pt-8 sm:pt-12"
+				>
+					<!-- Left Column: Copy & Value Proposition (7 cols) -->
+					<div class="lg:col-span-7 max-w-2xl">
+						<!-- Main Headline -->
+						<h1
+							class="store-display text-4xl sm:text-6xl lg:text-[4.75rem] font-bold leading-[1.02] tracking-tight text-white"
+						>
+							Tu pausa favorita, servida al momento.
+						</h1>
+
+						<!-- Subtitle -->
+						<p
+							class="mt-6 text-base sm:text-lg leading-relaxed text-warm-200/90 font-normal"
+						>
+							La mejor selección de café, postres y helados. Vive
+							la experiencia en nuestro establecimiento, ordena
+							para llevar o solicita tu pedido vía WhatsApp.
+						</p>
+
+						<!-- CTAs Row -->
+						<div
+							class="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center"
+						>
+							<a
+								href="#menu"
+								class="shimmer-btn inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-chaud-600 px-8 font-bold text-white shadow-xl shadow-chaud-900/40 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+							>
+								<span>Explorar la Carta</span>
+								<span aria-hidden="true" class="text-sm">↘</span
+								>
+							</a>
+
+							<a
+								href="https://wa.me/522451099498"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 font-bold text-white backdrop-blur-md transition-all hover:border-emerald-400 hover:bg-emerald-600/30 hover:-translate-y-0.5"
+							>
+								<svg
+									class="h-5 w-5 text-emerald-400"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+								>
+									<path
+										d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+									></path>
+								</svg>
+								<span>Pedir por WhatsApp</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Right Column: Interactive 3D Spotlight Showcase Card (5 cols) -->
+					<div
+						class="lg:col-span-5 flex justify-center lg:justify-end"
+					>
+						<div class="card-3d-wrapper w-full max-w-sm">
+							<div
+								id="hero-spotlight-card"
+								class="card-3d relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-b from-white/15 to-white/5 p-6 backdrop-blur-2xl shadow-2xl shadow-black/50"
+							>
+								<!-- Ambient Card Glow -->
+								<div
+									class="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-chaud-500/30 blur-2xl"
+								>
+								</div>
+
+								<!-- Card Top Badges -->
+								<div
+									class="flex items-center justify-between gap-2 mb-4"
+								>
+									<span
+										class="rounded-full bg-chaud-600/90 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wider text-white shadow-sm"
+									>
+										⭐ Recomendación de la Casa
+									</span>
+									<span
+										class="store-display text-xl font-bold text-white"
+									>
+										{heroProduct.price}
+									</span>
+								</div>
+
+								<!-- 3D Floating Product Image -->
+								<div
+									class="relative aspect-square w-full overflow-hidden rounded-2xl bg-white/10 p-6 flex items-center justify-center border border-white/10"
+								>
+									<img
+										src={getCloudinaryUrl(
+											heroProduct.image,
+											{ width: 500 },
+										)}
+										alt={heroProduct.name}
+										class="h-full w-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover:scale-105"
+										loading="eager"
+									/>
+									<div
+										class="absolute bottom-3 right-3 rounded-full bg-espresso-950/80 px-2.5 py-1 text-[0.68rem] font-bold text-warm-200 backdrop-blur-md border border-white/10"
+									>
+										{heroProduct.size || "100% Casero"}
+									</div>
+								</div>
+
+								<!-- Product Info & Quick Add -->
+								<div class="mt-4">
+									<h2
+										class="store-display text-xl font-bold text-white leading-tight"
+									>
+										{heroProduct.name}
+									</h2>
+									<p
+										class="mt-1 text-xs text-warm-200/80 line-clamp-2 leading-relaxed"
+									>
+										{heroProduct.description}
+									</p>
+
+									<div
+										class="mt-4 pt-3 border-t border-white/10"
+									>
+										<AddToCartButton
+											client:load
+											id={heroProduct.id}
+											name={heroProduct.name}
+											price={heroProduct.numericPrice}
+											image={heroProduct.image}
+											size={heroProduct.size}
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
+		<!-- ═══════════════════════════════════════════════════════════════ -->
+		<!-- SECTION: Especialidades de Autor (Curated Bento Showcase) -->
+		<!-- ═══════════════════════════════════════════════════════════════ -->
+		<section
+			id="especialidades"
+			class="store-section border-t border-warm-200/80 bg-white py-20 sm:py-28"
+			aria-label="Especialidades Destacadas"
+		>
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div
+					class="mb-12 sm:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-warm-200/80 pb-8"
+				>
+					<div>
+						<div class="store-kicker mb-3 flex items-center gap-2">
+							<span class="h-2 w-2 rounded-full bg-chaud-500"
+							></span>
+							<span>Selección del Barista & Maestro Heladero</span
+							>
+						</div>
+						<h2
+							class="store-display text-3xl sm:text-5xl font-bold text-espresso-950"
+						>
+							Nuestras Especialidades
+						</h2>
+						<p
+							class="mt-3 text-sm sm:text-base text-warm-600 max-w-xl"
+						>
+							Las combinaciones más queridas por nuestra
+							comunidad. Texturas sedosas, contraste de
+							temperaturas y sabores inconfundibles.
+						</p>
+					</div>
+
+					<a
+						href="#menu"
+						class="inline-flex items-center gap-2 text-sm font-bold text-chaud-600 hover:text-chaud-700 transition"
+					>
+						<span>Ver todos los 76 productos</span>
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+
+				<!-- Bento Grid -->
+				<div
+					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+				>
+					{
+						featuredItems.map((item) => (
+							<div class="card-3d group relative flex flex-col justify-between rounded-3xl border border-warm-200/80 bg-[#fdfbf7] p-5 shadow-sm transition-all duration-300 hover:border-chaud-300 hover:shadow-xl hover:shadow-chaud-950/5">
+								<div>
+									<div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-white p-4 flex items-center justify-center border border-warm-200/60">
+										<img
+											src={getCloudinaryUrl(item.image, {
+												width: 360,
+											})}
+											alt={item.name}
+											class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
+											loading="lazy"
+										/>
+										<span class="absolute top-3 left-3 rounded-full bg-espresso-950 px-3 py-1 text-xs font-bold text-white shadow-sm">
+											{item.price}
+										</span>
+									</div>
+
+									<div class="mt-4">
+										<span class="text-[0.68rem] font-bold uppercase tracking-wider text-chaud-600">
+											{item.category}
+										</span>
+										<h3 class="font-bold text-base text-espresso-950 group-hover:text-chaud-700 transition-colors leading-snug mt-0.5">
+											{item.name}
+										</h3>
+										<p class="text-xs text-warm-600 line-clamp-2 mt-1 leading-relaxed">
+											{item.description}
+										</p>
+									</div>
+								</div>
+
+								<div class="mt-4 pt-3 border-t border-warm-200/70">
+									<AddToCartButton
+										client:idle
+										id={item.id}
+										name={item.name}
+										price={item.numericPrice}
+										image={item.image}
+										size={item.size}
+									/>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════════ -->
+		<!-- SECTION: Menú Completo & E-Commerce Catalog -->
+		<!-- ═══════════════════════════════════════════════════════════════ -->
 		<MenuCategoriesExpanded products={products} />
 
-		<!-- About Section -->
-		<section id="sobre-nosotros" class="py-12 sm:py-16 md:py-20 bg-white">
-			<div class="container mx-auto px-4 sm:px-6">
-				<div class="max-w-6xl mx-auto">
-					<div class="text-center mb-8 sm:mb-10 md:mb-12">
+		<!-- ═══════════════════════════════════════════════════════════════ -->
+		<!-- SECTION: Sobre Nosotros / Lo que nos mueve -->
+		<!-- ═══════════════════════════════════════════════════════════════ -->
+		<section
+			id="sobre-nosotros"
+			class="store-section border-t border-warm-200/80 bg-[#fbf5eb] py-20 sm:py-28"
+			aria-label="Sobre Chaud & Glace"
+		>
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div
+					class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+				>
+					<!-- Left: Story & Craftsmanship (7 cols) -->
+					<div class="lg:col-span-7 space-y-6">
+						<div class="store-kicker flex items-center gap-2">
+							<span class="h-2 w-2 rounded-full bg-chaud-500"
+							></span>
+							<span>Nuestra Filosofía Artesanal</span>
+						</div>
+
 						<h2
-							class="text-3xl sm:text-4xl md:text-5xl font-bold text-warm-900 mb-4 sm:mb-6 px-4"
+							class="store-display text-3xl sm:text-5xl lg:text-6xl font-bold text-espresso-950 leading-[0.98]"
 						>
-							Sobre Nosotros
+							El sabor y la calidez existen en el mismo lugar.
 						</h2>
-						<div
-							class="w-20 sm:w-24 h-1 bg-linear-to-r from-chaud-500 to-chaud-600 mx-auto mb-6 sm:mb-8"
+
+						<p
+							class="text-base sm:text-lg text-warm-800 leading-relaxed"
 						>
+							<strong class="text-chaud-700"
+								>Chaud &amp; Glace</strong
+							> nace de la hermosa contradicción entre lo cálido y lo
+							frío: la reconfortante taza de café recién extraído que
+							acompaña a una bola de helado artesanal perfectamente
+							fría.
+						</p>
+
+						<p
+							class="text-sm sm:text-base text-warm-700 leading-relaxed"
+						>
+							Nos especializamos en experiencias sensoriales
+							únicas. Seleccionamos granos con perfiles de tostado
+							precisos y preparamos nuestros helados a diario en
+							Ciudad Serdán, utilizando fruta natural y lácteos de
+							primera calidad sin atajos industriales.
+						</p>
+
+						<div
+							class="grid grid-cols-3 gap-4 border-t border-warm-300/80 pt-6"
+						>
+							<div class="text-center sm:text-left">
+								<span
+									class="store-display block text-3xl font-bold text-chaud-700"
+									>100%</span
+								>
+								<span
+									class="text-xs font-semibold text-warm-600"
+									>Artesanal & Natural</span
+								>
+							</div>
+							<div class="text-center sm:text-left">
+								<span
+									class="store-display block text-3xl font-bold text-chaud-700"
+									>Fresh</span
+								>
+								<span
+									class="text-xs font-semibold text-warm-600"
+									>Hecho al Momento</span
+								>
+							</div>
+							<div class="text-center sm:text-left">
+								<span
+									class="store-display block text-3xl font-bold text-chaud-700"
+									>70+</span
+								>
+								<span
+									class="text-xs font-semibold text-warm-600"
+									>Opciones en Carta</span
+								>
+							</div>
 						</div>
 					</div>
 
-					<div
-						class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
-					>
-						<div class="space-y-4 sm:space-y-6">
-							<p
-								class="text-base sm:text-lg text-gray-700 leading-relaxed px-2"
-							>
-								<span
-									class="text-xl sm:text-2xl font-bold text-chaud-700"
-									>Chaud & Glace</span
-								>
-								es una heladería y cafetería donde el sabor y calidez
-								existen en un mismo lugar.
-							</p>
-							<p
-								class="text-sm sm:text-base text-gray-600 leading-relaxed px-2"
-							>
-								Nos especializamos en crear experiencias únicas
-								para nuestros clientes, ofreciendo productos
-								frescos hechos al momento con los mejores
-								ingredientes. Desde nuestros deliciosos frappes
-								hasta nuestras crepas artesanales, cada producto
-								está hecho con amor y dedicación.
-							</p>
-							<p
-								class="text-sm sm:text-base text-gray-600 leading-relaxed px-2"
-							>
-								Ven y descubre por qué somos el lugar favorito
-								de la comunidad para disfrutar de un momento
-								dulce y especial.
-							</p>
-
-							<div
-								class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-6 px-2"
-							>
-								<div class="text-center">
-									<div
-										class="text-3xl font-bold text-chaud-700 mb-2"
-									>
-										100%
-									</div>
-									<div class="text-sm text-gray-600">
-										Artesanal
-									</div>
-								</div>
-								<div class="text-center">
-									<div
-										class="text-3xl font-bold text-chaud-700 mb-2"
-									>
-										Fresh
-									</div>
-									<div class="text-sm text-gray-600">
-										Ingredientes
-									</div>
-								</div>
-								<div class="text-center">
-									<div
-										class="text-3xl font-bold text-chaud-700 mb-2"
-									>
-										❤️
-									</div>
-									<div class="text-sm text-gray-600">
-										Hecho con Amor
-									</div>
-								</div>
-							</div>
+					<!-- Right: Layered Photography with 3D Depth Badge (5 cols) -->
+					<div class="lg:col-span-5 relative">
+						<div
+							class="card-3d relative aspect-square overflow-hidden rounded-3xl border-8 border-white bg-white shadow-2xl shadow-espresso-950/15"
+						>
+							<img
+								src="/about-image.jpeg"
+								alt="Interior y momentos en Chaud & Glace Ciudad Serdán"
+								class="h-full w-full object-cover"
+								loading="lazy"
+							/>
 						</div>
 
-						<div class="relative">
-							<div
-								class="aspect-square rounded-2xl overflow-hidden shadow-2xl"
+						<!-- Floating Experience Badge -->
+						<div
+							class="absolute -bottom-5 -right-5 sm:-bottom-7 sm:-right-7 rounded-2xl bg-espresso-950 p-5 text-white shadow-2xl border border-white/10"
+						>
+							<strong
+								class="store-display block text-3xl sm:text-4xl font-bold text-honey-400"
+								>2+</strong
 							>
-								<img
-									src="/about-image.jpeg"
-									alt="Chaud & Glace Interior"
-									class="w-full h-full object-cover"
-								/>
-							</div>
-							<div
-								class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-linear-to-br from-chaud-500 to-chaud-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl"
+							<span
+								class="block text-xs font-semibold tracking-wide text-warm-200"
+								>Años endulzando Ciudad Serdán</span
 							>
-								<div class="text-2xl sm:text-3xl font-bold">
-									2+
-								</div>
-								<div
-									class="text-xs sm:text-sm whitespace-nowrap"
-								>
-									Años de experiencia
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Expanded Menu Categories Section - SEO Optimized -->
-		<!-- Consolidated: ProductMenu removed, all products now in MenuCategoriesExpanded with cart functionality -->
-		<!-- Contact Form -->
+		<!-- Contact Form & Location -->
 		<ContactForm />
 
 		<!-- Footer -->
 		<Footer />
 
-		<!-- Cart System -->
+		<!-- Cart System (Svelte Client Islands) -->
 		<CartDrawer client:load />
 		<CartToast client:load />
 
-		<style>
-			@keyframes fade-in {
-				from {
-					opacity: 0;
-					transform: translateY(20px);
-				}
-				to {
-					opacity: 1;
-					transform: translateY(0);
+		<!-- Lightweight 3D Tilt & Interaction Script for Hero and Cards -->
+		<script>
+			function init3DEffects() {
+				const spotlightCard = document.getElementById(
+					"hero-spotlight-card",
+				);
+				const prefersReducedMotion = window.matchMedia(
+					"(prefers-reduced-motion: reduce)",
+				).matches;
+
+				if (
+					!prefersReducedMotion &&
+					spotlightCard &&
+					window.innerWidth > 768
+				) {
+					spotlightCard.addEventListener("mousemove", (e) => {
+						const rect = spotlightCard.getBoundingClientRect();
+						const x = e.clientX - rect.left;
+						const y = e.clientY - rect.top;
+						const centerX = rect.width / 2;
+						const centerY = rect.height / 2;
+
+						const rotateX = ((y - centerY) / centerY) * -10;
+						const rotateY = ((x - centerX) / centerX) * 10;
+
+						spotlightCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) scale(1.02)`;
+					});
+
+					spotlightCard.addEventListener("mouseleave", () => {
+						spotlightCard.style.transform = "";
+					});
 				}
 			}
 
-			.animate-fade-in {
-				animation: fade-in 1s ease-out;
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", init3DEffects);
+			} else {
+				init3DEffects();
 			}
-
-			html {
-				scroll-behavior: smooth;
-				scroll-padding-top: 120px; /* Compensate for fixed header */
-			}
-
-			@media (max-width: 640px) {
-				html {
-					scroll-padding-top: 80px;
-				}
-			}
-		</style>
+		</script>
 	</body>
 </html>

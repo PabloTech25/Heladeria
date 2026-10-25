@@ -1,36 +1,60 @@
 @import "tailwindcss";
 
 @theme {
-    /* Paleta de colores personalizada Chaud & Glace */
-    --color-chaud-50: #fef1f7;
-    --color-chaud-100: #fee5f0;
-    --color-chaud-200: #feccdf;
-    --color-chaud-300: #fda4c4;
-    --color-chaud-400: #fb6d9d;
+    /* Paleta Chaud (Berry artesanal, frambuesa y acentos gourmet) */
+    --color-chaud-50: #fff1f5;
+    --color-chaud-100: #ffe4ec;
+    --color-chaud-200: #fecddc;
+    --color-chaud-300: #fda4bf;
+    --color-chaud-400: #fb719b;
     --color-chaud-500: #f43f7a;
-    --color-chaud-600: #e11d5f;
+    --color-chaud-600: #db2766;
     --color-chaud-700: #be1250;
     --color-chaud-800: #9e1245;
-    --color-chaud-900: #84143e;
+    --color-chaud-900: #6f0d30;
+    --color-chaud-950: #42041a;
 
-    /* Colores neutros cálidos para mejor legibilidad */
-    --color-warm-50: #fafaf9;
-    --color-warm-100: #f5f5f4;
-    --color-warm-200: #e7e5e4;
-    --color-warm-300: #d6d3d1;
-    --color-warm-400: #a8a29e;
-    --color-warm-500: #78716c;
-    --color-warm-600: #57534e;
-    --color-warm-700: #44403c;
-    --color-warm-800: #292524;
-    --color-warm-900: #1c1917;
+    /* Tonos Café & Espresso cálidos para identidad Chaud */
+    --color-espresso-50: #faf7f5;
+    --color-espresso-100: #f3ede7;
+    --color-espresso-200: #e4d7cd;
+    --color-espresso-300: #cfb9a8;
+    --color-espresso-400: #b5967f;
+    --color-espresso-500: #9c785f;
+    --color-espresso-600: #815e47;
+    --color-espresso-700: #674938;
+    --color-espresso-800: #4a3429;
+    --color-espresso-900: #2c1f19;
+    --color-espresso-950: #1a120e;
+
+    /* Neutros cálidos (Glace / Vainilla / Crema artesanal) */
+    --color-warm-50: #fdfbf7;
+    --color-warm-100: #f8f4ec;
+    --color-warm-200: #efe7d9;
+    --color-warm-300: #dfd3be;
+    --color-warm-400: #b8a88e;
+    --color-warm-500: #8a7a63;
+    --color-warm-600: #625543;
+    --color-warm-700: #473e31;
+    --color-warm-800: #2d261e;
+    --color-warm-900: #1b1611;
+
+    /* Acentos dorados / miel artesanal */
+    --color-honey-300: #f5cf7d;
+    --color-honey-400: #ebb64b;
+    --color-honey-500: #d49a26;
+    --color-honey-600: #b07817;
 }
 
 :root {
     color-scheme: light;
-    --store-paper: #fffdfb;
-    --store-ink: #1c1917;
-    --store-muted: #57534e;
+    --store-paper: #fdfbf7;
+    --store-ink: #23181a;
+    --store-muted: #6e5c5f;
+    --store-espresso: #24181a;
+    --store-berry: #db2766;
+    --store-cream: #f7f1e6;
+    --store-line: rgba(69, 44, 48, 0.08);
 }
 
 html {
@@ -42,45 +66,209 @@ body {
     margin: 0;
     color: var(--store-ink);
     background: var(--store-paper);
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image:
+        radial-gradient(circle at 10% 8%, rgba(254, 228, 236, 0.45), transparent 28rem),
+        radial-gradient(circle at 90% 25%, rgba(245, 207, 125, 0.22), transparent 26rem),
+        radial-gradient(circle at 50% 70%, rgba(254, 205, 220, 0.25), transparent 32rem),
+        linear-gradient(180deg, #fdfbf7 0%, #ffffff 40%, #fbf6ee 100%);
+    background-attachment: fixed;
 }
 
-h1,
-h2,
-h3,
-h4,
-.store-display {
+/* Tipografía de display premium */
+h1, h2, h3, h4, .store-display {
     font-family: 'Bodoni Moda', Georgia, serif;
-    letter-spacing: 0;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
 }
 
+.store-kicker {
+    color: var(--store-berry);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Efectos de fondo sutiles */
+.store-section {
+    position: relative;
+}
+
+.store-section::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    content: '';
+    opacity: 0.45;
+    background-image: linear-gradient(var(--store-line) 1px, transparent 1px);
+    background-size: 100% 5rem;
+}
+
+.store-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Glassmorphism de alta gama */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 35px -5px rgba(44, 31, 25, 0.05), 0 0 0 1px rgba(223, 211, 190, 0.35);
+}
+
+.glass-panel-dark {
+    background: rgba(27, 22, 17, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+.glass-pill {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(223, 211, 190, 0.5);
+}
+
+/* Efectos 3D y Perspectiva */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+/* Efecto 3D interactivo en tarjetas */
+.card-3d-wrapper {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.card-3d {
+    transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 320ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 320ms ease;
+    will-change: transform;
+}
+
+.card-3d:hover {
+    transform: translateY(-8px) scale(1.012) rotateX(2deg);
+    box-shadow: 0 25px 40px -12px rgba(66, 4, 26, 0.12), 0 10px 20px -8px rgba(44, 31, 25, 0.08);
+}
+
+/* Glow animado sutil */
+@keyframes pulse-subtle {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.85;
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 6s ease-in-out infinite;
+}
+
+/* Float suave para elementos decorativos */
+@keyframes float-smooth {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(1.5deg);
+    }
+}
+
+.animate-float {
+    animation: float-smooth 5s ease-in-out infinite;
+}
+
+/* Shimmer en botones y medallas */
+@keyframes shimmer-sweep {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer-btn {
+    background-size: 200% 100%;
+    background-image: linear-gradient(
+        110deg,
+        rgba(219, 39, 102, 1) 0%,
+        rgba(244, 63, 122, 1) 40%,
+        rgba(255, 228, 236, 0.4) 50%,
+        rgba(244, 63, 122, 1) 60%,
+        rgba(219, 39, 102, 1) 100%
+    );
+    transition: background-position 0.6s ease;
+}
+
+.shimmer-btn:hover {
+    background-position: 100% 0;
+}
+
+/* Estados de foco accesibles */
 :focus-visible {
-    outline: 3px solid var(--color-chaud-400);
-    outline-offset: 4px;
+    outline: 2px solid var(--color-chaud-600);
+    outline-offset: 3px;
+    border-radius: 6px;
 }
 
-button,
-a {
+button, a {
     -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
 }
 
+/* Respeto estricto a accesibilidad y movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 0.001ms !important;
+    }
+
+    .card-3d:hover {
+        transform: none;
+    }
+
+    .animate-float,
+    .animate-pulse-subtle {
+        animation: none;
     }
 }
 
-/* Utilidades responsive para truncamiento de texto */
+/* Truncamiento fluido */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -95,4 +283,23 @@ a {
     line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* Barra de desplazamiento estética */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fdfbf7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dfd3be;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b8a88e;
 }

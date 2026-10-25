@@ -7,15 +7,17 @@
 
 {#if message}
   <div
-    class="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto md:left-auto md:translate-x-0 md:right-6 z-70 bg-warm-900 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-2 sm:gap-3 max-w-sm mx-auto sm:mx-0"
-    in:fly={{ y: 30, duration: 300 }}
-    out:fade={{ duration: 200 }}
+    class="fixed bottom-6 left-4 right-4 sm:left-auto sm:right-6 sm:w-auto z-60 flex items-center gap-3 rounded-2xl border border-white/15 bg-espresso-950/95 px-5 py-3.5 text-white shadow-2xl backdrop-blur-xl max-w-sm ml-auto"
+    in:fly={{ y: 20, duration: 250 }}
+    out:fade={{ duration: 180 }}
+    role="status"
+    aria-live="polite"
   >
-    <span class="bg-green-500 rounded-full p-1 shrink-0">
-      <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
       </svg>
     </span>
-    <span class="font-medium text-xs sm:text-sm">{message}</span>
+    <span class="text-xs sm:text-sm font-semibold tracking-wide text-warm-100">{message}</span>
   </div>
 {/if}

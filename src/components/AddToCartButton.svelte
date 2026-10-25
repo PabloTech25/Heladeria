@@ -10,33 +10,51 @@
   let added = false;
   let timeout: ReturnType<typeof setTimeout> | null = null;
 
-  function handleClick() {
+  function handleClick(e: MouseEvent) {
+    e.stopPropagation();
     addToCart({ id, name, price, image, size });
     added = true;
     if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(() => (added = false), 1200);
+    timeout = setTimeout(() => (added = false), 1400);
   }
 </script>
 
 <button
+  type="button"
   on:click={handleClick}
-  class={`add-to-cart-btn w-full mt-3 sm:mt-4 py-2.5 sm:py-3 md:py-3.5 rounded-xl font-bold shadow-md transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base ${
+  class={`group/btn relative w-full overflow-hidden rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 text-xs sm:text-sm py-2.5 sm:py-3 shadow-sm ${
     added
-      ? 'bg-green-500 text-white scale-95'
-      : 'bg-chaud-600 hover:bg-chaud-700 text-white hover:shadow-lg hover:scale-[1.02]'
+      ? 'bg-emerald-600 text-white shadow-emerald-600/30 scale-[0.98]'
+      : 'bg-espresso-900 text-white hover:bg-chaud-600 hover:shadow-lg hover:shadow-chaud-900/15 hover:-translate-y-0.5 active:scale-95'
   }`}
+  aria-label={`Agregar ${name} al carrito`}
 >
+  <!-- Background sheen reflection -->
+  <span
+    class="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 ease-out group-hover/btn:translate-x-full"
+    aria-hidden="true"
+  ></span>
+
   {#if added}
-    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+    <svg class="w-4 h-4 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
     </svg>
-    <span class="hidden sm:inline">¡Agregado!</span>
-    <span class="inline sm:hidden">✓</span>
+    <span class="tracking-wide font-bold">¡Agregado al Carrito!</span>
   {:else}
-    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+    <svg
+      class="w-4 h-4 text-chaud-400 transition-transform duration-300 group-hover/btn:scale-110 group-hover/btn:text-white"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+      />
     </svg>
-    <span class="hidden sm:inline">Agregar al Carrito</span>
-    <span class="inline sm:hidden">Agregar</span>
+    <span class="tracking-wide">Agregar al Pedido</span>
   {/if}
 </button>
