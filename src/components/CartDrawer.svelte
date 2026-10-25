@@ -216,20 +216,20 @@
       transition:fade={{ duration: 220 }}
     ></div>
 
-    <!-- Slide-in Drawer Container -->
-    <div class="fixed inset-y-0 right-0 flex max-w-full pl-10 pointer-events-none">
+    <!-- Slide-in Drawer Container (Full-width on mobile, max-w-md on desktop) -->
+    <div class="fixed inset-y-0 right-0 flex max-w-full pl-0 sm:pl-10 pointer-events-none">
       <div
-        class="pointer-events-auto flex h-full w-screen max-w-md flex-col bg-[#fdfbf7] shadow-2xl border-l border-warm-200/80 transition-all"
+        class="pointer-events-auto flex h-full w-full sm:w-screen max-w-full sm:max-w-md flex-col bg-[#fdfbf7] shadow-2xl border-l border-warm-200/80 transition-all"
         transition:fly={{ x: 420, duration: 320 }}
       >
         <!-- ─── Header ─── -->
-        <div class="flex items-center justify-between border-b border-warm-200/80 bg-white/80 px-5 py-4 backdrop-blur-md">
+        <div class="flex items-center justify-between border-b border-warm-200/80 bg-white/90 px-4 sm:px-5 py-3.5 sm:py-4 backdrop-blur-md">
           <div class="flex items-center gap-2.5">
             {#if step === 'checkout'}
               <button
                 type="button"
                 on:click={backToCart}
-                class="flex h-9 w-9 items-center justify-center rounded-full bg-warm-100 text-warm-700 transition-colors hover:bg-chaud-100 hover:text-chaud-700"
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-warm-100 text-warm-700 transition-colors hover:bg-chaud-100 hover:text-chaud-700 active:scale-95"
                 aria-label="Regresar a revisar productos"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -238,10 +238,10 @@
               </button>
             {/if}
             <div>
-              <h2 class="store-display text-lg font-bold text-espresso-950">
+              <h2 class="store-display text-lg sm:text-xl font-bold text-espresso-950">
                 {step === 'checkout' ? 'Finalizar Pedido' : 'Tu Pedido'}
               </h2>
-              <p class="text-[0.72rem] text-warm-500">
+              <p class="text-xs text-warm-600 font-medium">
                 {count > 0 ? `${count} ${count === 1 ? 'producto' : 'productos'} seleccionados` : 'Bolsa vacía'}
               </p>
             </div>
@@ -250,7 +250,7 @@
           <button
             type="button"
             on:click={handleClose}
-            class="flex h-9 w-9 items-center justify-center rounded-full text-warm-500 transition-colors hover:bg-warm-100 hover:text-espresso-950"
+            class="flex h-10 w-10 items-center justify-center rounded-full text-warm-600 transition-colors hover:bg-warm-100 hover:text-espresso-950 active:scale-95"
             aria-label="Cerrar carrito"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

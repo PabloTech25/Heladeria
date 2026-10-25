@@ -47,41 +47,41 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
 }, {} as Record<CategoryKey, Product[]>);
 ---
 
-<section id="menu" class="store-section border-t border-warm-200/80 bg-[#fdfbf7] py-20 sm:py-28" aria-label="Menú y Carta E-commerce">
+<section id="menu" class="store-section border-t border-warm-200/80 bg-[#fdfbf7] py-14 sm:py-24" aria-label="Menú y Carta E-commerce">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
-    <div class="relative mb-12 flex flex-col gap-6 border-b border-warm-200/80 pb-10 sm:mb-16 sm:pb-12 lg:flex-row lg:items-end lg:justify-between">
-      <div class="max-w-2xl">
-        <div class="store-kicker mb-3.5 flex items-center gap-2.5">
+    <div class="relative mb-10 flex flex-col gap-6 border-b border-warm-200/80 pb-8 sm:mb-16 sm:pb-12 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-2xl text-left">
+        <div class="store-kicker mb-3 flex items-center gap-2.5">
           <span class="inline-block h-2 w-2 rounded-full bg-chaud-500 animate-pulse"></span>
           <span>Catálogo y Pedidos en Línea</span>
         </div>
-        <h2 class="store-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-espresso-950 leading-[0.98]">
+        <h2 class="store-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-espresso-950 leading-[1.02]">
           Nuestra Carta Artesanal
         </h2>
-        <p class="mt-4 text-base sm:text-lg leading-relaxed text-warm-600">
+        <p class="mt-3 text-sm sm:text-base lg:text-lg leading-relaxed text-warm-700">
           Explora más de 70 creaciones preparadas al instante con técnicas artesanales. Elige tus favoritos, personaliza y envía tu orden directa a WhatsApp.
         </p>
       </div>
 
       <!-- Trust highlights -->
-      <div class="flex items-center gap-4 rounded-2xl border border-warm-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-md">
-        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-chaud-50 text-chaud-700 font-bold text-lg border border-chaud-200/60">
+      <div class="flex items-center gap-3.5 rounded-2xl border border-warm-200/90 bg-white/95 p-3.5 sm:p-4 shadow-sm backdrop-blur-md">
+        <div class="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-chaud-50 text-chaud-700 font-bold text-base sm:text-lg border border-chaud-200/60 shrink-0">
           4.8★
         </div>
         <div>
-          <strong class="block text-sm font-bold text-espresso-950">Favorito de Ciudad Serdán</strong>
-          <span class="text-xs text-warm-500">Más de 120 reseñas comunitarias</span>
+          <strong class="block text-xs sm:text-sm font-bold text-espresso-950">Favorito de Ciudad Serdán</strong>
+          <span class="text-[0.72rem] sm:text-xs text-warm-600">Más de 120 reseñas comunitarias</span>
         </div>
       </div>
     </div>
 
-    <!-- Search & Category Filters Bar -->
-    <div class="sticky top-16 z-30 mb-12 rounded-3xl border border-warm-200/90 bg-white/90 p-4 shadow-lg backdrop-blur-xl transition-all sm:top-20 sm:p-5">
-      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <!-- Search & Category Filters Bar (Mobile-first Ergonomics) -->
+    <div class="sticky top-16 z-30 mb-8 sm:mb-12 rounded-2xl sm:rounded-3xl border border-warm-200/90 bg-white/95 p-3 sm:p-5 shadow-lg backdrop-blur-xl transition-all sm:top-20">
+      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         
-        <!-- Live Search Input -->
+        <!-- Live Search Input (16px base font size prevents iOS auto-zoom) -->
         <div class="relative flex-1 max-w-md">
           <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-warm-400">
             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -91,19 +91,19 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
           <input
             type="search"
             id="catalog-search"
-            placeholder="Buscar por nombre (ej. Frappe, Oreo, Helado...)"
-            class="w-full rounded-full border border-warm-200 bg-warm-50/70 py-2.5 pl-10 pr-4 text-xs sm:text-sm text-espresso-950 placeholder-warm-400 focus:border-chaud-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-chaud-200 transition-all"
-            aria-label="Buscar en la carta"
+            placeholder="Buscar producto (ej. Frappe, Oreo, Helado...)"
+            class="w-full rounded-full border border-warm-200 bg-warm-50/80 py-2.5 pl-10 pr-4 text-base sm:text-sm text-espresso-950 placeholder-warm-400 font-medium focus:border-chaud-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-chaud-200 transition-all"
+            aria-label="Buscar en la carta artesanal"
           />
         </div>
 
-        <!-- Filter Pills Scroll Container -->
-        <nav aria-label="Filtrar por categoría" class="overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-          <div class="flex items-center gap-2 min-w-max">
+        <!-- Filter Pills Scroll Container with Touch Momentum -->
+        <nav aria-label="Filtrar por categoría" class="overflow-x-auto pb-1 md:pb-0 scrollbar-none -mx-1 px-1">
+          <div class="flex items-center gap-1.5 sm:gap-2 min-w-max">
             <button
               type="button"
               data-category-filter="all"
-              class="active-category-btn rounded-full bg-espresso-950 px-4 py-2 text-xs font-bold text-white shadow-sm transition-all hover:bg-chaud-600"
+              class="active-category-btn rounded-full bg-espresso-950 px-3.5 sm:px-4 py-2 sm:py-2.5 min-h-[38px] text-xs font-bold text-white shadow-sm transition-all hover:bg-chaud-600 active:scale-95"
             >
               Todos ({products.length})
             </button>
@@ -111,7 +111,7 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
               <button
                 type="button"
                 data-category-filter={categoryName}
-                class="rounded-full border border-warm-200 bg-warm-50/60 px-4 py-2 text-xs font-semibold text-warm-800 transition-all hover:border-chaud-400 hover:bg-chaud-50 hover:text-chaud-700"
+                class="rounded-full border border-warm-200 bg-warm-50 px-3.5 sm:px-4 py-2 sm:py-2.5 min-h-[38px] text-xs font-bold text-warm-900 transition-all hover:border-chaud-400 hover:bg-chaud-50 hover:text-chaud-700 active:scale-95"
               >
                 {categoryName === "Reposteria y Snacks" ? "Repostería" : categoryName} ({items.length})
               </button>
@@ -121,27 +121,27 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
       </div>
 
       <!-- Quick status indicator -->
-      <div id="search-feedback" class="hidden mt-3 text-xs text-warm-500 font-medium"></div>
+      <div id="search-feedback" class="hidden mt-2.5 text-xs text-warm-700 font-semibold"></div>
     </div>
 
     <!-- Empty Search State -->
-    <div id="catalog-empty-state" class="hidden py-16 text-center">
-      <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-warm-100 text-2xl">
+    <div id="catalog-empty-state" class="hidden py-14 text-center">
+      <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-warm-100 text-2xl shadow-inner">
         🔍
       </div>
       <h3 class="store-display text-xl font-bold text-espresso-950 mb-1">Sin coincidencias</h3>
-      <p class="text-sm text-warm-600 mb-4">No encontramos productos que coincidan con tu término de búsqueda.</p>
+      <p class="text-sm text-warm-700 mb-4">No encontramos productos que coincidan con tu búsqueda.</p>
       <button
         type="button"
         id="reset-search-btn"
-        class="rounded-full bg-chaud-600 px-5 py-2 text-xs font-bold text-white shadow hover:bg-chaud-700 transition"
+        class="rounded-full bg-chaud-600 px-6 py-2.5 text-xs font-bold text-white shadow-md hover:bg-chaud-700 transition active:scale-95"
       >
         Ver toda la carta
       </button>
     </div>
 
     <!-- Product Groups -->
-    <div id="catalog-products-container" class="space-y-16 sm:space-y-24">
+    <div id="catalog-products-container" class="space-y-12 sm:space-y-20">
       {Object.entries(groupedProducts).map(([categoryName, categoryProducts], index) => {
         const catMeta = categories[categoryName as CategoryKey];
         if (!catMeta) return null;
@@ -150,56 +150,56 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
           <section
             data-category-section={categoryName}
             id={`categoria-${index + 1}`}
-            class="scroll-mt-36"
+            class="scroll-mt-32"
           >
             <!-- Category Header -->
-            <div class="mb-8 border-b border-warm-200/80 pb-5">
+            <div class="mb-6 sm:mb-8 border-b border-warm-200/80 pb-4 sm:pb-5">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2.5 sm:gap-3">
                   <span class="text-2xl" aria-hidden="true">{catMeta.icon}</span>
                   <h3 class="store-display text-2xl sm:text-3xl lg:text-4xl font-bold text-espresso-950">
                     {categoryName === "Reposteria y Snacks" ? "Repostería y Snacks" : categoryName}
                   </h3>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="rounded-full bg-warm-100 px-3 py-1 text-xs font-semibold text-warm-700">
+                  <span class="rounded-full bg-warm-100 border border-warm-200/60 px-3 py-1 text-xs font-bold text-espresso-950">
                     {catMeta.badge}
                   </span>
-                  <span class="text-xs font-bold text-chaud-600">
+                  <span class="text-xs font-extrabold text-chaud-600">
                     {categoryProducts.length} creaciones
                   </span>
                 </div>
               </div>
-              <p class="max-w-3xl text-sm leading-relaxed text-warm-600">
+              <p class="max-w-3xl text-xs sm:text-sm leading-relaxed text-warm-700">
                 {catMeta.description}
               </p>
             </div>
 
-            <!-- Products Grid with 3D Card Hover -->
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Products Grid with Mobile-Friendly Card Heights and High Contrast -->
+            <div class="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {categoryProducts.map((product) => (
                 <article
                   data-product-card
                   data-product-name={product.name.toLowerCase()}
                   data-product-category={categoryName}
                   data-product-desc={(product.description || '').toLowerCase()}
-                  class="card-3d group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-warm-200/90 bg-white p-4 shadow-sm transition-all duration-300 hover:border-chaud-300 hover:shadow-xl hover:shadow-chaud-950/5"
+                  class="card-3d group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-warm-200/90 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:border-chaud-300 hover:shadow-xl hover:shadow-chaud-950/5"
                 >
                   <div>
-                    <!-- Product Image Container -->
-                    <div class="relative aspect-square w-full overflow-hidden rounded-xl bg-[radial-gradient(circle_at_50%_35%,#ffffff_0%,#fff5f7_60%,#fde8ef_100%)] p-4 flex items-center justify-center">
+                    <!-- Product Image Container (aspect-[4/3] on mobile for compact scrolling) -->
+                    <div class="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_50%_35%,#ffffff_0%,#fff5f7_60%,#fde8ef_100%)] p-3 sm:p-4 flex items-center justify-center">
                       <img
                         src={getCloudinaryUrl(product.image, { width: 440 })}
                         srcset={getResponsiveSrcSet(product.image, [280, 400, 600])}
                         sizes="(max-width: 640px) 280px, (max-width: 1024px) 400px, 600px"
                         alt={`${product.name} - ${categoryName} artesanal de Chaud & Glace en Ciudad Serdán`}
-                        class="h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-110"
+                        class="h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
                       />
 
-                      <!-- Price Tag Floating Pill -->
-                      <div class="absolute left-3 top-3 rounded-full border border-white/60 bg-white/90 px-3 py-1 text-xs sm:text-sm font-extrabold text-espresso-950 shadow-sm backdrop-blur-md">
+                      <!-- Price Tag Floating Pill (Black background + Crisp White text) -->
+                      <div class="absolute left-3 top-3 rounded-full bg-espresso-950 px-3 py-1 text-xs sm:text-sm font-extrabold text-white shadow-md">
                         {product.price}
                       </div>
 
@@ -211,19 +211,19 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
                     </div>
 
                     <!-- Product Details -->
-                    <div class="mt-4">
-                      <div class="flex items-baseline justify-between gap-2 mb-1.5">
+                    <div class="mt-3.5">
+                      <div class="flex items-baseline justify-between gap-2 mb-1">
                         <h4 class="font-bold text-base sm:text-lg text-espresso-950 leading-snug group-hover:text-chaud-700 transition-colors">
                           {product.name}
                         </h4>
                       </div>
 
-                      <p class="text-xs sm:text-sm leading-relaxed text-warm-600 line-clamp-2 mb-3">
+                      <p class="text-xs sm:text-sm leading-relaxed text-warm-700 line-clamp-2 mb-2.5">
                         {product.description}
                       </p>
 
                       {product.size && (
-                        <div class="mb-3 inline-flex items-center gap-1 rounded-md border border-warm-200/80 bg-warm-50 px-2.5 py-1 text-[0.68rem] font-semibold text-warm-700">
+                        <div class="mb-2.5 inline-flex items-center gap-1 rounded-md border border-warm-200/80 bg-warm-50 px-2.5 py-0.5 text-[0.68rem] font-bold text-espresso-900">
                           <span>🥄</span>
                           <span>{product.size}</span>
                         </div>
@@ -334,9 +334,9 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
         // Update active button state
         filterButtons.forEach((b) => {
           b.classList.remove('bg-espresso-950', 'text-white');
-          b.classList.add('border', 'border-warm-200', 'bg-warm-50/60', 'text-warm-800');
+          b.classList.add('border', 'border-warm-200', 'bg-warm-50', 'text-warm-900');
         });
-        btn.classList.remove('border', 'border-warm-200', 'bg-warm-50/60', 'text-warm-800');
+        btn.classList.remove('border', 'border-warm-200', 'bg-warm-50', 'text-warm-900');
         btn.classList.add('bg-espresso-950', 'text-white');
 
         filterProducts();
@@ -354,10 +354,10 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
           const cat = b.getAttribute('data-category-filter');
           if (cat === 'all') {
             b.classList.add('bg-espresso-950', 'text-white');
-            b.classList.remove('border', 'border-warm-200', 'bg-warm-50/60', 'text-warm-800');
+            b.classList.remove('border', 'border-warm-200', 'bg-warm-50', 'text-warm-900');
           } else {
             b.classList.remove('bg-espresso-950', 'text-white');
-            b.classList.add('border', 'border-warm-200', 'bg-warm-50/60', 'text-warm-800');
+            b.classList.add('border', 'border-warm-200', 'bg-warm-50', 'text-warm-900');
           }
         });
 
@@ -365,9 +365,10 @@ const groupedProducts = products.reduce((acc: Record<CategoryKey, Product[]>, pr
       });
     }
 
-    // 3D Tilt Effect on Product Cards
+    // 3D Tilt Effect on Product Cards (Only for desktop pointer/hover)
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion && window.innerWidth > 768) {
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (!prefersReducedMotion && !isTouchDevice && window.innerWidth > 768) {
       productCards.forEach((card) => {
         card.addEventListener('mousemove', (e: MouseEvent) => {
           const rect = card.getBoundingClientRect();

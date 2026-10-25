@@ -60,6 +60,8 @@
 html {
     scroll-behavior: smooth;
     background: var(--store-paper);
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
@@ -70,6 +72,8 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    max-width: 100%;
     background-image:
         radial-gradient(circle at 10% 8%, rgba(254, 228, 236, 0.45), transparent 28rem),
         radial-gradient(circle at 90% 25%, rgba(245, 207, 125, 0.22), transparent 26rem),
@@ -78,11 +82,34 @@ body {
     background-attachment: fixed;
 }
 
+/* Evitar repaint lag y jitter en navegadores móviles */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
+/* Utilidad para scroll horizontal táctil sin barra visible */
+.scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+
+/* Soporte de áreas seguras en dispositivos móviles modernos */
+.safe-pb {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
 /* Tipografía de display premium */
 h1, h2, h3, h4, .store-display {
     font-family: 'Bodoni Moda', Georgia, serif;
     letter-spacing: -0.015em;
     text-wrap: balance;
+    word-break: break-word;
 }
 
 .store-kicker {

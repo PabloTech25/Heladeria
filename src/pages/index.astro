@@ -242,7 +242,7 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 		<!-- ═══════════════════════════════════════════════════════════════ -->
 		<section
 			id="inicio"
-			class="relative isolate overflow-hidden bg-espresso-950 pt-16 sm:pt-20 pb-16 sm:pb-24 text-white"
+			class="relative isolate overflow-hidden bg-espresso-950 pt-24 sm:pt-28 pb-14 sm:pb-24 text-white"
 		>
 			<!-- Background Layer with Image + Radial Luxury Vignettes -->
 			<div class="absolute inset-0 -z-10 overflow-hidden">
@@ -266,59 +266,58 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 				</div>
 			</div>
 
-			<!-- Floating Subtle Geometry -->
+			<!-- Floating Subtle Geometry (Clamped to prevent horizontal overflow on mobile) -->
 			<div
-				class="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full border border-white/5 opacity-40 blur-2xl"
+				class="pointer-events-none absolute -left-16 sm:-left-24 top-1/4 h-64 sm:h-80 w-64 sm:w-80 rounded-full border border-white/5 opacity-40 blur-2xl"
 			>
 			</div>
 			<div
-				class="pointer-events-none absolute -right-20 top-1/3 h-96 w-96 rounded-full border border-chaud-500/10 opacity-50 blur-3xl"
+				class="pointer-events-none absolute -right-16 sm:-right-20 top-1/3 h-72 sm:h-96 w-72 sm:w-96 rounded-full border border-chaud-500/10 opacity-50 blur-3xl"
 			>
 			</div>
 
 			<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div
-					class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16 pt-8 sm:pt-12"
+					class="grid items-center gap-10 lg:grid-cols-12 lg:gap-16 pt-4 sm:pt-8"
 				>
 					<!-- Left Column: Copy & Value Proposition (7 cols) -->
-					<div class="lg:col-span-7 max-w-2xl">
+					<div class="lg:col-span-7 max-w-2xl text-left">
 						<!-- Main Headline -->
 						<h1
-							class="store-display text-4xl sm:text-6xl lg:text-[4.75rem] font-bold leading-[1.02] tracking-tight text-white"
+							class="store-display text-3xl sm:text-5xl lg:text-[4.75rem] font-bold leading-[1.08] sm:leading-[1.02] tracking-tight text-white"
 						>
 							Tu pausa favorita, servida al momento.
 						</h1>
 
 						<!-- Subtitle -->
 						<p
-							class="mt-6 text-base sm:text-lg leading-relaxed text-warm-200/90 font-normal"
+							class="mt-4 sm:mt-6 text-sm sm:text-lg leading-relaxed text-warm-100 font-normal"
 						>
-							La mejor selección de café, postres y helados. Vive
-							la experiencia en nuestro establecimiento, ordena
-							para llevar o solicita tu pedido vía WhatsApp.
+							La mejor selección de café gourmet, postres recién horneados y helados artesanales. Vive
+							la experiencia en nuestro local en Ciudad Serdán, ordena
+							para llevar o solicita tu pedido por WhatsApp.
 						</p>
 
 						<!-- CTAs Row -->
 						<div
-							class="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center"
+							class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center"
 						>
 							<a
 								href="#menu"
-								class="shimmer-btn inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-chaud-600 px-8 font-bold text-white shadow-xl shadow-chaud-900/40 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+								class="shimmer-btn inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-chaud-600 px-8 font-bold text-white shadow-xl shadow-chaud-900/40 transition-all hover:-translate-y-0.5 hover:shadow-2xl active:scale-95"
 							>
 								<span>Explorar la Carta</span>
-								<span aria-hidden="true" class="text-sm">↘</span
-								>
+								<span aria-hidden="true" class="text-sm">↘</span>
 							</a>
 
 							<a
 								href="https://wa.me/522451099498"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 font-bold text-white backdrop-blur-md transition-all hover:border-emerald-400 hover:bg-emerald-600/30 hover:-translate-y-0.5"
+								class="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 font-bold text-white backdrop-blur-md transition-all hover:border-emerald-400 hover:bg-emerald-600/30 hover:-translate-y-0.5 active:scale-95"
 							>
 								<svg
-									class="h-5 w-5 text-emerald-400"
+									class="h-5 w-5 text-emerald-400 shrink-0"
 									fill="currentColor"
 									viewBox="0 0 24 24"
 									aria-hidden="true"
@@ -329,6 +328,22 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 								</svg>
 								<span>Pedir por WhatsApp</span>
 							</a>
+						</div>
+
+						<!-- Quick Mobile Trust Badges -->
+						<div class="mt-6 flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs text-warm-200">
+							<span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm border border-white/10">
+								<span>📍</span>
+								<span>Centro Cd. Serdán</span>
+							</span>
+							<span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm border border-white/10">
+								<span>🛵</span>
+								<span>A Domicilio (+$30)</span>
+							</span>
+							<span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm border border-white/10">
+								<span>⭐</span>
+								<span>4.8 Reseñas</span>
+							</span>
 						</div>
 					</div>
 
@@ -421,15 +436,15 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 		<!-- ═══════════════════════════════════════════════════════════════ -->
 		<section
 			id="especialidades"
-			class="store-section border-t border-warm-200/80 bg-white py-20 sm:py-28"
+			class="store-section border-t border-warm-200/80 bg-white py-14 sm:py-24"
 			aria-label="Especialidades Destacadas"
 		>
 			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div
-					class="mb-12 sm:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-warm-200/80 pb-8"
+					class="mb-10 sm:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-5 border-b border-warm-200/80 pb-6 sm:pb-8"
 				>
 					<div>
-						<div class="store-kicker mb-3 flex items-center gap-2">
+						<div class="store-kicker mb-2.5 flex items-center gap-2">
 							<span class="h-2 w-2 rounded-full bg-chaud-500"
 							></span>
 							<span>Selección del Barista & Maestro Heladero</span
@@ -441,7 +456,7 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 							Nuestras Especialidades
 						</h2>
 						<p
-							class="mt-3 text-sm sm:text-base text-warm-600 max-w-xl"
+							class="mt-2.5 text-sm sm:text-base text-warm-700 max-w-xl"
 						>
 							Las combinaciones más queridas por nuestra
 							comunidad. Texturas sedosas, contraste de
@@ -451,20 +466,20 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 
 					<a
 						href="#menu"
-						class="inline-flex items-center gap-2 text-sm font-bold text-chaud-600 hover:text-chaud-700 transition"
+						class="inline-flex w-fit items-center gap-2 rounded-full border border-chaud-200 bg-chaud-50/70 px-4 py-2.5 text-xs sm:text-sm font-bold text-chaud-700 hover:bg-chaud-100 transition active:scale-95"
 					>
-						<span>Ver todos los 76 productos</span>
+						<span>Ver toda la carta artesanal</span>
 						<span aria-hidden="true">→</span>
 					</a>
 				</div>
 
 				<!-- Bento Grid -->
 				<div
-					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"
 				>
 					{
 						featuredItems.map((item) => (
-							<div class="card-3d group relative flex flex-col justify-between rounded-3xl border border-warm-200/80 bg-[#fdfbf7] p-5 shadow-sm transition-all duration-300 hover:border-chaud-300 hover:shadow-xl hover:shadow-chaud-950/5">
+							<div class="card-3d group relative flex flex-col justify-between rounded-3xl border border-warm-200/80 bg-[#fdfbf7] p-4 sm:p-5 shadow-sm transition-all duration-300 hover:border-chaud-300 hover:shadow-xl hover:shadow-chaud-950/5">
 								<div>
 									<div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-white p-4 flex items-center justify-center border border-warm-200/60">
 										<img
@@ -487,7 +502,7 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 										<h3 class="font-bold text-base text-espresso-950 group-hover:text-chaud-700 transition-colors leading-snug mt-0.5">
 											{item.name}
 										</h3>
-										<p class="text-xs text-warm-600 line-clamp-2 mt-1 leading-relaxed">
+										<p class="text-xs text-warm-700 line-clamp-2 mt-1 leading-relaxed">
 											{item.description}
 										</p>
 									</div>
@@ -520,15 +535,15 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 		<!-- ═══════════════════════════════════════════════════════════════ -->
 		<section
 			id="sobre-nosotros"
-			class="store-section border-t border-warm-200/80 bg-[#fbf5eb] py-20 sm:py-28"
+			class="store-section border-t border-warm-200/80 bg-[#fbf5eb] py-14 sm:py-24"
 			aria-label="Sobre Chaud & Glace"
 		>
 			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div
-					class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+					class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
 				>
 					<!-- Left: Story & Craftsmanship (7 cols) -->
-					<div class="lg:col-span-7 space-y-6">
+					<div class="lg:col-span-7 space-y-5 sm:space-y-6">
 						<div class="store-kicker flex items-center gap-2">
 							<span class="h-2 w-2 rounded-full bg-chaud-500"
 							></span>
@@ -536,13 +551,13 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 						</div>
 
 						<h2
-							class="store-display text-3xl sm:text-5xl lg:text-6xl font-bold text-espresso-950 leading-[0.98]"
+							class="store-display text-3xl sm:text-5xl lg:text-6xl font-bold text-espresso-950 leading-[1.02]"
 						>
 							El sabor y la calidez existen en el mismo lugar.
 						</h2>
 
 						<p
-							class="text-base sm:text-lg text-warm-800 leading-relaxed"
+							class="text-sm sm:text-base lg:text-lg text-warm-800 leading-relaxed"
 						>
 							<strong class="text-chaud-700"
 								>Chaud &amp; Glace</strong
@@ -553,7 +568,7 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 						</p>
 
 						<p
-							class="text-sm sm:text-base text-warm-700 leading-relaxed"
+							class="text-xs sm:text-sm lg:text-base text-warm-700 leading-relaxed"
 						>
 							Nos especializamos en experiencias sensoriales
 							únicas. Seleccionamos granos con perfiles de tostado
@@ -563,35 +578,35 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 						</p>
 
 						<div
-							class="grid grid-cols-3 gap-4 border-t border-warm-300/80 pt-6"
+							class="grid grid-cols-3 gap-2 sm:gap-4 border-t border-warm-300/80 pt-5 sm:pt-6"
 						>
 							<div class="text-center sm:text-left">
 								<span
-									class="store-display block text-3xl font-bold text-chaud-700"
+									class="store-display block text-2xl sm:text-3xl font-bold text-chaud-700"
 									>100%</span
 								>
 								<span
-									class="text-xs font-semibold text-warm-600"
+									class="text-[0.72rem] sm:text-xs font-bold text-espresso-950"
 									>Artesanal & Natural</span
 								>
 							</div>
 							<div class="text-center sm:text-left">
 								<span
-									class="store-display block text-3xl font-bold text-chaud-700"
+									class="store-display block text-2xl sm:text-3xl font-bold text-chaud-700"
 									>Fresh</span
 								>
 								<span
-									class="text-xs font-semibold text-warm-600"
+									class="text-[0.72rem] sm:text-xs font-bold text-espresso-950"
 									>Hecho al Momento</span
 								>
 							</div>
 							<div class="text-center sm:text-left">
 								<span
-									class="store-display block text-3xl font-bold text-chaud-700"
+									class="store-display block text-2xl sm:text-3xl font-bold text-chaud-700"
 									>70+</span
 								>
 								<span
-									class="text-xs font-semibold text-warm-600"
+									class="text-[0.72rem] sm:text-xs font-bold text-espresso-950"
 									>Opciones en Carta</span
 								>
 							</div>
@@ -599,9 +614,9 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 					</div>
 
 					<!-- Right: Layered Photography with 3D Depth Badge (5 cols) -->
-					<div class="lg:col-span-5 relative">
+					<div class="lg:col-span-5 relative mt-4 lg:mt-0">
 						<div
-							class="card-3d relative aspect-square overflow-hidden rounded-3xl border-8 border-white bg-white shadow-2xl shadow-espresso-950/15"
+							class="card-3d relative aspect-square overflow-hidden rounded-3xl border-4 sm:border-8 border-white bg-white shadow-2xl shadow-espresso-950/15"
 						>
 							<img
 								src="/about-image.jpeg"
@@ -611,16 +626,16 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 							/>
 						</div>
 
-						<!-- Floating Experience Badge -->
+						<!-- Floating Experience Badge (Clamped to avoid overflow on mobile) -->
 						<div
-							class="absolute -bottom-5 -right-5 sm:-bottom-7 sm:-right-7 rounded-2xl bg-espresso-950 p-5 text-white shadow-2xl border border-white/10"
+							class="absolute bottom-3 right-3 sm:-bottom-7 sm:-right-7 rounded-2xl bg-espresso-950 p-3.5 sm:p-5 text-white shadow-2xl border border-white/10"
 						>
 							<strong
-								class="store-display block text-3xl sm:text-4xl font-bold text-honey-400"
+								class="store-display block text-2xl sm:text-4xl font-bold text-honey-400"
 								>2+</strong
 							>
 							<span
-								class="block text-xs font-semibold tracking-wide text-warm-200"
+								class="block text-[0.7rem] sm:text-xs font-semibold tracking-wide text-warm-200"
 								>Años endulzando Ciudad Serdán</span
 							>
 						</div>
@@ -648,9 +663,13 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 				const prefersReducedMotion = window.matchMedia(
 					"(prefers-reduced-motion: reduce)",
 				).matches;
+				const isTouchDevice = window.matchMedia(
+					"(hover: none) and (pointer: coarse)",
+				).matches;
 
 				if (
 					!prefersReducedMotion &&
+					!isTouchDevice &&
 					spotlightCard &&
 					window.innerWidth > 768
 				) {
