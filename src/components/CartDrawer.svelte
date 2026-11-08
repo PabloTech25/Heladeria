@@ -12,6 +12,7 @@
   } from '../stores/cart';
   import { getCloudinaryUrl } from '../lib/cloudinary';
   import { fade, fly, slide } from 'svelte/transition';
+  import { onDestroy, tick } from 'svelte';
   
   // ── WhatsApp Phone ──
   const WHATSAPP_PHONE = import.meta.env.PUBLIC_WHATSAPP_PHONE || '522451099498';
@@ -33,6 +34,10 @@
   let paymentMethod = ''; // 'cash' | 'card' | 'transfer'
   let customerAddress = '';
   let formError = '';
+  let drawerElement: HTMLElement;
+  let wasOpen = false;
+  let previouslyFocusedElement: HTMLElement | null = null;
+  let previousBodyOverflow = '';
 
   // ── Constants ──
   const DELIVERY_FEE = 30;
@@ -74,8 +79,20 @@
     ? ['cash', 'card', 'transfer'] 
     : ['cash', 'transfer'];
 
-  $: if (typeof document !== 'undefined') {
-    document.body.style.overflow = open ? 'hidden' : '';
+  $: if (typeof document !== 'undefined' && open !== wasOpen) {
+    wasOpen = open;
+    if (open) {
+      previouslyFocusedElement = document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+      previousBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      tick().then(() => drawerElement?.querySelector<HTMLElement>('[data-cart-close]')?.focus());
+    } else {
+      document.body.style.overflow = previousBodyOverflow;
+      previouslyFocusedElement?.focus();
+      previouslyFocusedElement = null;
+    }
   }
 
   // ── Handlers ──
@@ -86,7 +103,29 @@
   }
 
   function handleKeydown(e: KeyboardEvent) {
-    if (e.key === 'Escape' && open) handleClose();
+    if (!open) return;
+    if (e.key === 'Escape') {
+      handleClose();
+      return;
+    }
+    if (e.key !== 'Tab' || !drawerElement) return;
+
+    const focusableElements = Array.from(
+      drawerElement.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled])'
+      )
+    );
+    if (focusableElements.length === 0) return;
+
+    const first = focusableElements[0];
+    const last = focusableElements[focusableElements.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   }
 
   function proceedToCheckout() {
@@ -199,6 +238,12 @@
     toastMessage.set('¡Tu pedido ha sido preparado y enviado a WhatsApp!');
     setTimeout(() => toastMessage.set(null), 4000);
   }
+
+  onDestroy(() => {
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = previousBodyOverflow;
+    }
+  });
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -209,19 +254,20 @@
     <div
       class="absolute inset-0 bg-espresso-950/60 backdrop-blur-sm transition-opacity duration-300"
       on:click={handleClose}
-      on:keydown={() => {}}
-      role="button"
-      tabindex="-1"
-      aria-label="Cerrar panel de pedido"
+      aria-hidden="true"
       transition:fade={{ duration: 220 }}
     ></div>
 
     <!-- Slide-in Drawer Container (Full-width on mobile, max-w-md on desktop) -->
-    <div class="fixed inset-y-0 right-0 flex max-w-full pl-0 sm:pl-10 pointer-events-none">
-      <div
-        class="pointer-events-auto flex h-full w-full sm:w-screen max-w-full sm:max-w-md flex-col bg-[#fdfbf7] shadow-2xl border-l border-warm-200/80 transition-all"
-        transition:fly={{ x: 420, duration: 320 }}
-      >
+    <div     bind:this={drawerElement}
+    class="fixed inset-y-0 right-0 flex max-w-full pl-0 sm:pl-10 pointer-events-none">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cart-drawer-title"
+      class="pointer-events-auto flex h-full w-full sm:w-screen max-w-full sm:max-w-md flex-col bg-[#fdfbf7] shadow-2xl border-l border-warm-200/80 transition-all"
+      transition:fly={{ x: 420, duration: 320 }}
+    >
         <!-- ─── Header ─── -->
         <div class="flex items-center justify-between border-b border-warm-200/80 bg-white/90 px-4 sm:px-5 py-3.5 sm:py-4 backdrop-blur-md">
           <div class="flex items-center gap-2.5">
@@ -238,7 +284,7 @@
               </button>
             {/if}
             <div>
-              <h2 class="store-display text-lg sm:text-xl font-bold text-espresso-950">
+              <h2 id="cart-drawer-title" class="store-display text-lg sm:text-xl font-bold text-espresso-950">
                 {step === 'checkout' ? 'Finalizar Pedido' : 'Tu Pedido'}
               </h2>
               <p class="text-xs text-warm-600 font-medium">
@@ -250,6 +296,7 @@
           <button
             type="button"
             on:click={handleClose}
+            data-cart-close
             class="flex h-10 w-10 items-center justify-center rounded-full text-warm-600 transition-colors hover:bg-warm-100 hover:text-espresso-950 active:scale-95"
             aria-label="Cerrar carrito"
           >
@@ -306,7 +353,7 @@
                           <button
                             type="button"
                             on:click={() => removeFromCart(item.product.id)}
-                            class="text-warm-400 hover:text-red-500 transition-colors p-1"
+                            class="min-h-11 min-w-11 flex items-center justify-center text-warm-400 hover:text-red-500 transition-colors"
                             aria-label={`Eliminar ${item.product.name}`}
                           >
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -327,7 +374,7 @@
                           <button
                             type="button"
                             on:click={() => updateQuantity(item.product.id, item.quantity - 1)}
-                            class="flex h-7 w-7 items-center justify-center rounded-md text-warm-700 transition-colors hover:bg-white hover:text-espresso-950"
+                            class="flex h-11 w-11 items-center justify-center rounded-md text-warm-700 transition-colors hover:bg-white hover:text-espresso-950"
                             aria-label="Reducir una unidad"
                           >
                             −
@@ -338,7 +385,7 @@
                           <button
                             type="button"
                             on:click={() => updateQuantity(item.product.id, item.quantity + 1)}
-                            class="flex h-7 w-7 items-center justify-center rounded-md text-warm-700 transition-colors hover:bg-white hover:text-espresso-950"
+                            class="flex h-11 w-11 items-center justify-center rounded-md text-warm-700 transition-colors hover:bg-white hover:text-espresso-950"
                             aria-label="Aumentar una unidad"
                           >
                             +

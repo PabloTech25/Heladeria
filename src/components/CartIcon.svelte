@@ -9,7 +9,7 @@
 <button
   type="button"
   on:click={toggleCart}
-  class="cart-trigger-btn group relative flex min-h-11 items-center gap-2 rounded-full border px-3 py-2 text-current shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chaud-500"
+  class="cart-trigger-btn group relative flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-white shadow-[0_8px_25px_-4px_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chaud-500"
   aria-label={`Ver carrito de compras, ${count} productos por $${total} pesos`}
 >
   <div class="relative flex items-center justify-center">

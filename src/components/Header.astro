@@ -151,6 +151,7 @@ const navigationItems = [
         <div
             id="mobile-menu"
             data-mobile-menu
+            aria-hidden="true"
             class="pointer-events-auto hidden mt-2.5 overflow-hidden rounded-3xl border border-warm-200/90 bg-white/98 p-4 shadow-2xl backdrop-blur-2xl transition-all md:hidden text-espresso-950"
         >
             <!-- Store Status Micro-Pill -->
@@ -225,6 +226,7 @@ const navigationItems = [
         const setMenuState = (isOpen: boolean) => {
             mobileMenu.classList.toggle("hidden", !isOpen);
             mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+            mobileMenu.setAttribute("aria-hidden", String(!isOpen));
             mobileMenuButton.setAttribute(
                 "aria-label",
                 isOpen ? "Cerrar menú" : "Abrir menú",
@@ -330,6 +332,9 @@ const navigationItems = [
                 : window.scrollY > 80;
 
             header.classList.toggle("is-scrolled", isScrolled);
+            header
+                .querySelector<HTMLElement>(".cart-trigger-btn")
+                ?.toggleAttribute("data-header-scrolled", isScrolled);
         };
         window.addEventListener("scroll", handleScroll, { passive: true });
         handleScroll();
@@ -396,16 +401,16 @@ const navigationItems = [
         color: #ffffff;
     }
     :global([data-site-header]:not(.is-scrolled)) .cart-trigger-btn {
-        background-color: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.25);
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
         color: #ffffff;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 25px -4px rgba(0, 0, 0, 0.3);
     }
     :global([data-site-header]:not(.is-scrolled)) .cart-total-text {
         color: #ffffff;
     }
     :global([data-site-header]:not(.is-scrolled)) .cart-trigger-btn:hover {
-        background-color: rgba(255, 255, 255, 0.22);
+        background-color: rgba(255, 255, 255, 0.2);
         border-color: rgba(255, 255, 255, 0.35);
         color: #ffffff;
     }
@@ -461,11 +466,11 @@ const navigationItems = [
     :global([data-site-header].is-scrolled) .cart-trigger-btn {
         background-color: rgba(255, 255, 255, 0.9);
         border-color: rgba(229, 219, 204, 0.85);
-        color: #120c0a; /* Negro / Espresso 950 */
+        color: #120c0a !important; /* Negro / Espresso 950 */
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
     :global([data-site-header].is-scrolled) .cart-total-text {
-        color: #120c0a; /* Negro / Espresso 950 */
+        color: #120c0a !important; /* Negro / Espresso 950 */
     }
     :global([data-site-header].is-scrolled) .cart-trigger-btn:hover {
         background-color: #fdf2f6;

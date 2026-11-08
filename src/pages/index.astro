@@ -10,9 +10,6 @@ import { products } from "../data/products";
 import { getCloudinaryUrl } from "../lib/cloudinary";
 import "../styles/global.css";
 
-// Top signature items for Hero Spotlight & Curated Bento
-const heroProduct =
-	products.find((p) => p.id === "helado-doble") || products[0];
 const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 ---
 
@@ -23,7 +20,7 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta
 			name="description"
-			content="Cafetería Gourmet y Heladería Artesanal en Puebla | Chaud & Glace. Especialistas en café de especialidad, frappes premium, crepas dulces, helados artesanales y desayunos sorpresa en Ciudad Serdán. ¡Pide en línea!"
+			content="Cafetería y heladería artesanal en Ciudad Serdán, Puebla. Café de especialidad, frappes, crepas y helados. Consulta el menú y pide en línea."
 		/>
 		<meta
 			name="keywords"
@@ -33,10 +30,7 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 		<meta name="geo.placename" content="Ciudad Serdán" />
 		<meta name="geo.position" content="18.9833;-97.4500" />
 		<meta name="ICBM" content="18.9833, -97.4500" />
-		<title>
-			Chaud & Glace | Café de Especialidad & Helados Artesanales en Ciudad
-			Serdán
-		</title>
+		<title>Chaud &amp; Glace | Café y Helados Artesanales en Ciudad Serdán</title>
 
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://chaudglace.com/" />
@@ -101,14 +95,14 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 		/>
 		<link rel="shortcut icon" href="/logo/LogoIcon.png" />
 
-		<!-- Google Fonts: Bodoni Moda (Editorial Display) + Plus Jakarta Sans & Manrope (Clean Modern UI) -->
+		<!-- Google Fonts: Bodoni Moda (Editorial Display) + Plus Jakarta Sans (Clean Modern UI) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
-
 		<!-- JSON-LD Structured Data: LocalBusiness -->
 		<script type="application/ld+json">
 			{
@@ -232,13 +226,13 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 	</head>
 
 	<body
-		class="font-['Plus_Jakarta_Sans','Manrope',sans-serif] antialiased text-espresso-950 bg-[#fdfbf7]"
+		class="font-['Plus_Jakarta_Sans',sans-serif] antialiased text-espresso-950 bg-[#fdfbf7]"
 	>
 		<!-- Header -->
 		<Header currentPage="home" />
 
 		<!-- ═══════════════════════════════════════════════════════════════ -->
-		<!-- HERO SECTION: Inmersión Gourmet & Spotlight 3D -->
+		<!-- HERO SECTION -->
 		<!-- ═══════════════════════════════════════════════════════════════ -->
 		<section
 			id="inicio"
@@ -246,11 +240,18 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 		>
 			<!-- Background Layer with Image + Radial Luxury Vignettes -->
 			<div class="absolute inset-0 -z-10 overflow-hidden">
-				<img
-					src="/hero-background.png"
-					alt="Mesa artesanal de Chaud & Glace"
-					class="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity scale-105"
-				/>
+				<picture>
+					<source srcset="/hero-background.webp" type="image/webp" />
+					<img
+						src="/hero-background.png"
+						alt=""
+						aria-hidden="true"
+						class="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity scale-105"
+						loading="lazy"
+						decoding="async"
+						fetchpriority="low"
+					/>
+				</picture>
 				<!-- Radial Ambient Gradients (Warm roast espresso + berry glow + golden caramel) -->
 				<div
 					class="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(219,39,102,0.3)_0%,transparent_60%)]"
@@ -280,8 +281,8 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 				<div
 					class="grid items-center gap-10 lg:grid-cols-12 lg:gap-16 pt-4 sm:pt-8"
 				>
-					<!-- Left Column: Copy & Value Proposition (7 cols) -->
-					<div class="lg:col-span-7 max-w-2xl text-left">
+					<!-- Hero Copy & Value Proposition -->
+					<div class="lg:col-span-12 max-w-3xl text-left">
 						<!-- Main Headline -->
 						<h1
 							class="store-display text-3xl sm:text-5xl lg:text-[4.75rem] font-bold leading-[1.08] sm:leading-[1.02] tracking-tight text-white"
@@ -309,123 +310,8 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 								<span>Explorar la Carta</span>
 								<span aria-hidden="true" class="text-sm">↘</span>
 							</a>
-
-							<a
-								href="https://wa.me/522451099498"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 font-bold text-white backdrop-blur-md transition-all hover:border-emerald-400 hover:bg-emerald-600/30 hover:-translate-y-0.5 active:scale-95"
-							>
-								<svg
-									class="h-5 w-5 text-emerald-400 shrink-0"
-									fill="currentColor"
-									viewBox="0 0 24 24"
-									aria-hidden="true"
-								>
-									<path
-										d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-									></path>
-								</svg>
-								<span>Pedir por WhatsApp</span>
-							</a>
 						</div>
 
-						<!-- Quick Mobile Trust Badges -->
-						<div class="mt-6 flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs text-warm-200">
-							<span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm border border-white/10">
-								<span>📍</span>
-								<span>Centro Cd. Serdán</span>
-							</span>
-							<span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm border border-white/10">
-								<span>🛵</span>
-								<span>A Domicilio (+$30)</span>
-							</span>
-							<span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm border border-white/10">
-								<span>⭐</span>
-								<span>4.8 Reseñas</span>
-							</span>
-						</div>
-					</div>
-
-					<!-- Right Column: Interactive 3D Spotlight Showcase Card (5 cols) -->
-					<div
-						class="lg:col-span-5 flex justify-center lg:justify-end"
-					>
-						<div class="card-3d-wrapper w-full max-w-sm">
-							<div
-								id="hero-spotlight-card"
-								class="card-3d relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-b from-white/15 to-white/5 p-6 backdrop-blur-2xl shadow-2xl shadow-black/50"
-							>
-								<!-- Ambient Card Glow -->
-								<div
-									class="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-chaud-500/30 blur-2xl"
-								>
-								</div>
-
-								<!-- Card Top Badges -->
-								<div
-									class="flex items-center justify-between gap-2 mb-4"
-								>
-									<span
-										class="rounded-full bg-chaud-600/90 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wider text-white shadow-sm"
-									>
-										⭐ Recomendación de la Casa
-									</span>
-									<span
-										class="store-display text-xl font-bold text-white"
-									>
-										{heroProduct.price}
-									</span>
-								</div>
-
-								<!-- 3D Floating Product Image -->
-								<div
-									class="relative aspect-square w-full overflow-hidden rounded-2xl bg-white/10 p-6 flex items-center justify-center border border-white/10"
-								>
-									<img
-										src={getCloudinaryUrl(
-											heroProduct.image,
-											{ width: 500 },
-										)}
-										alt={heroProduct.name}
-										class="h-full w-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover:scale-105"
-										loading="eager"
-									/>
-									<div
-										class="absolute bottom-3 right-3 rounded-full bg-espresso-950/80 px-2.5 py-1 text-[0.68rem] font-bold text-warm-200 backdrop-blur-md border border-white/10"
-									>
-										{heroProduct.size || "100% Casero"}
-									</div>
-								</div>
-
-								<!-- Product Info & Quick Add -->
-								<div class="mt-4">
-									<h2
-										class="store-display text-xl font-bold text-white leading-tight"
-									>
-										{heroProduct.name}
-									</h2>
-									<p
-										class="mt-1 text-xs text-warm-200/80 line-clamp-2 leading-relaxed"
-									>
-										{heroProduct.description}
-									</p>
-
-									<div
-										class="mt-4 pt-3 border-t border-white/10"
-									>
-										<AddToCartButton
-											client:load
-											id={heroProduct.id}
-											name={heroProduct.name}
-											price={heroProduct.numericPrice}
-											image={heroProduct.image}
-											size={heroProduct.size}
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -618,12 +504,16 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 						<div
 							class="card-3d relative aspect-square overflow-hidden rounded-3xl border-4 sm:border-8 border-white bg-white shadow-2xl shadow-espresso-950/15"
 						>
-							<img
-								src="/about-image.jpeg"
-								alt="Interior y momentos en Chaud & Glace Ciudad Serdán"
-								class="h-full w-full object-cover"
-								loading="lazy"
-							/>
+							<picture>
+								<source srcset="/about-image.webp" type="image/webp" />
+								<img
+									src="/about-image.jpeg"
+									alt="Interior y momentos en Chaud & Glace Ciudad Serdán"
+									class="h-full w-full object-cover"
+									loading="lazy"
+									decoding="async"
+								/>
+							</picture>
 						</div>
 
 						<!-- Floating Experience Badge (Clamped to avoid overflow on mobile) -->
@@ -651,52 +541,8 @@ const featuredItems = products.filter((p) => p.featured).slice(0, 4);
 		<Footer />
 
 		<!-- Cart System (Svelte Client Islands) -->
-		<CartDrawer client:load />
-		<CartToast client:load />
+		<CartDrawer client:idle />
+		<CartToast client:idle />
 
-		<!-- Lightweight 3D Tilt & Interaction Script for Hero and Cards -->
-		<script>
-			function init3DEffects() {
-				const spotlightCard = document.getElementById(
-					"hero-spotlight-card",
-				);
-				const prefersReducedMotion = window.matchMedia(
-					"(prefers-reduced-motion: reduce)",
-				).matches;
-				const isTouchDevice = window.matchMedia(
-					"(hover: none) and (pointer: coarse)",
-				).matches;
-
-				if (
-					!prefersReducedMotion &&
-					!isTouchDevice &&
-					spotlightCard &&
-					window.innerWidth > 768
-				) {
-					spotlightCard.addEventListener("mousemove", (e) => {
-						const rect = spotlightCard.getBoundingClientRect();
-						const x = e.clientX - rect.left;
-						const y = e.clientY - rect.top;
-						const centerX = rect.width / 2;
-						const centerY = rect.height / 2;
-
-						const rotateX = ((y - centerY) / centerY) * -10;
-						const rotateY = ((x - centerX) / centerX) * 10;
-
-						spotlightCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) scale(1.02)`;
-					});
-
-					spotlightCard.addEventListener("mouseleave", () => {
-						spotlightCard.style.transform = "";
-					});
-				}
-			}
-
-			if (document.readyState === "loading") {
-				document.addEventListener("DOMContentLoaded", init3DEffects);
-			} else {
-				init3DEffects();
-			}
-		</script>
 	</body>
 </html>

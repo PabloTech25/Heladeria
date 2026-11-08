@@ -68,7 +68,7 @@ body {
     margin: 0;
     color: var(--store-ink);
     background: var(--store-paper);
-    font-family: 'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -262,6 +262,21 @@ h1, h2, h3, h4, .store-display {
 button, a {
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
+}
+
+button:disabled,
+a[aria-disabled="true"] {
+    cursor: not-allowed;
+}
+
+/* El carrito es un island de Svelte y necesita un estado global al cambiar el fondo del header. */
+.cart-trigger-btn[data-header-scrolled] {
+    color: #120c0a !important;
+}
+
+.cart-trigger-btn[data-header-scrolled] svg {
+    color: #120c0a !important;
+    stroke: currentColor;
 }
 
 /* Respeto estricto a accesibilidad y movimiento reducido */
